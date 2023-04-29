@@ -2,6 +2,7 @@ package gerestoque;
 
 public abstract class Mercadoria {
 
+		//Usando encapsulamento protected porque private nao dá acesso para as outras classes
 		protected String nome;
 		protected int quantidade;
 		protected double valor;
@@ -41,7 +42,18 @@ public abstract class Mercadoria {
 		public void setDescricao(String descricao) {
 			this.descricao = descricao;
 		}
-	
+		public String getDataValidade() {
+			return dataValidade;
+		}
+		public void setDataValidade(String dataValidade) {
+			this.dataValidade = dataValidade;
+		}
+		public String getFornecedor() {
+			return fornecedor;
+		}
+		public void setFornecedor(String fornecedor) {
+			this.fornecedor = fornecedor;
+		}
 }
 
 
