@@ -6,7 +6,7 @@ public abstract class Mercadoria {
 		protected String nome;
 		protected int quantidade;
 		protected double valor;
-		protected int id;
+		protected double id;
 		protected String descricao;
 		protected String dataValidade;
 		protected String fornecedor;
@@ -30,10 +30,10 @@ public abstract class Mercadoria {
 		public void setValor(double valor) {
 			this.valor = valor;
 		}
-		public int getId() {
+		public double getId() {
 			return id;
 		}
-		public void setId(int id) {
+		public void setId(double id) {
 			this.id = id;
 		}
 		public String getDescricao() {

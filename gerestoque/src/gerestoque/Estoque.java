@@ -4,8 +4,8 @@ public class Estoque{
 	
 	private int id;
 	
-	public Estoque() {
-		
+	public Estoque(int i) {
+		id = i;
 	}
 	
 	public void removerItem() {
