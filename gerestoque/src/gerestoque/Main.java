@@ -18,7 +18,7 @@ public class Main {
 		
 		e1 = new Empresa("Mercado Jacaré");
 		
-		es1 = new Estoque(1234);
+		es1 = new Estoque(1234, );
 		
 		o1 = new Organica();
 		o1.setNome("Maca\n");
