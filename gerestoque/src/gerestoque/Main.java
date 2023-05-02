@@ -11,6 +11,7 @@ public class Main {
 	static Empresa e1;
 	static Estoque es1;
 	static Organica o1;
+	static Organica o2;
 	static Inorganica i1;
 
 	public static void main(String[] args) throws ParseException {
@@ -33,16 +34,18 @@ public class Main {
 		o1.setCodigo("000223");
 		o1.setDataValidade(dataValidade);
 		o1.setFornecedor("Paulinho frutas\n");
-		o1.setFormaArmazenamento("Lugar seco e arejado\n");
+		o1.setFormaArmazenamento("Lugar seco e arejado");
 		
 		
+		es1.adicionarItem(o1);
+		/*.out.println(es1.getMercadorias());
+		es1.attQtItem(o1);
+		System.out.println(es1.getMercadorias());
+		*/
+		es1.buscarItem();
 		
 		
-		
-		
-		
-		
-		System.out.println(o1.toString());
+		//System.out.println(o1.toString());
 		
 		
 	}

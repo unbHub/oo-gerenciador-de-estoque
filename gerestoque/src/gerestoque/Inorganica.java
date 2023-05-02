@@ -1,12 +1,16 @@
 package gerestoque;
 
-public class Inorganica extends Mercadoria {
+import java.text.SimpleDateFormat;
 
-	//Objeto inorganica
+public class Inorganica extends Mercadoria {
+	SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
+
+	//Construtor inorganica
 	public Inorganica() {
 		
 	}
+	@Override
 	public String toString() {
-		return "Mercadoria inorganica:\n" + nome + quantidade + "\n" + valor + "\n" + codigo + "\n" + descricao + "\n" + dataValidade + fornecedor;
+		return "Mercadoria inorganica:\n" +  nome + quantidade + "\n" + valor + "\n" + descricao + codigo + "\n" + formatar.format(dataValidade) +"\n"+ fornecedor;
 	}
 }

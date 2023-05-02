@@ -11,8 +11,7 @@ public class Filial {
 		nome = n;
 		valorTotal = vT;
 		id = i;
-		endereco = e;
-		
+		endereco = e;	
 	}
 	
 	public double relatarValorTotal() {

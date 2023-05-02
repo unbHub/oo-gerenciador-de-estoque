@@ -9,11 +9,12 @@ public class Organica extends Mercadoria {
 	SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
 	
 	
-	//Objeto organica
+	//Construtor organica
 	public Organica() {
 	
 	}
 	//Concatenação das caracteristicas da mercadoria
+	@Override
 	public String toString() {
 		return "Mercadoria organica:\n" + nome + quantidade + "\n" + valor + "\n" + descricao + codigo + "\n" + formatar.format(dataValidade) +"\n"+ fornecedor + formaArmazenamento;
 	}
