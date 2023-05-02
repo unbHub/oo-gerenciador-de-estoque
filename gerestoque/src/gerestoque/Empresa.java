@@ -1,10 +1,12 @@
 package gerestoque;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Empresa {
 	
 	private String nome;
+	private ArrayList<Filial> filiais;
 	private Filial filial;
 	
 	Scanner search = new Scanner(System.in);
@@ -14,14 +16,11 @@ public class Empresa {
 	
 	}
 	
-	public void addFilial() {
-		Filial f = this.getFilial();
-		f.setNome("");
-		f.setEndereco("");
-		f.setId(0);
+	public void addFilial(Filial filial) {
+		filiais.add(filial);
 	}
-	public void remFilial() {
-		
+	public void remFilial(Filial filial) {
+		filiais.add(filial);
 	}
 //	public void attFilial() {
 //		
