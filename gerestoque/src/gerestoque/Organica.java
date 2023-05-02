@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 
 public class Organica extends Mercadoria {
 	
-	//private String tipo;
 	private String formaArmazenamento;
 	SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
 	

@@ -22,16 +22,9 @@ public class Empresa {
 	public void remFilial(Filial filial) {
 		filiais.add(filial);
 	}
-//	public void attFilial() {
-//		
-//	}
 //	public void busFilial() {
 //		
-//		Filial f = this.getFilial();
-//		search.nextLine();
-//		f.getNome();
-//		f.getId();
-//		search.close();
+//	
 //	}
 	public String getNome() {
 		return nome;

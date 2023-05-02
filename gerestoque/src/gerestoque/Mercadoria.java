@@ -57,6 +57,13 @@ public abstract class Mercadoria {
 		public void setFornecedor(String fornecedor) {
 			this.fornecedor = fornecedor;
 		}
+		@Override
+		public String toString() {
+			return "Mercadoria [nome=" + nome + ", quantidade=" + quantidade + ", valor=" + valor + ", codigo=" + codigo
+					+ ", descricao=" + descricao + ", dataValidade=" + dataValidade + ", fornecedor=" + fornecedor
+					+ "]";
+		}
+		
 }
 
 

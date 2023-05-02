@@ -19,8 +19,8 @@ public class Main {
 		SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
 		Date dataValidade = formatar.parse("01/06/2023");
 		
-		f1 = new Filial("Congonhas", 123456789.0, 123456789.0, "rua dos bobos n0");
-		f2 = new Filial("Jacarézinho", 123456789.0, 123456789.0, "rua lacoste n3");
+		f1 = new Filial("Congonhas", 123456789.0, "rua dos bobos n0");
+		f2 = new Filial("Jacarézinho", 123456789.0, "rua lacoste n3");
 		
 		e1 = new Empresa("Mercado Jacaré");
 		
@@ -38,12 +38,9 @@ public class Main {
 		
 		
 		es1.adicionarItem(o1);
-		/*.out.println(es1.getMercadorias());
-		es1.attQtItem(o1);
-		System.out.println(es1.getMercadorias());
-		*/
-		es1.buscarItem();
 		
+		es1.buscarItem();
+		System.out.println(es1.getMercadorias());
 		
 		//System.out.println(o1.toString());
 		

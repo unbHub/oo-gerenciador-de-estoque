@@ -7,9 +7,8 @@ public class Filial {
 	private String endereco;
 	private Estoque estoque;
 	
-	public Filial(String n, double vT, double i, String e) {
+	public Filial(String n, double i, String e) {
 		nome = n;
-		valorTotal = vT;
 		id = i;
 		endereco = e;	
 	}

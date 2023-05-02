@@ -7,6 +7,7 @@ public class Estoque{
 	
 	private int id;
 	private int qtdMercadorias = 0;
+
 	private ArrayList<Mercadoria> mercadorias;
 	public Mercadoria mercadoria;
 	
@@ -19,38 +20,48 @@ public class Estoque{
 	}
 	public void adicionarItem(Mercadoria mercadoria) {
 		mercadorias.add(mercadoria);
-		qtdMercadorias++;
+		qtdMercadorias += 1;
 	}
 	public void removerItem(Mercadoria mercadoria) {
 		mercadorias.remove(mercadoria);
-		qtdMercadorias--;
+		qtdMercadorias -= 1;
 	}
 	public void attQtItem(Mercadoria mercadoria) {
 		mercadoria.setQuantidade(scan.nextInt());
 		scan.close();
 	}
-	public void buscarItem() {
-		/*System.out.println("Digite o codigo do item");
-		String i = scan.nextLine();
-		for(Mercadoria m : mercadorias)
-			if(i.equals(mercadoria.getCodigo())) {
-				System.out.println("Item blalblalb");
-				break;
-			}*/
+	public void buscarItem(int codigoItem) {
+		for(Mercadoria m : mercadorias) {
+			if(m.equals(Organica organica)) {
+				
+			}
+		}
 	}
-	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
+	public int getQtdMercadorias() {
+		return qtdMercadorias;
+	}
+	public void setQtdMercadorias(int qtdMercadorias) {
+		this.qtdMercadorias = qtdMercadorias;
+	}
 	public ArrayList<Mercadoria> getMercadorias() {
 		return mercadorias;
 	}
-
 	public void setMercadorias(ArrayList<Mercadoria> mercadorias) {
 		this.mercadorias = mercadorias;
 	}
+	public Mercadoria getMercadoria() {
+		return mercadoria;
+	}
+	public void setMercadoria(Mercadoria mercadoria) {
+		this.mercadoria = mercadoria;
+	}
+	
+	
 
 }
