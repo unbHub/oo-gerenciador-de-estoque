@@ -1,5 +1,8 @@
 package gerestoque;
 
+import java.util.Date;
+
+
 public abstract class Mercadoria {
 
 		//Usando encapsulamento protected porque private nao dá acesso para as outras classes
@@ -8,7 +11,7 @@ public abstract class Mercadoria {
 		protected double valor;
 		protected String codigo;
 		protected String descricao;
-		protected String dataValidade;
+		protected Date dataValidade;
 		protected String fornecedor;
 		
 	
@@ -42,10 +45,10 @@ public abstract class Mercadoria {
 		public void setDescricao(String descricao) {
 			this.descricao = descricao;
 		}
-		public String getDataValidade() {
+		public Date getDataValidade() {
 			return dataValidade;
 		}
-		public void setDataValidade(String dataValidade) {
+		public void setDataValidade(Date dataValidade) {
 			this.dataValidade = dataValidade;
 		}
 		public String getFornecedor() {
