@@ -22,6 +22,7 @@ public class Empresa {
     public void remFilial(Filial filial) {
         filiais.add(filial);
     }
+    //Método com For Each que percorre as filiais da empresa usando o parâmetro do código da filial
     public void buscarFilial(int id) {
         for(Filial f : filiais) {
             if (f.getId() == id) {

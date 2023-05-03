@@ -10,6 +10,7 @@ public class Main {
     static Filial f2;
     static Empresa e1;
     static Estoque es1;
+    static Estoque es2;
     static Organica o1;
     static Organica o2;
     static Inorganica i1;
@@ -28,6 +29,7 @@ public class Main {
         e1.addFilial(f2);
 
         es1 = new Estoque(1234);
+        es2 = new Estoque(4321);
 
         o1 = new Organica();
         o1.setNome("Maca\n");
@@ -38,18 +40,29 @@ public class Main {
         o1.setDataValidade(dataValidade);
         o1.setFornecedor("Paulinho frutas\n");
         o1.setFormaArmazenamento("Lugar seco e arejado");
+        
+        i1 = new Inorganica();
+        i1.setNome("Detergente\n");
+        i1.setQuantidade(15);
+        i1.setValor(4.99);
+        i1.setDescricao("Quimico\n");
+        i1.setCodigo("000224");
+        i1.setFornecedor("Limpeza Brasileira\n");
+        i1.setFormaUso("Limpeza");
 
-
+        
         es1.adicionarItem(o1);
-        f1.setEstoque(es1);     
-        //es1.buscarItem("000223");
-        //System.out.println(es1.getMercadorias());
-
-        //System.out.println(o1.toString());
+        es1.adicionarItem(i1);
+        
+        f1.setEstoque(es1); 
+        f2.setEstoque(es2);
 
         e1.buscarFilial(12345678);
         f1.listarEstoque();
-
+        
+        es2.getEstoqueVazio(f2);
+        
+        es1.buscarItem("000223");
 
     }
 

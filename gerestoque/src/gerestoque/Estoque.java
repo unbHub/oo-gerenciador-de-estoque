@@ -30,6 +30,7 @@ public class Estoque{
         mercadoria.setQuantidade(scan.nextInt());
         scan.close();
     }
+    //Método com For Each que percorre as mercadorias do estoque usando o parâmetro do código do item
     public void buscarItem(String codigoItem) {
         for(Mercadoria m : mercadorias) {
             if (m.getCodigo() == codigoItem) {
@@ -37,6 +38,11 @@ public class Estoque{
                 System.out.println(m.toString());
             }
         }
+    }
+    public void getEstoqueVazio(Filial filial) {
+    	if (mercadorias.isEmpty()) {
+    		System.out.println("Estoque Vazio");
+    	}
     }
     public int getId() {
         return id;

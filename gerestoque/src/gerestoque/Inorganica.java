@@ -1,9 +1,7 @@
 package gerestoque;
 
-import java.text.SimpleDateFormat;
-
 public class Inorganica extends Mercadoria {
-	SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
+	private String formaUso;
 
 	//Construtor inorganica
 	public Inorganica() {
@@ -11,6 +9,12 @@ public class Inorganica extends Mercadoria {
 	}
 	@Override
 	public String toString() {
-		return "Mercadoria inorganica:\n" +  nome + quantidade + "\n" + valor + "\n" + descricao + codigo + "\n" + formatar.format(dataValidade) +"\n"+ fornecedor;
+		return "Mercadoria inorganica:\n" +  nome + quantidade + "\n" + valor + "\n" + descricao + codigo + "\n" + fornecedor + formaUso;
+	}
+	public String getFormaUso() {
+		return formaUso;
+	}
+	public void setFormaUso(String formaUso) {
+		this.formaUso = formaUso;
 	}
 }

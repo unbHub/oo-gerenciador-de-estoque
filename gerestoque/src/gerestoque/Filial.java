@@ -16,6 +16,7 @@ public class Filial {
     public void listarEstoque() {	
     	for(Mercadoria le : estoque.getMercadorias()) {
     		System.out.println(le);
+    		System.out.println("");
     	}
     }
 
