@@ -7,14 +7,20 @@ public class Inorganica extends Mercadoria {
 	public Inorganica() {
 		
 	}
-	@Override
-	public String toString() {
-		return "Mercadoria inorganica:\n" +  nome + quantidade + "\n" + valor + "\n" + descricao + codigo + "\n" + fornecedor + formaUso;
-	}
+	
+	//Metodos autogerados
 	public String getFormaUso() {
 		return formaUso;
 	}
 	public void setFormaUso(String formaUso) {
 		this.formaUso = formaUso;
 	}
+	
+	@Override
+	public String toString() {
+		return "Mercadoria inorganica:\n" +  nome + quantidade + "\n" + valor + 
+				"\n" + descricao + codigoMercadoria + "\n" + fornecedor +
+				formaUso + "\n";
+	}
+
 }

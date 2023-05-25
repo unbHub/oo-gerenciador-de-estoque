@@ -9,12 +9,12 @@ public abstract class Mercadoria {
 		protected String nome;
 		protected int quantidade;
 		protected double valor;
-		protected String codigo;
+		protected String codigoMercadoria;
 		protected String descricao;
 		protected Date dataValidade;
 		protected String fornecedor;
 		
-	
+	//Metodos autogerados
 		public String getNome() {
 			return nome;
 		}
@@ -34,10 +34,10 @@ public abstract class Mercadoria {
 			this.valor = valor;
 		}
 		public String getCodigo() {
-			return codigo;
+			return codigoMercadoria;
 		}
 		public void setCodigo(String codigo) {
-			this.codigo = codigo;
+			this.codigoMercadoria = codigo;
 		}
 		public String getDescricao() {
 			return descricao;
@@ -59,8 +59,10 @@ public abstract class Mercadoria {
 		}
 		@Override
 		public String toString() {
-			return "Mercadoria [nome=" + nome + ", quantidade=" + quantidade + ", valor=" + valor + ", codigo=" + codigo
-					+ ", descricao=" + descricao + ", dataValidade=" + dataValidade + ", fornecedor=" + fornecedor
+			return "Mercadoria [nome=" + nome + ", quantidade=" + quantidade 
+					+ ", valor=" + valor + ", codigo=" + codigoMercadoria
+					+ ", descricao=" + descricao + ", dataValidade=" + dataValidade 
+					+ ", fornecedor=" + fornecedor
 					+ "]";
 		}
 		

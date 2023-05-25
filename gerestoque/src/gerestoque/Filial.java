@@ -6,20 +6,17 @@ public class Filial {
     private int id;
     private String endereco;
     private Estoque estoque;
-
+    private Mercadoria mercadoriasNoEstoque;
+	//private boolean idCorreto;
+    
+    //Construtor
     public Filial(String n, int iF, String e) {
         nome = n;
         id = iF;
         endereco = e;
     }
-
-    public void listarEstoque() {	
-    	for(Mercadoria le : estoque.getMercadorias()) {
-    		System.out.println(le);
-    		System.out.println("");
-    	}
-    }
-
+    
+    //Metodos autogerados
     public String getNome() {
         return nome;
     }
@@ -50,11 +47,28 @@ public class Filial {
     public void setEstoque(Estoque estoque) {
         this.estoque = estoque;
     }
+    public Mercadoria getMercadoriasNoEstoque() {
+		return mercadoriasNoEstoque;
+	}
+
+	public void setMercadoriasNoEstoque(Mercadoria mercadoriasNoEstoque) {
+		this.mercadoriasNoEstoque = mercadoriasNoEstoque;
+	}
+
+    //Metodos 
+    public boolean listarEstoque(int ident) {
+    	if(ident == estoque.getId()) {
+        	estoque.getMercadorias();
+    		return true;
+    	} else {
+    		return false;
+    	}
+    }
 
     @Override
     public String toString() {
-        return "Filial [nome=" + nome + ", valorTotal=" + valorTotal + ", id=" + id + ", endereco=" + endereco
-                + "]";
+        return "Filial [nome=" + nome + ", valorTotal=" + valorTotal + ", id=" 
+        		+ id + ", endereco=" + endereco + "]";
     }
 
 }

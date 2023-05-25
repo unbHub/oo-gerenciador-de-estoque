@@ -1,6 +1,7 @@
 package gerestoque;
 
 import java.util.Date;
+import java.util.Scanner;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -19,6 +20,7 @@ public class Main {
 
         SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
         Date dataValidade = formatar.parse("01/06/2023");
+        Scanner scan = new Scanner(System.in);
 
         f1 = new Filial("Congonhas", 123456789, "rua dos bobos n0");
         f2 = new Filial("Jacarezinho", 12345678, "rua lacoste n3");
@@ -57,13 +59,28 @@ public class Main {
         f1.setEstoque(es1); 
         f2.setEstoque(es2);
 
-        e1.buscarFilial(12345678);
-        f1.listarEstoque();
+        //e1.buscarFilial(12345678);
+        //f1.listarEstoque();
+        //es2.isEstoqueVazio(4321);
+        //es1.isEstoqueVazio(1234);
+        //System.out.println(o1.toString());
+        //System.out.println(i1.toString());
         
-        es2.getEstoqueVazio(f2);
+        if (es1.isEstoqueVazio(1234) == true) {
+        	System.out.println("Estoque VAZIO!!!!!!!!!!!!!!!!!!!!!!!!!!!1\n");
+        } else {
+        	System.out.println("Ja tem bagui nesse estroque\n");
+        }
+        //es1.attQtItem("000223", 10);
         
-        es1.buscarItem("000223");
-
+        /*es1.buscarItem("000223");
+        System.out.println(o1.getQuantidade());
+        */
+        if (f1.listarEstoque(1234) == true) {
+        	System.out.println(es1.getMercadorias());
+        	
+        }
+        
     }
 
 }
