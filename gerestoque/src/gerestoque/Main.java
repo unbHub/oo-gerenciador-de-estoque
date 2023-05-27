@@ -2,6 +2,10 @@ package gerestoque;
 
 import java.util.Date;
 import java.util.Scanner;
+
+import produtos.inorganicos.Inorganica;
+import produtos.organicos.Organica;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -33,24 +37,30 @@ public class Main {
         es1 = new Estoque(1234);
         es2 = new Estoque(4321);
 
-        o1 = new Organica();
-        o1.setNome("Maca\n");
+       Organica o1 = new Organica("Sucrilhos", 5, 75, "0000", "esse sucrilhos é bão", dataValidade, "Zé da Manga");
+     
+        /*o1.setNome("Maca\n");
         o1.setQuantidade(20);
         o1.setValor(5.99);
         o1.setDescricao("Fruta\n");
         o1.setCodigo("000223");
         o1.setDataValidade(dataValidade);
-        o1.setFornecedor("Paulinho frutas\n");
+        o1.setFornecedor("Paulinho frutas\n");*/
         o1.setFormaArmazenamento("Lugar seco e arejado");
+        o1.listarOrganica();
+
+
         
-        i1 = new Inorganica();
-        i1.setNome("Detergente\n");
+        Inorganica i1  = new Inorganica("Detergente", 15, 4.99, "00024", "Químico", dataValidade, "Jaspion Limpezas");
+        /*i1.setNome("Detergente\n");
         i1.setQuantidade(15);
         i1.setValor(4.99);
         i1.setDescricao("Quimico\n");
         i1.setCodigo("000224");
         i1.setFornecedor("Limpeza Brasileira\n");
-        i1.setFormaUso("Limpeza");
+        i1.setFormaUso("Limpeza");*/
+
+        i1.listarInorganica();
 
         
         es1.adicionarItem(o1);

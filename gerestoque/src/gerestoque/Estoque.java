@@ -2,6 +2,8 @@ package gerestoque;
 
 import java.util.ArrayList;
 
+import produtos.organicos.Mercadoria;
+
 public class Estoque{
 
     private int id;

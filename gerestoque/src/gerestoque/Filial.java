@@ -1,5 +1,7 @@
 package gerestoque;
 
+import produtos.organicos.Mercadoria;
+
 public class Filial {
     private String nome;
     private double valorTotal;
