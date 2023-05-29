@@ -24,7 +24,7 @@ public class Main {
 
         SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
         Date dataValidade = formatar.parse("01/06/2023");
-        Scanner scan = new Scanner(System.in);
+        //Scanner scan = new Scanner(System.in);
 
         f1 = new Filial("Congonhas", 123456789, "rua dos bobos n0");
         f2 = new Filial("Jacarezinho", 12345678, "rua lacoste n3");
@@ -51,7 +51,8 @@ public class Main {
 
 
         
-        Inorganica i1  = new Inorganica("Detergente", 15, 4.99, "00024", "Químico", dataValidade, "Jaspion Limpezas");
+        Inorganica i1  = new Inorganica("Detergente", 15, 4.99, "00024",
+         "Químico", dataValidade, "Jaspion Limpezas");
         /*i1.setNome("Detergente\n");
         i1.setQuantidade(15);
         i1.setValor(4.99);
