@@ -6,4 +6,7 @@
  *
  */
 module gerestoque {
+
+	requires java.desktop;
+	
 }

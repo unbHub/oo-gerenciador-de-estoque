@@ -1,4 +1,4 @@
-package swing;
+package view;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -127,10 +127,6 @@ public class TelaPrincipal extends JFrame {
     private void botao9(){
         this.btn9 = new JButton("Buscar filial",img4);
         this.btn9.setBounds(0, 0, 100, 60);
-    }
-
-    for(int i = 0; i > 10; i++){
-        
-    }
     
+    }
 }
