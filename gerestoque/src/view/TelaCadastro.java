@@ -117,5 +117,5 @@ public class TelaCadastro extends JFrame{
         this.jlblid = new JLabel("Digite os dados das filiais: ");
         this.jtxtid = new JTextField();
         this.jtxtid.setPreferredSize(new Dimension(300, 25));
-}
+    }
 }
