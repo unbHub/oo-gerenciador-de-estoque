@@ -1,7 +1,9 @@
-package gerestoque;
+package model;
 
 import java.util.Date;
 import java.util.Scanner;
+
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -12,15 +14,15 @@ public class Main {
     static Empresa e1;
     static Estoque es1;
     static Estoque es2;
-    static Organica o1;
-    static Organica o2;
-    static Inorganica i1;
+    static Casa cs1;
+    static Bebida b1;
+    static Alimento al1;
 
     public static void main(String[] args) throws ParseException {
 
         SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
         Date dataValidade = formatar.parse("01/06/2023");
-        Scanner scan = new Scanner(System.in);
+        //Scanner scan = new Scanner(System.in);
 
         f1 = new Filial("Congonhas", 123456789, "rua dos bobos n0");
         f2 = new Filial("Jacarezinho", 12345678, "rua lacoste n3");
@@ -33,28 +35,16 @@ public class Main {
         es1 = new Estoque(1234);
         es2 = new Estoque(4321);
 
-        o1 = new Organica();
-        o1.setNome("Maca\n");
-        o1.setQuantidade(20);
-        o1.setValor(5.99);
-        o1.setDescricao("Fruta\n");
-        o1.setCodigo("000223");
-        o1.setDataValidade(dataValidade);
-        o1.setFornecedor("Paulinho frutas\n");
-        o1.setFormaArmazenamento("Lugar seco e arejado");
-        
-        i1 = new Inorganica();
-        i1.setNome("Detergente\n");
-        i1.setQuantidade(15);
-        i1.setValor(4.99);
-        i1.setDescricao("Quimico\n");
-        i1.setCodigo("000224");
-        i1.setFornecedor("Limpeza Brasileira\n");
-        i1.setFormaUso("Limpeza");
+       Alimento al1 = new Alimento("Sucrilhos", 5, 75, "0000", "esse sucrilhos é bão",
+    		   dataValidade, "Zé da Manga", true, "200g");
 
         
-        es1.adicionarItem(o1);
-        es1.adicionarItem(i1);
+       Casa cs1  = new Casa("Detergente", 15, 4.99, "00024", "Químico", dataValidade,
+    		   "Jaspion Limpezas", true, "liquido");
+        
+        
+        es1.adicionarItem(al1);
+        es1.adicionarItem(cs1);
         
         f1.setEstoque(es1); 
         f2.setEstoque(es2);

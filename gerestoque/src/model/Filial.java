@@ -1,4 +1,5 @@
-package gerestoque;
+package model;
+
 
 public class Filial {
     private String nome;
