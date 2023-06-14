@@ -64,9 +64,9 @@ public class Estoque{
     
     //Método com For Each que percorre as mercadorias do estoque usando o parâmetro do código do item
     public Mercadoria buscarItem(String codigoItem) {
-        for(Mercadoria mercadoria : mercadorias){
-            if(mercadoria.getCodigo().equals(codigoItem)){
-                return mercadoria;
+        for(Mercadoria m : mercadorias){
+            if(m.getCodigo().equals(codigoItem)){
+                return m;
             }
         }
         return null;
