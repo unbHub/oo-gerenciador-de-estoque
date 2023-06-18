@@ -10,8 +10,6 @@ public class Empresa {
 
     // Construtor
     public Empresa(String n) {
-
-        filiais = new ArrayList<Filial>();
         nome = n;
 
     }
