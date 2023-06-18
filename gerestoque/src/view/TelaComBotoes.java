@@ -1,46 +1,56 @@
 package view;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class TelaComBotoes {
+public class TelaComBotoes extends JFrame implements ActionListener{
+    
+    //atributos informados do Swing para formarmos a janela:
+    private JFrame frm = new JFrame("GERENCIADOR DE ESTROQUE");
+    private JLabel lbl1 = new JLabel("Menu Principal");
+    private static JButton btn1 = new JButton("Filiais");
+    private JButton btn2 = new JButton("Busca");
+
+    public TelaComBotoes(){
+        
+        //configurações dos labels
+        lbl1.setFont(new Font("Arial", Font.BOLD, 20));
+        lbl1.setBounds(100, 20, 160, 30);
+        
+        //configurações dos botões:
+        btn1.setBounds(115, 100, 100, 30);
+        btn2.setBounds(115, 150, 100, 30);
+        
+
+        frm.setLayout(null);
+
+        //adicionamos os atributos no nosso frame
+        frm.add(lbl1);
+        frm.add(btn1);
+        frm.add(btn2);
+
+
+        //aqui configuramos as funções do JFrame
+        frm.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frm.setVisible(true);
+        frm.setLocationRelativeTo(null); 
+        frm.setSize(350, 350);        
+    }
+
+    public void actionPerformed(ActionEvent e){
+        Object src = e.getSource();
+
+        if(src == btn1){
+            new TelaFilial().setVisible(true);
+        }
+    }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Exemplo de Tela com Botões");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        // Cria o painel principal com o GridBagLayout
-        GridBagLayout layout = new GridBagLayout();
-        GridBagConstraints constraints = new GridBagConstraints();
-        frame.setLayout(layout);
-
-        // Cria os botões e adiciona ao painel
-        for (int i = 0; i < 10; i++) {
-            JButton botao = new JButton("Botão " + (i + 1));
-            constraints.gridx = i % 5; // Coluna
-            constraints.gridy = i / 5; // Linha
-            constraints.fill = GridBagConstraints.HORIZONTAL; // Preenchimento horizontal
-            constraints.ipadx = 20; // Espaçamento horizontal
-            constraints.ipady = 10; // Espaçamento vertical
-            layout.setConstraints(botao, constraints);
-            frame.add(botao);
-        }
-
-        // Cria a frase e adiciona ao painel
-        JLabel frase = new JLabel("Minha frase no meio");
-        constraints.gridx = 0; // Coluna
-        constraints.gridy = 2; // Linha
-        constraints.gridwidth = 5; // Largura da célula
-        constraints.fill = GridBagConstraints.NONE; // Sem preenchimento
-        constraints.anchor = GridBagConstraints.CENTER; // Alinhamento central
-        layout.setConstraints(frase, constraints);
-        frame.add(frase);
-
-        frame.pack();
-        frame.setVisible(true);
+        
+        TelaComBotoes tm = new TelaComBotoes();
+        
+        btn1.addActionListener(tm);
     }
-}
-
+    }
