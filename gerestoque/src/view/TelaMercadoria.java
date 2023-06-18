@@ -112,6 +112,7 @@ public class TelaMercadoria extends JFrame {
     }
 
 
+
     public static void main(String[] args) {
         new TelaMercadoria().setVisible(true);
     }

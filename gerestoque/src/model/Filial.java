@@ -10,9 +10,9 @@ public class Filial {
 	//private boolean idCorreto;
     
     //Construtor
-    public Filial(String n, int iF, String cidade) {
-        nome = n;
-        id = iF;
+    public Filial(String nome, int id) {
+        this.nome = nome;
+        this.id = id;
     }
     
     //Metodos autogerados

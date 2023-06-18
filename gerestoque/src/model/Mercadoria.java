@@ -13,6 +13,10 @@ public abstract class Mercadoria {
 	protected String descricao;
 	protected Date dataValidade;
 	protected String fornecedor;
+	
+		public Mercadoria() {
+			super();
+		}
 		
 	//Metodos autogerados:
 		public String getNome() {

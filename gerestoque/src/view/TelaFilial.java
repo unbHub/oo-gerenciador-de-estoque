@@ -1,27 +1,35 @@
 package view;
 
+import model.*;
+import model.Dados;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class TelaFilial extends JFrame {
+public class TelaFilial extends JFrame implements ActionListener {
     
+	private String novoDado[] = new String[8];
     //aqui colocamos os atributos que iremos utilizar para montarmos nossa tela
 
     //atributos para montagem dos labels
     private JFrame frm = new JFrame("Filiais");
     private JLabel lbl1 = new JLabel("Filiais");
+    private JTextField nomeFilial;
 
     //aqui utilizamos um recurso do Swing para adicionarmos ícones em nossos botões
     private ImageIcon img1 = new ImageIcon("C:/Users/f1l1p/Desktop/TOP SECRET/projeto oo/OO-UnB---2023.1---Gerenciamento-de-Estoque-/gerestoque/bin/images/maizin.png");
     private ImageIcon img4 = new ImageIcon("C:/Users/f1l1p/Desktop/TOP SECRET/projeto oo/OO-UnB---2023.1---Gerenciamento-de-Estoque-/gerestoque/bin/images/atualizar.png");
     
     //botões
-    private JButton btn1 = new JButton("Adicionar Filial", img1);
+    private static JButton btn1 = new JButton("Adicionar Filial");
     private JButton btn2 = new JButton("Atualizar", img4);
     
     //lista de filiais cadastradas em nosso sistema
     private String[] filiais = {"Congonhas", "Japão", "Jacarezinho", "Acre"};
     private JList lst = new JList(filiais);
+    
+    
 
 
     //método construtor que irá gerar nossa tela
@@ -53,8 +61,19 @@ public class TelaFilial extends JFrame {
         frm.setSize(400, 300);  
         frm.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
-
+    public void actionPerformed(ActionEvent f){
+        Object src = f.getSource();
+        	if(src == btn1){
+        		
+        		new TelaCadastro().setVisible(true);
+        	}
+        }
+        
     public static void main(String[] args) {
-        new TelaFilial().setVisible(true);
+        TelaFilial tf = new TelaFilial();
+        
+        btn1.addActionListener(tf);
+        
+        
     }
 }
