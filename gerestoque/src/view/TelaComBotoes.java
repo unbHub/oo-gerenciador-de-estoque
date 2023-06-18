@@ -53,4 +53,4 @@ public class TelaComBotoes extends JFrame implements ActionListener{
         
         btn1.addActionListener(tm);
     }
-    }
+  }
