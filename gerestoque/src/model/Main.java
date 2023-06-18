@@ -3,6 +3,9 @@ package model;
 import java.util.Date;
 import java.util.Scanner;
 
+import view.TelaCadastro;
+import view.TelaComBotoes;
+import view.TelaFilial;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,6 +23,9 @@ public class Main {
 
     public static void main(String[] args) throws ParseException {
 
+       // new TelaCadastro().setVisible(true);
+       //new TelaComBotoes().setVisible(true);
+       //new TelaFilial().setVisible(true);
         SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
         Date dataValidade = formatar.parse("01/06/2023");
         //Scanner scan = new Scanner(System.in);

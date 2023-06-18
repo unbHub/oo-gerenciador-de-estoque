@@ -1,121 +1,73 @@
 package view;
 
-import java.awt.Dimension;
-import java.awt.FlowLayout;
+import java.awt.*;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
+
 
 public class TelaCadastro extends JFrame{
 
-    //insere os dados da empresa
-    private JPanel jpnlemp;
-    private JLabel jblemp;
-    private JTextField jtxtemp;
+    //aqui colocamos os atributos que iremos utilizar para montarmos nossa tela
+    private JFrame frm = new JFrame("Cadastro");
 
-    //insere a quantidade de filais existentes
-    private JPanel jpnlfilial;
-    private JLabel jblfilial;
-    private JTextField jtxfilial;
+    //atributos para montagem dos labels
+    private JLabel lbl1 = new JLabel("Digite o nome da filial: ");
+    private JLabel lbl2 = new JLabel("Digite o identificador da filial: ");
+    
+    //atributos para os campos de texto
+    private JTextField txt1 = new JTextField();
+    private JTextField txt2 = new JTextField();
 
-    //insere os dados das filiais
-    private JPanel jpnldf;
-    private JLabel jlbldf;
-    private JTextField jtxtdf;
+    //botões
+    private static JButton btn1 = new JButton("Salvar");
+    private static JButton btn2 = new JButton("Excluir");
+    private static JButton btn3 = new JButton("Relatório");
+    private static JButton btn4 = new JButton("Estoque");
 
-    //insere os ids dos estoques
-    private JPanel jpnlid;
-    private JLabel jlblid;
-    private JTextField jtxtid;
-
-    //método construtor
     public TelaCadastro(){
-        super();
-        this.confFrame();
-        this.confPainelEmpresa();
-        this.add(this.jpnlemp); 
-        this.confPainelFilial();
-        this.add(this.jpnlfilial);
-        this.confPainelDadosFilial();
-        this.add(this.jpnldf);
-        this.confPainelIdEstoque();
-        this.add(this.jpnlid);
+
+        //aqui setamos as medidas e as posições de nossos labels
+        lbl1.setBounds(30, 20, 150, 25);
+        lbl2.setBounds(30, 60, 200, 25);
+
+        //medidas e posições dos botões
+        btn1.setBounds(20, 100, 100, 30);
+        btn2.setBounds(20, 140, 100, 30);
+        btn3.setBounds(260, 100, 100, 30);
+        btn4.setBounds(260, 140, 100, 30);
+
+        //campos de texto
+        txt1.setPreferredSize(new Dimension(300, 25));
+        txt1.setBounds(180, 20, 180, 25);
+        txt2.setPreferredSize(new Dimension(300, 25));
+        txt2.setBounds(200, 60, 160, 25);
+
+
+
+        frm.setLayout(null);
+
+        //aqui adicionamos todos os elementos em nosso JFrame
+        frm.add(lbl1);
+        frm.add(lbl2);
+        frm.add(txt1);
+        frm.add(txt2);
+        frm.add(btn1);
+        frm.add(btn2);
+        frm.add(btn3);
+        frm.add(btn4);
+
+        //aqui configuramos o nosso JFrame
+        frm.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frm.setVisible(true);
+        frm.setLocationRelativeTo(null); 
+        frm.setSize(400, 250);     
+
     }
 
-    //configuração da janela
-    private void confFrame(){
-        this.setTitle("Gerenciador de Estroque");
-        this.setSize(new Dimension(500, 450));
-        this.setLayout(new FlowLayout());
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLocationRelativeTo(null);
-    }
     
-    //configuração do painel dos dados da empresa
-    private void confPainelEmpresa(){
-        this.jpnlemp = new JPanel(new FlowLayout());
-        this.jpnlemp.setPreferredSize(new Dimension(400, 100));
-        this.confDadosEmpresa();
-        this.jpnlemp.add(this.jblemp);
-        this.jpnlemp.add(this.jtxtemp);
+    public static void main(String[] args) {
+        new TelaCadastro().setVisible(true);
     }
 
 
-    private void confDadosEmpresa(){
-            this.jblemp = new JLabel("Digite o nome da empresa:");
-            this.jtxtemp = new JTextField();
-            this.jtxtemp.setPreferredSize(new Dimension(300, 25));
-        }
-
-
-    //configuração do painel dos dados da filial
-    private void confPainelFilial(){
-        this.jpnlfilial = new JPanel(new FlowLayout());
-        this.jpnlfilial.setPreferredSize(new Dimension(400, 100));
-        this.confFilial();
-        this.jpnlfilial.add(this.jblfilial);
-        this.jpnlfilial.add(this.jtxfilial);
-        
-    }
-
-    private void confFilial(){
-        this.jblfilial = new JLabel("Digite a quantidade de filiais existentes: ");
-        this.jtxfilial = new JTextField();
-        this.jtxfilial.setPreferredSize(new Dimension(300, 25));
-    }
-    
-    //configura os dados da filial
-    private void confPainelDadosFilial(){
-        this.jpnldf = new JPanel(new FlowLayout());
-        this.jpnldf.setPreferredSize(new Dimension(400, 100));
-        this.confDadosFilial();
-        this.jpnldf.add(this.jlbldf);
-        this.jpnldf.add(this.jtxtdf);
-        
-    }
-
-    private void confDadosFilial(){
-        this.jlbldf = new JLabel("Digite os dados das filiais: ");
-        this.jtxtdf = new JTextField();
-        this.jtxtdf.setPreferredSize(new Dimension(300, 25));
-}
-
-    //configura o painel de dados do id de estoque
-
-    private void confPainelIdEstoque(){
-        this.jpnlid = new JPanel(new FlowLayout());
-        this.jpnlid.setPreferredSize(new Dimension(400, 100));
-        this.confIdEstoque();
-        this.jpnlid.add(this.jlblid);
-        this.jpnlid.add(this.jtxtid);
-        
-    }
-
-    private void confIdEstoque(){
-        this.jlblid = new JLabel("Digite os dados das filiais: ");
-        this.jtxtid = new JTextField();
-        this.jtxtid.setPreferredSize(new Dimension(300, 25));
-    }
 }
