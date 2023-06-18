@@ -11,10 +11,10 @@ public class Filial {
 	//private boolean idCorreto;
     
     //Construtor
-    public Filial(String n, int iF, String e) {
+    public Filial(String n, int iF) {
         nome = n;
         id = iF;
-        endereco = e;
+        
     }
     
     //Metodos autogerados
