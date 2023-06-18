@@ -5,16 +5,14 @@ public class Filial {
     private String nome;
     private double valorTotal;
     private int id;
-    private String endereco;
     private Estoque estoque;
     private Mercadoria mercadoriasNoEstoque;
 	//private boolean idCorreto;
     
     //Construtor
-    public Filial(String n, int iF) {
-        nome = n;
-        id = iF;
-        
+    public Filial(String nome, int id) {
+        this.nome = nome;
+        this.id = id;
     }
     
     //Metodos autogerados
@@ -35,12 +33,6 @@ public class Filial {
     }
     public void setId(int id) {
         this.id = id;
-    }
-    public String getEndereco() {
-        return endereco;
-    }
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
     }
     public Estoque getEstoque() {
         return estoque;
@@ -69,7 +61,7 @@ public class Filial {
     @Override
     public String toString() {
         return "Filial [nome=" + nome + ", valorTotal=" + valorTotal + ", id=" 
-        		+ id + ", endereco=" + endereco + "]";
+        		+ id;
     }
 
 }

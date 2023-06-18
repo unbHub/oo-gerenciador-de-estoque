@@ -55,5 +55,9 @@ public class Dados {
 	public int getQtdMercadoriasEstoque() {
 		return qtdMercadoriasEstoque;
 	}
-}
+	public void setQtdMercadoriasEstoque(int qtdMercadoriasEstoque) {
+		this.qtdMercadoriasEstoque = qtdMercadoriasEstoque;
+	}
 	
+}
+

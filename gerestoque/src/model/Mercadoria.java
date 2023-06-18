@@ -13,19 +13,10 @@ public abstract class Mercadoria {
 	protected String descricao;
 	protected Date dataValidade;
 	protected String fornecedor;
-
-	//construtor abstrato NAO TEM PORQUE TER UM CONSTRUTOR NA CLASSE ABSTRATA PORQUE ELA NAO INSTANCIA : POR ISSO O VSCODE 
-	//TAVA CHIANDO (joinha)
-	/**public Mercadoria(String nome, int quantidade, double valor, String codigoMercadoria, String descricao,
-	Date dataValidade, String fornecedor) {
-		this.nome = nome;
-		this.quantidade = quantidade;
-		this.valor = valor;
-		this.codigoMercadoria = codigoMercadoria;
-		this.descricao = descricao;
-		this.dataValidade = dataValidade;
-		this.fornecedor = fornecedor;
-	}**/
+	
+		public Mercadoria() {
+			super();
+		}
 		
 	//Metodos autogerados:
 		public String getNome() {

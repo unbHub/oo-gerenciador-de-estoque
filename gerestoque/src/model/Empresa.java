@@ -10,8 +10,6 @@ public class Empresa {
 
     // Construtor
     public Empresa(String n) {
-
-        filiais = new ArrayList<Filial>();
         nome = n;
 
     }
@@ -39,7 +37,7 @@ public class Empresa {
     }
 
     public void remFilial(Filial filial /* mudar */) {
-        filiais.add(filial);
+        filiais.remove(filial);
     }
 
     // Método com For Each que percorre as filiais da empresa usando o parâmetro do
@@ -48,7 +46,6 @@ public class Empresa {
         for (Filial f : filiais) {
             if (f.getId() == id) {
                 return f;
-            	
                 
             }
         }
