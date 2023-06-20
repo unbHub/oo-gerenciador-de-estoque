@@ -6,9 +6,11 @@ public class Empresa {
 
     private String nome;
     private ArrayList<Filial> filiais;
-    private Filial filial;
+    private String nomeFilial;
+	private int idFilial;
+    //private Filial filial;
 
-    // Construtor
+	// Construtor
     public Empresa(String n) {
         nome = n;
 
@@ -22,21 +24,36 @@ public class Empresa {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    public String getNomeFilial() {
+ 		return nomeFilial;
+ 	}
 
-    public Filial getFilial() {
-        return filial;
-    }
+ 	public void setNomeFilial(String nomeFilial) {
+ 		this.nomeFilial = nomeFilial;
+ 	}
 
-    public void setFilial(Filial filial) {
-        this.filial = filial;
-    }
+ 	public int getIdFilial() {
+ 		return idFilial;
+ 	}
+
+ 	public void setIdFilial(int idFilial) {
+ 		this.idFilial = idFilial;
+ 	}
+
+    public ArrayList<Filial> getFiliais() {
+		return filiais;
+	}
+
+	public void setFiliais(ArrayList<Filial> filiais) {
+		this.filiais = filiais;
+	}
 
     // Metodos
-    public void addFilial(Filial filial /* mudar */) {
+    public void addFilial(Filial filial) {
         filiais.add(filial);
     }
 
-    public void remFilial(Filial filial /* mudar */) {
+    public void remFilial(Filial filial) {
         filiais.remove(filial);
     }
 
@@ -44,21 +61,12 @@ public class Empresa {
     // código da filial
     public Filial buscarFilial(int id) {
         for (Filial f : filiais) {
-            if (f.getId() == id) {
+            if (f.getId() == id){
                 return f;
                 
             }
         }
         return null;
     }
-
-    public Estoque getEstoqueFilialById(int id) {
-        Filial filial = this.buscarFilial(id);
-
-        if (filial == null) {
-            return null;
-        }
-
-        return filial.getEstoque();
-    }
+ 
 }
