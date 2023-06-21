@@ -35,8 +35,6 @@ public class TelaFilial extends JFrame {
     //método construtor que irá gerar nossa tela
     public TelaFilial(){
 
-        TelaFilial tf = new TelaFilial();
-
         //aqui setamos as medidas e as posições de nossos labels
         lblFilial.setFont(new Font("Arial", Font.BOLD, 20));
         lblFilial.setBounds(10, 0, 500, 30);
@@ -61,7 +59,7 @@ public class TelaFilial extends JFrame {
         janelaFilial.setVisible(true);
         janelaFilial.setLocationRelativeTo(null); 
         janelaFilial.setSize(400, 300);  
-        janelaFilial.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        janelaFilial.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     public static void main(String[] args) {
