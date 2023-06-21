@@ -102,8 +102,7 @@ public class TelaCadastro extends JFrame{
 					
 					Dados.getFiliais().add(cd.inserirFiliais(nomeFilial, idFilial));
 					JOptionPane.showMessageDialog(null, "Filial cadastrada com sucesso!");
-				}
-				
+				}	
 				
         	}
         });
@@ -111,7 +110,7 @@ public class TelaCadastro extends JFrame{
         
     }
 
-    
+   
     public static void main(String[] args) {
         new TelaCadastro().setVisible(true);
     }
