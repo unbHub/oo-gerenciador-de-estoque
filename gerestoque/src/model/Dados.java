@@ -14,11 +14,9 @@ public class Dados {
 		return filiais;
 	}
 
-
-	//Métodos
 	public static ArrayList<Mercadoria> getMercadorias() {
 		return mercadorias;
-}
+  }
 	
 	
 }

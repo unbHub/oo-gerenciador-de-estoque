@@ -41,7 +41,7 @@ public class Empresa {
  		this.idFilial = idFilial;
  	}
 
-    public ArrayList<Filial> getFiliais() {
+  public ArrayList<Filial> getFiliais() {
 		return filiais;
 	}
 
