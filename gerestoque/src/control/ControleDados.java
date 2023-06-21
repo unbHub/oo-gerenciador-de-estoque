@@ -5,7 +5,6 @@ import model.Filial;
 import model.Empresa;
 //import java.util.ArrayList;
 
-
 public class ControleDados {
 	
 	//Instância previa de empresa
@@ -85,25 +84,22 @@ public class ControleDados {
 		filial.buscarMercadoria(codM);
 	}
 	//edição de mercadorias
-	public void editarMercadorias(Mercadoria mercadoria, Filial filial) {
-		switch(escolha) {
-			case "nome":
-				mercadoria.setNome("");
-				break;
-			case "quantidade":
-				mercadoria.setQuantidade(0);
-				break;
-			case "valor":
-				mercadoria.setValor(0);
-				break;
-			case "codigo":
-				mercadoria.setCodigo("");
-				break;
-		}
+  	public void editarMercadorias(Mercadoria mercadoria, Filial filial) {
+      switch(escolha) {
+        case "nome":
+          mercadoria.setNome("");
+          break;
+        case "quantidade":
+          mercadoria.setQuantidade(0);
+          break;
+        case "valor":
+          mercadoria.setValor(0);
+          break;
+        case "codigo":
+          mercadoria.setCodigo("");
+          break;
+      }
 	}
-	/*public static void main(String[] args) {
-		inserirFiliais("filial", "0123");
-		System.out.println(mercadoJoaozin.getFiliais());
-	}*/
+
 	
 }
