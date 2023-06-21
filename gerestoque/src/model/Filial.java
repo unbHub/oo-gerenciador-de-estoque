@@ -1,18 +1,19 @@
 package model;
-
+import java.util.ArrayList;
 
 public class Filial {
     private String nome;
     private double valorTotal;
-    private int id;
-    private Estoque estoque;
-    private Mercadoria mercadoriasNoEstoque;
+    private String idFilial;
+    private ArrayList<Mercadoria> mercadorias = new ArrayList<>();
+    //private Mercadoria mercadoriasNoEstoque;
 	//private boolean idCorreto;
-    
-    //Construtor
-    public Filial(String nome, int id) {
-        this.nome = nome;
-        this.id = id;
+
+	//Construtor
+    public Filial(String n, String iF) {
+        nome = n;
+        idFilial = iF;
+  
     }
     
     //Metodos autogerados
@@ -28,40 +29,40 @@ public class Filial {
     public void setValorTotal(int valorTotal) {
         this.valorTotal = valorTotal;
     }
-    public double getId() {
-        return id;
+    public String getId() {
+        return idFilial;
     }
-    public void setId(int id) {
-        this.id = id;
+    public void setId(String id) {
+        this.idFilial = id;
     }
-    public Estoque getEstoque() {
-        return estoque;
-    }
-    public void setEstoque(Estoque estoque) {
-        this.estoque = estoque;
-    }
-    public Mercadoria getMercadoriasNoEstoque() {
-		return mercadoriasNoEstoque;
+	public ArrayList<Mercadoria> getMercadorias() {
+		return mercadorias;
 	}
-
-	public void setMercadoriasNoEstoque(Mercadoria mercadoriasNoEstoque) {
-		this.mercadoriasNoEstoque = mercadoriasNoEstoque;
+	public void setMercadorias(ArrayList<Mercadoria> mercadorias) {
+		this.mercadorias = mercadorias;
 	}
 
     //Metodos 
-    public boolean listarEstoque(int ident) {
-    	if(ident == estoque.getId()) {
-        	estoque.getMercadorias();
-    		return true;
-    	} else {
-    		return false;
-    	}
+    public void addMercadoria(Mercadoria mercadoria) {
+        mercadorias.add(mercadoria);
+    }
+
+    public void remMercadoria(Mercadoria mercadoria) {
+        mercadorias.remove(mercadoria);
+    }
+    public Mercadoria buscarMercadoria(String cod) {
+        for (Mercadoria m : mercadorias) {
+            if (m.getCodigo() == cod){
+                return m;
+            }
+        }
+        return null;
     }
 
     @Override
     public String toString() {
-        return "Filial [nome=" + nome + ", valorTotal=" + valorTotal + ", id=" 
-        		+ id;
+        return "Filial [nome=" + nome + ", id=" 
+        		+ idFilial;
     }
 
 }

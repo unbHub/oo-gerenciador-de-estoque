@@ -5,10 +5,9 @@ import java.util.ArrayList;
 import model.Mercadoria;
 
 public class Estoque{
-
+/**
     private int id;
     private int qtdMercadorias = 0;
-
     private ArrayList<Mercadoria> mercadorias = new ArrayList<>();
     private boolean codigoCorreto;
     
@@ -75,5 +74,5 @@ public class Estoque{
     public boolean isEstoqueVazio(int id) {
         return mercadorias.isEmpty();
     }
-
+**/
 }
