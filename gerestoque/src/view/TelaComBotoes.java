@@ -11,7 +11,7 @@ public class TelaComBotoes extends JFrame implements ActionListener{
     private JFrame janelaMenu = new JFrame("GERENCIADOR DE ESTROQUE");
     private JLabel lblTitulo = new JLabel("Menu Principal");
     private static JButton btnFilial = new JButton("Filiais");
-    private static static JButton btnBusca = new JButton("Busca");
+    private static JButton btnBusca = new JButton("Busca");
 
     public TelaComBotoes(){
         
