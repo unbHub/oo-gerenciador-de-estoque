@@ -31,7 +31,7 @@ public class TelaBusca extends JFrame {
         frm.add(btn2);
         frm.add(btn3);
 
-        frm.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frm.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         frm.setVisible(true);
         frm.setLocationRelativeTo(null); 
         frm.setSize(350, 350);   

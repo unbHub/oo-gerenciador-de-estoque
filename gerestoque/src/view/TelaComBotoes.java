@@ -11,7 +11,7 @@ public class TelaComBotoes extends JFrame implements ActionListener{
     private JFrame frm = new JFrame("GERENCIADOR DE ESTROQUE");
     private JLabel lbl1 = new JLabel("Menu Principal");
     private static JButton btn1 = new JButton("Filiais");
-    private JButton btn2 = new JButton("Busca");
+    private static JButton btn2 = new JButton("Busca");
 
     public TelaComBotoes(){
         
@@ -45,6 +45,10 @@ public class TelaComBotoes extends JFrame implements ActionListener{
         if(src == btn1){
             new TelaFilial().setVisible(true);
         }
+
+        if(src == btn2){
+            new TelaBusca().setVisible(true);
+        }
     }
 
     public static void main(String[] args) {
@@ -52,5 +56,6 @@ public class TelaComBotoes extends JFrame implements ActionListener{
         TelaComBotoes tm = new TelaComBotoes();
         
         btn1.addActionListener(tm);
+        btn2.addActionListener(tm);
     }
     }

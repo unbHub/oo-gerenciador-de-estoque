@@ -2,8 +2,10 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class TelaFilial extends JFrame {
+public class TelaFilial extends JFrame implements ActionListener{
     
     //aqui colocamos os atributos que iremos utilizar para montarmos nossa tela
 
@@ -12,12 +14,12 @@ public class TelaFilial extends JFrame {
     private JLabel lbl1 = new JLabel("Filiais");
 
     //aqui utilizamos um recurso do Swing para adicionarmos ícones em nossos botões
-    private ImageIcon img1 = new ImageIcon("C:/Users/f1l1p/Desktop/TOP SECRET/projeto oo/OO-UnB---2023.1---Gerenciamento-de-Estoque-/gerestoque/bin/images/maizin.png");
-    private ImageIcon img4 = new ImageIcon("C:/Users/f1l1p/Desktop/TOP SECRET/projeto oo/OO-UnB---2023.1---Gerenciamento-de-Estoque-/gerestoque/bin/images/atualizar.png");
+    //private ImageIcon img1 = new ImageIcon("C:/Users/f1l1p/Desktop/TOP SECRET/projeto oo/OO-UnB---2023.1---Gerenciamento-de-Estoque-/gerestoque/bin/images/maizin.png");
+    //private ImageIcon img4 = new ImageIcon("C:/Users/f1l1p/Desktop/TOP SECRET/projeto oo/OO-UnB---2023.1---Gerenciamento-de-Estoque-/gerestoque/bin/images/atualizar.png");
     
     //botões
-    private JButton btn1 = new JButton("Adicionar Filial", img1);
-    private JButton btn2 = new JButton("Atualizar", img4);
+    private static JButton btn1 = new JButton("Adicionar Filial");
+    private static JButton btn2 = new JButton("Atualizar");
     
     //lista de filiais cadastradas em nosso sistema
     private String[] filiais = {"Congonhas", "Japão", "Jacarezinho", "Acre"};
@@ -26,6 +28,8 @@ public class TelaFilial extends JFrame {
 
     //método construtor que irá gerar nossa tela
     public TelaFilial(){
+
+        TelaFilial tf = new TelaFilial();
 
         //aqui setamos as medidas e as posições de nossos labels
         lbl1.setFont(new Font("Arial", Font.BOLD, 20));
@@ -51,10 +55,17 @@ public class TelaFilial extends JFrame {
         frm.setVisible(true);
         frm.setLocationRelativeTo(null); 
         frm.setSize(400, 300);  
-        frm.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frm.setDefaultCloseOperation(frm.DISPOSE_ON_CLOSE);
+
+        btn1.addActionListener(tf);
     }
 
-    public static void main(String[] args) {
-        new TelaFilial().setVisible(true);
+    public void actionPerformed(ActionEvent e){
+        
+        Object src = e.getSource();
+
+        if(src == btn1){
+            new TelaCadastro().setVisible(true);
+        }
     }
 }

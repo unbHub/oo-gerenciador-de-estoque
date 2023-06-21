@@ -57,17 +57,14 @@ public class TelaCadastro extends JFrame{
         frm.add(btn4);
 
         //aqui configuramos o nosso JFrame
-        frm.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frm.setDefaultCloseOperation(frm.DISPOSE_ON_CLOSE);
         frm.setVisible(true);
         frm.setLocationRelativeTo(null); 
         frm.setSize(400, 250);     
 
     }
 
-    
     public static void main(String[] args) {
         new TelaCadastro().setVisible(true);
     }
-
-
 }
