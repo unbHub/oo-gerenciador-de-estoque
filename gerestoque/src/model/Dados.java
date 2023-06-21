@@ -1,37 +1,23 @@
 package model;
+import java.util.ArrayList;
 
 public class Dados {
 
-	private Mercadoria[] mercadorias = new Mercadoria[100]; 
-	private int qtdMercadorias = 0;
-	private Filial[] filiais = new Filial[10];
-	private int qtdFiliais = 0;
-	private Estoque[] estoques = new Estoque[10];
-	private int qtdEstoques = qtdFiliais;
+/** classe simulação banco de dados
+ * @author Marcos e Diego
+ */
+	public static final ArrayList<Mercadoria> mercadorias = new ArrayList<Mercadoria>();
+	public static final ArrayList<Filial> filiais = new ArrayList<Filial>();
 	
-	public Mercadoria[] getMercadorias() {
-		return mercadorias;
-	}
-	public void setMercadorias(Mercadoria[] mercadorias) {
-		this.mercadorias = mercadorias;
-	}
-	public int getQtdMercadorias() {
-		return qtdMercadorias;
-	}
-	public void setQtdMercadorias(int qtdMercadorias) {
-		this.qtdMercadorias = qtdMercadorias;
-	}
-	public Filial[] getFiliais() {
+
+	public static ArrayList<Filial> getFiliais() {
 		return filiais;
 	}
-	public void setFiliais(Filial[] filiais) {
-		this.filiais = filiais;
-	}
-	public int getQtdFilais() {
-		return qtdFiliais;
-	}
-	public void setQtdFilais(int qtdFilais) {
-		this.qtdFiliais = qtdFilais;
-	}
+
+	public static ArrayList<Mercadoria> getMercadorias() {
+		return mercadorias;
+  }
+	
 	
 }
+
