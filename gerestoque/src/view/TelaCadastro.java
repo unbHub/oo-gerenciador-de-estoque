@@ -55,8 +55,6 @@ public class TelaCadastro extends JFrame{
         //remFilialBox.setPreferredSize(new Dimension(300, 25));
         //remFilialBox.setBounds(20, 175, 70, 27);
 
-
-
         cadastroFilial.setLayout(null);
 
         //aqui adicionamos todos os elementos em nosso JFrame
@@ -108,7 +106,6 @@ public class TelaCadastro extends JFrame{
         	}
         });
           
-        
     }
 
     

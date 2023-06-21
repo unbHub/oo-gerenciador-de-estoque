@@ -6,35 +6,35 @@ import java.awt.*;
 public class TelaBusca extends JFrame {
 
      //aqui colocamos os atributos que iremos utilizar para montarmos nossa tela
-    private JFrame frm = new JFrame("Buscar");
-    private JLabel lbl1 = new JLabel("Buscar");
+    private JFrame janelaBusca = new JFrame("Buscar");
+    private JLabel lblBuscar = new JLabel("Buscar");
 
-    private JButton btn1 = new JButton("Filiais");
-    private JButton btn2 = new JButton("Busca");
-    private JButton btn3 = new JButton("Mercadoria");
+    private JButton btnFiliais = new JButton("Filiais");
+    private JButton btnBusca = new JButton("Busca");
+    private JButton btnMercadoria = new JButton("Mercadoria");
 
     //método construtor
     public TelaBusca(){
 
         //aqui setamos as medidas de nossos atributos
-        lbl1.setFont(new Font("Arial", Font.BOLD, 20));
-        lbl1.setBounds(100, 20, 160, 30);
+        lblBuscar.setFont(new Font("Arial", Font.BOLD, 20));
+        lblBuscar.setBounds(130, 20, 160, 30);
 
-        btn1.setBounds(115, 100, 100, 30);
-        btn2.setBounds(115, 150, 100, 30);
-        btn3.setBounds(115, 200, 100, 30);
+        btnFiliais.setBounds(115, 100, 100, 30);
+        btnBusca.setBounds(115, 150, 100, 30);
+        btnMercadoria.setBounds(115, 200, 100, 30);
         
-        frm.setLayout(null);
+        janelaBusca.setLayout(null);
 
-        frm.add(lbl1);
-        frm.add(btn1);
-        frm.add(btn2);
-        frm.add(btn3);
+        janelaBusca.add(lblBuscar);
+        janelaBusca.add(btnFiliais);
+        janelaBusca.add(btnBusca);
+        janelaBusca.add(btnMercadoria);
 
-        frm.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frm.setVisible(true);
-        frm.setLocationRelativeTo(null); 
-        frm.setSize(350, 350);   
+        janelaBusca.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        janelaBusca.setVisible(true);
+        janelaBusca.setLocationRelativeTo(null); 
+        janelaBusca.setSize(350, 350);   
     }
 
     public static void main(String[] args) {
