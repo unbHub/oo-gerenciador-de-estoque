@@ -8,9 +8,8 @@ public class Bebida extends Mercadoria {
     private String volume;
 
 	public Bebida(String nome, int quantidade, double valor, 
-    		String codigoMercadoria, String descricao,
-			Date dataValidade, String fornecedor, boolean alcool, String volume) {
-    	
+    		String codigoMercadoria, Date dataValidade, 
+    		String fornecedor, boolean alcool, String volume) {
 	}
 
     //getters e setters

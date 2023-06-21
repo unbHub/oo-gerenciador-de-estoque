@@ -5,11 +5,11 @@ import java.util.Date;
 public class Alimento extends Mercadoria {
 	
 	private boolean perecivel;
-	private String massa;
+	private double massa;
 	
     public Alimento(String nome, int quantidade, double valor, 
-    		String codigoMercadoria, String descricao, Date dataValidade,
-    		String fornecedor, boolean perecivel, String massa){
+    		String codigoMercadoria, Date dataValidade,
+    		String fornecedor, boolean perecivel, double massa){
         
    }
     public boolean isPerecivel() {
@@ -20,11 +20,11 @@ public class Alimento extends Mercadoria {
 		this.perecivel = perecivel;
 	}
 
-	public String getMassa() {
+	public double getMassa() {
 		return massa;
 	}
 
-	public void setMassa(String massa) {
+	public void setMassa(double massa) {
 		this.massa = massa;
 	}
 }

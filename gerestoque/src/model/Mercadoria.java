@@ -5,12 +5,10 @@ import java.util.Date;
 
 public abstract class Mercadoria {
 	
-	//Usando encapsulamento protected porque private nao dá acesso para as outras classes
 	protected String nome;
 	protected int quantidade;
 	protected double valor;
 	protected String codigoMercadoria;
-	protected String descricao;
 	protected Date dataValidade;
 	protected String fornecedor;
 	
@@ -43,12 +41,6 @@ public abstract class Mercadoria {
 		public void setCodigo(String codigo) {
 			this.codigoMercadoria = codigo;
 		}
-		public String getDescricao() {
-			return descricao;
-		}
-		public void setDescricao(String descricao) {
-			this.descricao = descricao;
-		}
 		public Date getDataValidade() {
 			return dataValidade;
 		}
@@ -66,7 +58,7 @@ public abstract class Mercadoria {
 		public String toString() {
 			return "Mercadoria [nome=" + nome + ", quantidade=" + quantidade 
 					+ ", valor=" + valor + ", codigo=" + codigoMercadoria
-					+ ", descricao=" + descricao + ", dataValidade=" + dataValidade 
+					+ ", descricao=" + ", dataValidade=" + dataValidade 
 					+ ", fornecedor=" + fornecedor
 					+ "]";
 		}
