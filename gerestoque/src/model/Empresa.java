@@ -10,13 +10,14 @@ public class Empresa {
 	private int idFilial;
     //private Filial filial;
 
-	// Construtor
+	// Construtor empresa
     public Empresa(String n) {
+    	ArrayList<Filial> filiais = new ArrayList<Filial>();
         nome = n;
 
     }
 
-    // Metodos autogerados
+    // Metodos autogerados gets e sets
     public String getNome() {
         return nome;
     }
@@ -48,11 +49,11 @@ public class Empresa {
 		this.filiais = filiais;
 	}
 
-    // Metodos
+    // Metodo de adição de filial
     public void addFilial(Filial filial) {
         filiais.add(filial);
     }
-
+    // Metodo de remoção de filial
     public void remFilial(Filial filial) {
         filiais.remove(filial);
     }
