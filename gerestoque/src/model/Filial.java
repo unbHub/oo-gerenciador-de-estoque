@@ -4,13 +4,13 @@ import java.util.ArrayList;
 public class Filial {
     private String nome;
     private double valorTotal;
-    private int idFilial;
+    private String idFilial;
     private ArrayList<Mercadoria> mercadorias = new ArrayList<>();
     //private Mercadoria mercadoriasNoEstoque;
 	//private boolean idCorreto;
 
 	//Construtor
-    public Filial(String n, int iF) {
+    public Filial(String n, String iF) {
         nome = n;
         idFilial = iF;
   
@@ -29,10 +29,10 @@ public class Filial {
     public void setValorTotal(int valorTotal) {
         this.valorTotal = valorTotal;
     }
-    public int getId() {
+    public String getId() {
         return idFilial;
     }
-    public void setId(int id) {
+    public void setId(String id) {
         this.idFilial = id;
     }
 	public ArrayList<Mercadoria> getMercadorias() {
@@ -61,7 +61,7 @@ public class Filial {
 
     @Override
     public String toString() {
-        return "Filial [nome=" + nome + ", valorTotal=" + valorTotal + ", id=" 
+        return "Filial [nome=" + nome + ", id=" 
         		+ idFilial;
     }
 
