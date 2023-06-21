@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 public class TelaFilial extends JFrame implements ActionListener {
     
-	private String novoDado[] = new String[8];
+	//private String novoDado[] = new String[8];
     //aqui colocamos os atributos que iremos utilizar para montarmos nossa tela
 
     //atributos para montagem dos labels

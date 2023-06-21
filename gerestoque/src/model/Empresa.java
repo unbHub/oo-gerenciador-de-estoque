@@ -12,7 +12,7 @@ public class Empresa {
 
 	// Construtor empresa
     public Empresa(String n) {
-    	ArrayList<Filial> filiais = new ArrayList<Filial>();
+    	this.filiais = new ArrayList<Filial>();
         nome = n;
 
     }
@@ -60,9 +60,9 @@ public class Empresa {
 
     // Método com For Each que percorre as filiais da empresa usando o parâmetro do
     // código da filial
-    public Filial buscarFilial(int id) {
+    public Filial buscarFilial(String id) {
         for (Filial f : filiais) {
-            if (f.getId() == id){
+            if (f.getId().equals(id)){
                 return f;
                 
             }
