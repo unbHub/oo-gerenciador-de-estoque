@@ -105,7 +105,7 @@ public class TelaMercadoria extends JFrame {
 
 
         //aqui configuramos o nosso JFrame
-        frm.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frm.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         frm.setVisible(true);
         frm.setLocationRelativeTo(null); 
         frm.setSize(350, 520);     

@@ -59,7 +59,7 @@ public class TelaFilial extends JFrame implements ActionListener {
         frm.setVisible(true);
         frm.setLocationRelativeTo(null); 
         frm.setSize(400, 300);  
-        frm.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frm.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
     public void actionPerformed(ActionEvent f){
         Object src = f.getSource();
