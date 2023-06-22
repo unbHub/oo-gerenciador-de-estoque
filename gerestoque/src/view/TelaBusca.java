@@ -35,6 +35,7 @@ public class TelaBusca extends JFrame {
         janelaBusca.setVisible(true);
         janelaBusca.setLocationRelativeTo(null); 
         janelaBusca.setSize(350, 350);   
+
     }
 
     public static void main(String[] args) {
