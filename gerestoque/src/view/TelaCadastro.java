@@ -69,7 +69,7 @@ public class TelaCadastro extends JFrame{
         //cadastroFilial.add(botaoEst);
 
         //aqui configuramos o nosso JFrame
-        cadastroFilial.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        cadastroFilial.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         cadastroFilial.setVisible(true);
         cadastroFilial.setLocationRelativeTo(null); 
         cadastroFilial.setSize(400, 200);     

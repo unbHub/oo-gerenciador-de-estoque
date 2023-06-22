@@ -1,18 +1,30 @@
 package view;
 
 import model.*;
-import model.Dados;
+import java.util.ArrayList;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.ListSelectionListener;
+
 public class TelaFilial extends JFrame implements ActionListener {
     
 	//private String novoDado[] = new String[8];
+	private int indexSelElement;
+	public int getIndexSelElement() {
+		return indexSelElement;
+	}
+	public void setIndexSelElement(int indexSelElement) {
+		this.indexSelElement = indexSelElement;
+	}
+
     //aqui colocamos os atributos que iremos utilizar para montarmos nossa tela
 
-    //atributos para montagem dos labels
+	//atributos para montagem dos labels
     private JFrame janelaFilial = new JFrame("Filiais");
     private JLabel lblFilial = new JLabel("Filiais");
     private JTextField nomeFilial;
@@ -26,8 +38,9 @@ public class TelaFilial extends JFrame implements ActionListener {
     private JButton btnAtualizarFilial = new JButton("Atualizar", img4);
     
     //lista de filiais cadastradas em nosso sistema
-    private String[] filiais = {"Congonhas", "Japão", "Jacarezinho", "Acre"};
-    private JList lst = new JList(filiais);
+    //private String[] filiais = {"Congonhas", "Japão", "Jacarezinho", "Acre"};
+    //private JList lst = new JList();
+    ArrayList<String> listaFiliais = new ArrayList<String> ();
     
     
 
@@ -38,9 +51,11 @@ public class TelaFilial extends JFrame implements ActionListener {
         //aqui setamos as medidas e as posições de nossos labels
         lblFilial.setFont(new Font("Arial", Font.BOLD, 20));
         lblFilial.setBounds(10, 0, 500, 30);
+        
+        JList<Object> filiaisAdicionadas = new JList<Object> (listaFiliais.toArray());
 
         //posição e tamanho da nossa lista
-        lst.setBounds(10, 50, 150, 300);
+        //lst.setBounds(10, 50, 150, 300);
 
         //posição e tamanho dos botões
         btnAdicionarFilial.setBounds(170, 100, 200, 30);
@@ -50,7 +65,7 @@ public class TelaFilial extends JFrame implements ActionListener {
 
         //aqui adicionamos todos os elementos em nosso JFrame
         janelaFilial.add(lblFilial);
-        janelaFilial.add(BorderLayout.WEST, lst);
+        //janelaFilial.add(BorderLayout.WEST, lst);
         janelaFilial.add(btnAdicionarFilial);
         janelaFilial.add(btnAtualizarFilial);
 
@@ -59,7 +74,16 @@ public class TelaFilial extends JFrame implements ActionListener {
         janelaFilial.setVisible(true);
         janelaFilial.setLocationRelativeTo(null); 
         janelaFilial.setSize(400, 300);  
-        janelaFilial.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        janelaFilial.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        
+        filiaisAdicionadas.addListSelectionListener(new ListSelectionListener() {
+				
+				@Override
+				public void valueChanged(ListSelectionEvent e) {
+					int elemento = filiaisAdicionadas.getSelectedIndex();
+					setIndexSelElement(elemento);
+				}
+			});
     }
     public void actionPerformed(ActionEvent f){
         Object src = f.getSource();
