@@ -30,15 +30,18 @@ public class TelaCadastro extends JFrame{
 		return idFilialBox;
 	}
 
-  
-
     //botões
-    private JButton botaoSalvar = new JButton("Salvar");
+    private static JButton botaoSalvar = new JButton("Salvar");
     //private static JButton botaoExcluir = new JButton("Excluir");
     //private static JButton botaoRelator = new JButton("Relatório");
     //private static JButton botaoEst = new JButton("Estoque");
     
-    private ControleDados cd = new ControleDados();
+    public static JButton getBotaoSalvar() {
+		return botaoSalvar;
+	}
+
+
+	private ControleDados cd = new ControleDados();
     
     public TelaCadastro(){
 
@@ -57,9 +60,7 @@ public class TelaCadastro extends JFrame{
         nomeFilialBox.setBounds(180, 20, 180, 25);
         idFilialBox.setPreferredSize(new Dimension(300, 25));
         idFilialBox.setBounds(200, 60, 160, 25);
-        //remFilialBox.setPreferredSize(new Dimension(300, 25));
-        //remFilialBox.setBounds(20, 175, 70, 27);
-
+        
         cadastroFilial.setLayout(null);
 
         //aqui adicionamos todos os elementos em nosso JFrame
@@ -67,11 +68,7 @@ public class TelaCadastro extends JFrame{
         cadastroFilial.add(lbl2);
         cadastroFilial.add(nomeFilialBox);
         cadastroFilial.add(idFilialBox);
-        //cadastroFilial.add(remFilialBox);
         cadastroFilial.add(botaoSalvar);
-        //cadastroFilial.add(botaoExcluir);
-        //cadastroFilial.add(botaoRelator);
-        //cadastroFilial.add(botaoEst);
 
         //aqui configuramos o nosso JFrame
         cadastroFilial.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -103,8 +100,8 @@ public class TelaCadastro extends JFrame{
 					JOptionPane.showMessageDialog(null, "Insira apenas numeros "
 							+ "no id da filial");
 				}
-				if (nomeFilial.isEmpty() == false & !nomeFilial.matches("[0-9]+")
-						& idFilial.isEmpty() == false & idFilial.matches("[0-9]+")) {
+        		else /*(nomeFilial.isEmpty() == false & !nomeFilial.matches("[0-9]+")
+						& idFilial.isEmpty() == false & idFilial.matches("[0-9]+"))*/ {
 					
 					Dados.getFiliais().add(cd.inserirFiliais(nomeFilial, idFilial));
 					JOptionPane.showMessageDialog(null, "Filial cadastrada com sucesso!");
