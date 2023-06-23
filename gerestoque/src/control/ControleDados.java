@@ -1,26 +1,19 @@
 package control;
 import model.*;
-import java.util.Date;
 import model.Filial;
+import java.util.Date;
 import model.Empresa;
-//import java.util.ArrayList;
+import java.util.List;
+import java.util.ArrayList;
 
 public class ControleDados {
 	
 	//Instância previa de empresa
-	private static Empresa mercado =  new Empresa("Mercado orientado");
+	private static Empresa mercado = new Empresa("Mercado orientado");
 	
-	private Dados d = new Dados();
 	private String tipoMercadoria;
 	private String escolha;
-
-	public Dados getDados() {
-		return d;
-	}
-
-	public void setDados(Dados d) {
-		this.d = d;
-	}
+	
 	public String getTipoMercadoria() {
 		return tipoMercadoria;
 	}
@@ -31,14 +24,15 @@ public class ControleDados {
 	public static Empresa getMercado() {
 		return mercado;
 	}
+	
 	//Metodo de inserção de filiais
 	public Filial inserirFiliais(String nome, String idFil) {
 		Filial cadastro = new Filial(nome, idFil);
 		mercado.addFilial(cadastro);
-		return null;
+		return cadastro;
 	}
 	//remoção de filiais
-	public void removerFilial(String idFilial, Empresa empresa) {
+	public static void removerFilial(String idFilial, Empresa empresa) {
 		empresa.remFilial(empresa.buscarFilial(idFilial));
 		
 	}
