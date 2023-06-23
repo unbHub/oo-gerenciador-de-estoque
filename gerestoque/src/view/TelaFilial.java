@@ -6,12 +6,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionListener;
 
-public class TelaFilial extends JFrame implements ActionListener {
+public class TelaFilial extends JFrame {
     
 	//private String novoDado[] = new String[8];
 	private int indexSelElement;
@@ -30,12 +29,12 @@ public class TelaFilial extends JFrame implements ActionListener {
     private JTextField nomeFilial;
 
     //aqui utilizamos um recurso do Swing para adicionarmos ícones em nossos botões
-    private ImageIcon img1 = new ImageIcon("C:/Users/f1l1p/Desktop/TOP SECRET/projeto oo/OO-UnB---2023.1---Gerenciamento-de-Estoque-/gerestoque/bin/images/maizin.png");
-    private ImageIcon img4 = new ImageIcon("C:/Users/f1l1p/Desktop/TOP SECRET/projeto oo/OO-UnB---2023.1---Gerenciamento-de-Estoque-/gerestoque/bin/images/atualizar.png");
+    //private ImageIcon img1 = new ImageIcon("C:/Users/f1l1p/Desktop/TOP SECRET/projeto oo/OO-UnB---2023.1---Gerenciamento-de-Estoque-/gerestoque/bin/images/maizin.png");
+    //private ImageIcon img4 = new ImageIcon("C:/Users/f1l1p/Desktop/TOP SECRET/projeto oo/OO-UnB---2023.1---Gerenciamento-de-Estoque-/gerestoque/bin/images/atualizar.png");
     
     //botões
-    private static JButton btnAdicionarFilial = new JButton("Adicionar Filial");
-    private JButton btnAtualizarFilial = new JButton("Atualizar", img4);
+    private JButton btnAdicionarFilial = new JButton("Adicionar Filial");
+    private JButton btnAtualizarFilial = new JButton("Atualizar");
     
     //lista de filiais cadastradas em nosso sistema
     //private String[] filiais = {"Congonhas", "Japão", "Jacarezinho", "Acre"};
@@ -75,7 +74,7 @@ public class TelaFilial extends JFrame implements ActionListener {
         janelaFilial.setLocationRelativeTo(null); 
         janelaFilial.setSize(400, 300);  
         janelaFilial.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        
+
         filiaisAdicionadas.addListSelectionListener(new ListSelectionListener() {
 				
 				@Override
@@ -85,20 +84,8 @@ public class TelaFilial extends JFrame implements ActionListener {
 				}
 			});
     }
-    public void actionPerformed(ActionEvent f){
-        Object src = f.getSource();
-        	if(src == btnAdicionarFilial){
-        		
-        		new TelaCadastro().setVisible(true);
 
-        	}
-        }
-        
     public static void main(String[] args) {
-        TelaFilial tf = new TelaFilial();
-        
-        btnAdicionarFilial.addActionListener(tf);
-        
-        
+        new TelaFilial().setVisible(true);
     }
 }
