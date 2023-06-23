@@ -43,7 +43,7 @@ public class TelaComBotoes extends JFrame implements ActionListener{
         Object src = e.getSource();
 
         if(src == btnFilial){
-            new TelaFilial().setVisible(true);
+            new TelaFilial(null).setVisible(true);
         }
 
     }

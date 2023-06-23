@@ -19,22 +19,27 @@ public class TelaCadastro extends JFrame{
     private JLabel lbl2 = new JLabel("Digite o identificador da filial: ");
     
     //atributos para os campos de texto
-    private JTextField nomeFilialBox = new JTextField();
-    private JTextField idFilialBox = new JTextField();
-    //private JTextField remFilialBox = new JTextField();
+    private static JTextField nomeFilialBox = new JTextField();
+    private static JTextField idFilialBox = new JTextField();
+    
+    public static JTextField getNomeFilialBox() {
+		return nomeFilialBox;
+	}
+
+	public static JTextField getIdFilialBox() {
+		return idFilialBox;
+	}
+
+  
 
     //botões
-    private static JButton botaoSalvar = new JButton("Salvar");
+    private JButton botaoSalvar = new JButton("Salvar");
     //private static JButton botaoExcluir = new JButton("Excluir");
     //private static JButton botaoRelator = new JButton("Relatório");
     //private static JButton botaoEst = new JButton("Estoque");
     
     private ControleDados cd = new ControleDados();
     
-    public void inserir() {
-    	
-    }
-
     public TelaCadastro(){
 
         //aqui setamos as medidas e as posições de nossos labels
@@ -100,17 +105,17 @@ public class TelaCadastro extends JFrame{
 					
 					Dados.getFiliais().add(cd.inserirFiliais(nomeFilial, idFilial));
 					JOptionPane.showMessageDialog(null, "Filial cadastrada com sucesso!");
+					
 				}	
 				
         	}
         });
+
           
     }
-
-   
-    public static void main(String[] args) {
-        new TelaCadastro().setVisible(true);
-    }
+    /*public static void main(String[] args) {
+    	TelaCadastro tc = new TelaCadastro();
+    }*/
 
 
 }

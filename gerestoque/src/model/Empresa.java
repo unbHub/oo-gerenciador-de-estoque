@@ -1,18 +1,20 @@
 package model;
 
+import java.awt.Component;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Empresa {
 
     private String nome;
-    private ArrayList<Filial> filiais;
-    private String nomeFilial;
+    private List<Filial> filiais;
+	private String nomeFilial;
 	private int idFilial;
     //private Filial filial;
 
 	// Construtor empresa
     public Empresa(String n) {
-    	this.filiais = new ArrayList<Filial>();
+    	filiais = new ArrayList<Filial>();
         nome = n;
 
     }
@@ -40,14 +42,14 @@ public class Empresa {
  	public void setIdFilial(int idFilial) {
  		this.idFilial = idFilial;
  	}
+    public List<Filial> getFiliais() {
+ 		return filiais;
+ 	}
 
-  public ArrayList<Filial> getFiliais() {
-		return filiais;
-	}
+ 	public void setFiliais(List<Filial> filiais) {
+ 		this.filiais = filiais;
+ 	}
 
-	public void setFiliais(ArrayList<Filial> filiais) {
-		this.filiais = filiais;
-	}
 
     // Metodo de adição de filial
     public void addFilial(Filial filial) {
