@@ -16,7 +16,6 @@ import view.TelaCadastro;
 
 public class TelaFilial extends JFrame{
 
-
 	//atributos para montagem dos labels
     private JFrame janelaFilial = new JFrame("Filiais");
     
@@ -130,12 +129,11 @@ public class TelaFilial extends JFrame{
     	modelF.addRow(new Object[]{"Jacarézinho", "321"});
     	modelF.addRow(new Object[]{"Jacarepaguá", "432"});
     	
-
-
-    	
     }
+
     public static void main(String[] args) {
         new TelaFilial(null).setVisible(true);
+    
     }
-
 }
+
