@@ -23,13 +23,18 @@ public class TelaFilial extends JFrame{
     //private JFrame janelaFilial = new JFrame("Filiais");
     private JLabel lblFilial = new JLabel("Filiais");
 
+    //aqui utilizamos um recurso do Swing para adicionarmos ícones em nossos botões
+    //private ImageIcon img1 = new ImageIcon("C:/Users/f1l1p/Desktop/TOP SECRET/projeto oo/OO-UnB---2023.1---Gerenciamento-de-Estoque-/gerestoque/bin/images/maizin.png");
+    //private ImageIcon img4 = new ImageIcon("C:/Users/f1l1p/Desktop/TOP SECRET/projeto oo/OO-UnB---2023.1---Gerenciamento-de-Estoque-/gerestoque/bin/images/atualizar.png");
+    
+
     //botões
     private JButton btnAdicionarFilial = new JButton("Adicionar Filial");
     private JButton btnRemoverFilial = new JButton("Remover Filial");
     private JButton btnAtualizarFilial = new JButton("Atualizar");
     
     ControleDados cd = new ControleDados();
-    
+
     
     //lista de filiais cadastradas em nosso sistema
     
@@ -132,8 +137,11 @@ public class TelaFilial extends JFrame{
         janelaFilial.setLocationRelativeTo(null); 
         janelaFilial.setSize(800, 500);  
         janelaFilial.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        
+        janelaFilial.setSize(400, 300);  
+        janelaFilial.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         */
-
+    
         add(janelaPanel, BorderLayout.NORTH);
         setVisible(true);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -185,10 +193,9 @@ public class TelaFilial extends JFrame{
 		this.indexSelElement = indexSelElement;
 	}
 
+
     public static void main(String[] args) {
-        TelaFilial tf = new TelaFilial(null);
-        
-        
+        new TelaFilial(null).setVisible(true);
     }
 
 }
