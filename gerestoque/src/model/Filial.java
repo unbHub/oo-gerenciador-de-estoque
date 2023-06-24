@@ -1,16 +1,16 @@
 package model;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Filial {
     private String nome;
     private double valorTotal;
     private String idFilial;
-    private ArrayList<Mercadoria> mercadorias = new ArrayList<>();
-    //private Mercadoria mercadoriasNoEstoque;
-	//private boolean idCorreto;
+    private List<Mercadoria> mercadorias;
 
 	//Construtor
     public Filial(String n, String iF) {
+    	mercadorias = new ArrayList<Mercadoria>();
         nome = n;
         idFilial = iF;
   
@@ -35,10 +35,11 @@ public class Filial {
     public void setId(String id) {
         this.idFilial = id;
     }
-	public ArrayList<Mercadoria> getMercadorias() {
+	public List<Mercadoria> getMercadorias() {
 		return mercadorias;
 	}
-	public void setMercadorias(ArrayList<Mercadoria> mercadorias) {
+
+	public void setMercadorias(List<Mercadoria> mercadorias) {
 		this.mercadorias = mercadorias;
 	}
 
@@ -61,7 +62,7 @@ public class Filial {
 
     @Override
     public String toString() {
-        return "Filial [nome=" + nome + ", id=" 
+        return "Filial [nome = " + nome + ", id =" 
         		+ idFilial;
     }
 

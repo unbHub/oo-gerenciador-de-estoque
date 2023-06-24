@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TelaComBotoes extends JFrame implements ActionListener{
+public class TelaComBotoes extends JFrame {
     
     //atributos informados do Swing para formarmos a janela:
     private JFrame janelaMenu = new JFrame("GERENCIADOR DE ESTROQUE");
@@ -37,21 +37,31 @@ public class TelaComBotoes extends JFrame implements ActionListener{
         janelaMenu.setVisible(true);
         janelaMenu.setLocationRelativeTo(null); 
         janelaMenu.setSize(350, 350);        
+        
+        btnFilial.addActionListener(new ActionListener() {
+        	
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		new TelaFilial(null).setVisible(true);
+				
+        	}
+        });
+        
+        btnBusca.addActionListener(new ActionListener() {
+        	
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		new TelaBusca().setVisible(true);
+				
+        	}
+        });
     }
 
-    public void actionPerformed(ActionEvent e){
-        Object src = e.getSource();
-
-        if(src == btnFilial){
-            new TelaFilial().setVisible(true);
-        }
-    }
 
     public static void main(String[] args) {
         
         TelaComBotoes menu = new TelaComBotoes();
         
-        btnFilial.addActionListener(menu);
         
     }
   }
