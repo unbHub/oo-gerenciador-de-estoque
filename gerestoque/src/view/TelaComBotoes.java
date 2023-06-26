@@ -42,7 +42,7 @@ public class TelaComBotoes extends JFrame {
         	
         	@Override
         	public void actionPerformed(ActionEvent e) {
-        		new TelaFilial().setVisible(true);
+        		new TelaFilial(null).setVisible(true);
 				
         	}
         });
@@ -57,7 +57,6 @@ public class TelaComBotoes extends JFrame {
         });
     }
 
-    
 
     public static void main(String[] args) {
         

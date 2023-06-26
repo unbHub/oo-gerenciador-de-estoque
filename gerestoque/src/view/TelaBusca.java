@@ -37,7 +37,7 @@ public class TelaBusca extends JFrame {
         janelaBusca.setVisible(true);
         janelaBusca.setLocationRelativeTo(null); 
         janelaBusca.setSize(350, 350);   
-        
+
         btnFiliais.addActionListener(new ActionListener() {
         	
         	@Override
@@ -55,7 +55,6 @@ public class TelaBusca extends JFrame {
 				
         	}
         });
-
     }
 
 }
