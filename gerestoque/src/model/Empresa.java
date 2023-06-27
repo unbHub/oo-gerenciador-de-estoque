@@ -52,9 +52,10 @@ public class Empresa {
 
 
     // Metodo de adição de filial
-    public void addFilial(Filial filial) {
+    
+ 	/*public void addFilial(Filial filial) {
         filiais.add(filial);
-    }
+    }*/
     // Metodo de remoção de filial
     public void remFilial(Filial filial) {
         filiais.remove(filial);

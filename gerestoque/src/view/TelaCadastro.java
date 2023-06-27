@@ -88,26 +88,23 @@ public class TelaCadastro extends JFrame{
         		
         		if (nomeFilial.isEmpty() == true) {
 					JOptionPane.showMessageDialog(null, "Insira o nome da Filial");
-				}
-        		if (idFilial.isEmpty() == true) {
-					JOptionPane.showMessageDialog(null, "Insira o id da Filial");
-				}
-        		else if (nomeFilial.matches("[0-9]+")) {
+				} else if (nomeFilial.matches("[0-9]+")) {
 					JOptionPane.showMessageDialog(null, "Insira apenas letras "
 							+ "no nome da filial");
 				}
-        		else if (!idFilial.matches("[0-9]+")) {
+        		
+        		if (idFilial.isEmpty() == true) {
+					JOptionPane.showMessageDialog(null, "Insira o id da Filial");
+				} else if (!idFilial.matches("[0-9]+")) {
 					JOptionPane.showMessageDialog(null, "Insira apenas numeros "
 							+ "no id da filial");
 				}
-        		else /*(nomeFilial.isEmpty() == false & !nomeFilial.matches("[0-9]+")
-						& idFilial.isEmpty() == false & idFilial.matches("[0-9]+"))*/ {
-					
-					Dados.getFiliais().add(cd.inserirFiliais(nomeFilial, idFilial));
+        		
+        		if (!nomeFilial.isEmpty() && !nomeFilial.matches("[0-9]+") && !idFilial.isEmpty() && idFilial.matches("[0-9]+")) {
+        			cd.inserirFiliais(nomeFilial, idFilial);
 					JOptionPane.showMessageDialog(null, "Filial cadastrada com sucesso!");
-					
-				}	
-				
+        		}        			
+
         	}
         });
 

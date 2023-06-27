@@ -28,17 +28,17 @@ public class ControleDados {
 	//Metodo de inserção de filiais
 	public Filial inserirFiliais(String nome, String idFil) {
 		Filial cadastro = new Filial(nome, idFil);
-		mercado.addFilial(cadastro);
+		Dados.getFiliais().add(cadastro);
 		return cadastro;
 	}
 	//remoção de filiais
-	public static void removerFilial(String idFilial, Empresa empresa) {
-		empresa.remFilial(empresa.buscarFilial(idFilial));
+	public void removerFilial(String idFilial) {
+		mercado.remFilial(mercado.buscarFilial(idFilial));
 		
 	}
 	//buscar filiais
-	public void buscarFiliais(String idFilial, Empresa empresa) {
-		empresa.buscarFilial(idFilial);
+	public void buscarFiliais(String idFilial) {
+		mercado.buscarFilial(idFilial);
 	}
 	//edição de filiais
 	public void editarFiliais(String nome, String idFilial, Filial filial) {
@@ -54,17 +54,17 @@ public class ControleDados {
 			case "Alimento":
 				Alimento novoAlimento = new Alimento(nome, quantidade, valor, 
 			    		codigo,dv,fornecedor, perecivel, massa);
-				filial.addMercadoria(novoAlimento);
+				Dados.getMercadorias().add(novoAlimento);
 				break;
 			case "Bebida":
 				Bebida novaBebida = new Bebida(nome, quantidade, valor, 
 			    		codigo, dv, fornecedor, alcool, volume);
-				filial.addMercadoria(novaBebida);
+				Dados.getMercadorias().add(novaBebida);
 				break;
 			case "Casa":
 				Casa novoProdCasa = new Casa(nome, quantidade, valor, codigo, 
 			    		dv, fornecedor, pdLimpeza, estadoFis);
-				filial.addMercadoria(novoProdCasa);
+				Dados.getMercadorias().add(novoProdCasa);
 				break;
 		}
 	}

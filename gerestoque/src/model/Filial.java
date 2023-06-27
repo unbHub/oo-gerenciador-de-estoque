@@ -44,10 +44,11 @@ public class Filial {
 	}
 
     //Metodos 
+	/*
     public void addMercadoria(Mercadoria mercadoria) {
         mercadorias.add(mercadoria);
     }
-
+	*/
     public void remMercadoria(Mercadoria mercadoria) {
         mercadorias.remove(mercadoria);
     }
