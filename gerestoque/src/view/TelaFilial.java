@@ -19,16 +19,23 @@ public class TelaFilial extends JFrame{
 
 	//atributos para montagem dos labels
     private JFrame janelaFilial = new JFrame("Filiais");
-    
     private JLabel lblFilial = new JLabel("Filiais");
+	
+	private JLabel cadastroFilial = new JLabel("Cadastro de Filiais:");
+	private JLabel lbl1 = new JLabel("Digite o nome da filial: ");
+    private JLabel lbl2 = new JLabel("Digite o identificador da filial: ");
+
+	private static JTextField nomeFilialBox = new JTextField();
+    private static JTextField idFilialBox = new JTextField();
     
     private JTextField txtFiltroFilial = new JTextField();
+
 
     //botões
     private JButton btnAdicionarFilial = new JButton("Adicionar Filial");
     private JButton btnRemoverFilial = new JButton("Remover Filial");
-    private JButton btnAtualizarFilial = new JButton("Atualizar");
     private JButton btnFiltrarFilial = new JButton("Filtrar Filial");
+	private static JButton botaoSalvar = new JButton("Salvar");
     
     ControleDados cd = new ControleDados();
     
@@ -38,28 +45,42 @@ public class TelaFilial extends JFrame{
     JTable jTFiliais = new JTable(modelF);
     JScrollPane scrollpaineltabela = new JScrollPane(jTFiliais);
     
-    Filial filial = new Filial("banana", "2345");
-    
-    
-    ArrayList<String> listaFiliais = new ArrayList<String>();
-
 
     //método construtor que irá gerar nossa tela
-    public TelaFilial(Filial filiais){
+    public TelaFilial(){
     	
     	configInter();    	       
         
     	configEvent();
 
-        
-
+    
         btnAdicionarFilial.addActionListener(new ActionListener() {
         	
         	@Override
         	public void actionPerformed(ActionEvent e) {
-        		new TelaCadastro().setVisible(true);
-        	}
-        });
+        		String nomeFilial = nomeFilialBox.getText();
+        		String idFilial = idFilialBox.getText();
+        		
+        		if (nomeFilial.isEmpty() == true) {
+					JOptionPane.showMessageDialog(null, "Insira o nome da Filial");
+				} else if (nomeFilial.matches("[0-9]+")) {
+					JOptionPane.showMessageDialog(null, "Insira apenas letras "
+							+ "no nome da filial");
+				}
+        		
+        		if (idFilial.isEmpty() == true) {
+					JOptionPane.showMessageDialog(null, "Insira o id da Filial");
+				} else if (!idFilial.matches("[0-9]+")) {
+					JOptionPane.showMessageDialog(null, "Insira apenas numeros "
+							+ "no id da filial");
+				}
+        		
+        		if (!nomeFilial.isEmpty() && !nomeFilial.matches("[0-9]+") && !idFilial.isEmpty() && idFilial.matches("[0-9]+")) {
+        			Dados.getFiliais().add(cd.inserirFiliais(nomeFilial, idFilial));
+					JOptionPane.showMessageDialog(null, "Filial cadastrada com sucesso!");
+                    
+        		}        			
+        }});
         
 		btnRemoverFilial.addActionListener(new ActionListener() {
 			
@@ -94,18 +115,6 @@ public class TelaFilial extends JFrame{
 			}
 		});
 		
-	    btnAtualizarFilial.addActionListener(new ActionListener() {
-        	@Override
-        	public void actionPerformed(ActionEvent e) {
-        
-	        	if(TelaCadastro.getBotaoSalvar().isEnabled())	{
-	        		modelF.addRow(new Object[]{TelaCadastro.getNomeFilialBox().getText(), 
-		        			TelaCadastro.getIdFilialBox().getText()});
-	        	}
-	        	
-        	}
-	    });
-	    
 	    btnFiltrarFilial.addActionListener(new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
@@ -140,16 +149,22 @@ public class TelaFilial extends JFrame{
     	jTFiliais = new JTable(modelF);
     	scrollpaineltabela = new JScrollPane(jTFiliais);
     	
+		
         //aqui adicionamos todos os elementos em nosso JFrame
         lblFilial.setBounds(20, 10, 200, 30);
         lblFilial.setFont(new Font("Arial", Font.BOLD, 20));
         janelaFilial.getContentPane().setLayout(null);
         janelaFilial.getContentPane().add(lblFilial);
+		janelaFilial.getContentPane().add(cadastroFilial);
+		janelaFilial.getContentPane().add(lbl1);
+		janelaFilial.getContentPane().add(lbl2);
+		janelaFilial.getContentPane().add(nomeFilialBox);
+		janelaFilial.getContentPane().add(idFilialBox);
         janelaFilial.getContentPane().add(txtFiltroFilial);
         janelaFilial.getContentPane().add(btnAdicionarFilial);
         janelaFilial.getContentPane().add(btnRemoverFilial);
-        janelaFilial.getContentPane().add(btnAtualizarFilial);
         janelaFilial.getContentPane().add(btnFiltrarFilial);
+        janelaFilial.getContentPane().add(botaoSalvar);
         
         scrollpaineltabela.setBounds(10, 50, 350, 150);
         janelaFilial.getContentPane().add(scrollpaineltabela);
@@ -159,19 +174,26 @@ public class TelaFilial extends JFrame{
         txtFiltroFilial.setBounds(150, 10, 200, 25);
     	
         //posição e tamanho dos botões
-        btnAdicionarFilial.setBounds(100, 250, 200, 30);
-        btnRemoverFilial.setBounds(100, 290, 200, 30);
-        btnAtualizarFilial.setBounds(100, 330, 200, 30);
-        btnFiltrarFilial.setBounds(100, 370, 200, 30);
+        btnAdicionarFilial.setBounds(100, 220, 200, 30);
+        btnRemoverFilial.setBounds(100, 260, 200, 30);
+        btnFiltrarFilial.setBounds(100, 300, 200, 30);
         
         modelF.addColumn("Nome Filial");
         modelF.addColumn("Id");
         
         //aqui configuramos o nosso JFrame
-        janelaFilial.setVisible(true);
-        janelaFilial.setLocationRelativeTo(null); 
-        janelaFilial.setSize(400, 450);  
+        janelaFilial.setVisible(true); 
+        janelaFilial.setSize(650, 400);  
+		janelaFilial.setLocationRelativeTo(null);
         janelaFilial.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
+		//configurações dos labels de cadastro
+		cadastroFilial.setFont(new Font("Arial", Font.BOLD, 20));
+		cadastroFilial.setBounds(400, 10, 200, 30);
+		lbl1.setBounds(400, 50 , 200, 30);
+		lbl2.setBounds(400, 120 , 200, 30);
+		nomeFilialBox.setBounds(400, 80, 200, 30);
+		idFilialBox.setBounds(400, 150, 200, 30);
     	
     }
     
@@ -190,7 +212,7 @@ public class TelaFilial extends JFrame{
     		
     }
     public static void main(String[] args) {
-        new TelaFilial(null).setVisible(true);
+        new TelaFilial();
     }
 
 }
