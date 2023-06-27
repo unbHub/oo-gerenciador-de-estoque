@@ -12,6 +12,7 @@ public class TelaComBotoes extends JFrame {
     private JLabel lblTitulo = new JLabel("Menu Principal");
     private static JButton btnFilial = new JButton("Filiais");
     private static JButton btnBusca = new JButton("Busca");
+    private static JButton btnMercadoria = new JButton("Mercadoria");
 
     public TelaComBotoes(){
         
@@ -21,7 +22,8 @@ public class TelaComBotoes extends JFrame {
         
         //configurações dos botões:
         btnFilial.setBounds(115, 100, 100, 30);
-        btnBusca.setBounds(115, 150, 100, 30);
+        //btnBusca.setBounds(115, 150, 100, 30);
+        btnMercadoria.setBounds(115, 150, 100, 30);
         
 
         janelaMenu.setLayout(null);
@@ -30,19 +32,20 @@ public class TelaComBotoes extends JFrame {
         janelaMenu.add(lblTitulo);
         janelaMenu.add(btnFilial);
         janelaMenu.add(btnBusca);
+        janelaMenu.add(btnMercadoria);
 
 
         //aqui configuramos as funções do JFrame
         janelaMenu.setDefaultCloseOperation(EXIT_ON_CLOSE);
         janelaMenu.setVisible(true);
-        janelaMenu.setLocationRelativeTo(null); 
-        janelaMenu.setSize(350, 350);        
+        janelaMenu.setSize(350, 350); 
+        janelaMenu.setLocationRelativeTo(null);        
         
         btnFilial.addActionListener(new ActionListener() {
         	
         	@Override
         	public void actionPerformed(ActionEvent e) {
-        		new TelaFilial(null).setVisible(true);
+        		new TelaFilial();
 				
         	}
         });
@@ -51,17 +54,23 @@ public class TelaComBotoes extends JFrame {
         	
         	@Override
         	public void actionPerformed(ActionEvent e) {
-        		new TelaBusca().setVisible(true);
+        		new TelaBusca();
 				
         	}
         });
+
+         btnMercadoria.addActionListener(new ActionListener() {
+        	
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        	    new TelaSelecao();
+        	}
+        });
+        
     }
 
 
     public static void main(String[] args) {
-        
-        TelaComBotoes menu = new TelaComBotoes();
-        
-        
+        new TelaComBotoes();
     }
   }
