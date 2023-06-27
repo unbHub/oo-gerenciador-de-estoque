@@ -32,13 +32,13 @@ public class ControleDados {
 		return cadastro;
 	}
 	//remoção de filiais
-	public static void removerFilial(String idFilial, Empresa empresa) {
-		empresa.remFilial(empresa.buscarFilial(idFilial));
+	public void removerFilial(String idFilial) {
+		mercado.remFilial(mercado.buscarFilial(idFilial));
 		
 	}
 	//buscar filiais
-	public void buscarFiliais(String idFilial, Empresa empresa) {
-		empresa.buscarFilial(idFilial);
+	public void buscarFiliais(String idFilial) {
+		mercado.buscarFilial(idFilial);
 	}
 	//edição de filiais
 	public void editarFiliais(String nome, String idFilial, Filial filial) {
