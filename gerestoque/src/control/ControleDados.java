@@ -28,7 +28,7 @@ public class ControleDados {
 	//Metodo de inserção de filiais
 	public Filial inserirFiliais(String nome, String idFil) {
 		Filial cadastro = new Filial(nome, idFil);
-		Dados.getFiliais().add(cadastro);
+		mercado.addFilial(cadastro);
 		return cadastro;
 	}
 	//remoção de filiais
@@ -45,29 +45,31 @@ public class ControleDados {
 		filial.setNome(nome);
 		filial.setId(idFilial);
 	}
-	//inserção de mercadorias
-	public void inserirMercadorias(String nome, int quantidade, double valor, 
-			String codigo, Date dv, String fornecedor, boolean perecivel, boolean alcool, 
-			double massa, String volume, boolean pdLimpeza, String estadoFis, 
-			Filial filial) {
-		switch(tipoMercadoria) {
-			case "Alimento":
-				Alimento novoAlimento = new Alimento(nome, quantidade, valor, 
-			    		codigo,dv,fornecedor, perecivel, massa);
-				Dados.getMercadorias().add(novoAlimento);
-				break;
-			case "Bebida":
-				Bebida novaBebida = new Bebida(nome, quantidade, valor, 
-			    		codigo, dv, fornecedor, alcool, volume);
-				Dados.getMercadorias().add(novaBebida);
-				break;
-			case "Casa":
-				Casa novoProdCasa = new Casa(nome, quantidade, valor, codigo, 
-			    		dv, fornecedor, pdLimpeza, estadoFis);
-				Dados.getMercadorias().add(novoProdCasa);
-				break;
-		}
+	public Alimento inserirAlimento(String nome, int quantidade, double valor, 
+			String codigo, String dv, String fornecedor, boolean per,
+			double massa, Filial filial) {
+		Alimento novoAlimento = new Alimento(nome, quantidade, valor, 
+	    		codigo, dv,fornecedor, per, massa);
+		Filial.addMercadoria(novoAlimento);
+		return novoAlimento;
+		
 	}
+	public Bebida inserirBebida(String nome, int quantidade, double valor, 
+    		String codigo, String dv, String fornecedor, boolean alcool, String volume) {
+		Bebida novaBebida = new Bebida(nome, quantidade, valor, 
+	    		codigo, dv, fornecedor, alcool, volume);
+		Filial.addMercadoria(novaBebida);
+		return novaBebida;
+	}
+	public Casa inserirPdCasa(String nome, int quantidade, double valor, String codigo, 
+    		String dv, String fornecedor, boolean pdLimpeza,
+    		String estadoFis) {
+		Casa novoPdCasa = new Casa(nome, quantidade, valor, codigo, 
+	    		dv, fornecedor, pdLimpeza, estadoFis);
+		Filial.addMercadoria(novoPdCasa);
+		return novoPdCasa;
+	}
+	
 	//remoção de mercadorias
 	public void removerMercadorias(String codigoM, Filial filial) {
 		filial.remMercadoria(filial.buscarMercadoria(codigoM));

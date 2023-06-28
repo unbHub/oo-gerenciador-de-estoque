@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TelaSelecao implements ActionListener{
+public class TelaSelecao{
     
     private JFrame janelaMercadoria = new JFrame("Mercadoria");
     private JLabel lblDadosMercadoria = new JLabel("Selecione o tipo de mercadoria: ");
@@ -38,10 +38,39 @@ public class TelaSelecao implements ActionListener{
         janelaMercadoria.add(btnAlimento);
         janelaMercadoria.add(btnBebida);
         janelaMercadoria.add(btnCasa);
+
+        
+
+        btnAlimento.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new TelaMercadoria().alterarCadastro(1);  
+            }
+        });
+
+        btnBebida.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new TelaMercadoria().alterarCadastro(2);
+            }
+            
+        });
+
+        btnCasa.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new TelaMercadoria().alterarCadastro(3);
+            }
+            
+        });
     }
+}
 
 
-    public void actionPerformed(ActionEvent e){
+    /*public void actionPerformed(ActionEvent e){
         Object src = e.getSource();
 
         if(src == btnAlimento)
@@ -53,14 +82,5 @@ public class TelaSelecao implements ActionListener{
 
         if(src == btnCasa){
             new TelaMercadoria().alterarCadastro(3);
-        }
-    }
+        }*/
 
-    public static void main(String[] args) {
-        TelaSelecao ts = new TelaSelecao();
-        btnAlimento.addActionListener(ts);
-        btnBebida.addActionListener(ts);
-        btnCasa.addActionListener(ts);
-    }
-
-}

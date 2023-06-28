@@ -8,7 +8,7 @@ public class Casa extends Mercadoria {
 	private String estadoFis;
 	
     public Casa(String nome, int quantidade, double valor, String codigoMercadoria, 
-    		Date dataValidade, String fornecedor, boolean pdLimpeza,
+    		String dataValidade, String fornecedor, boolean pdLimpeza,
     		String estadoFis) {
 	
 	}

@@ -9,7 +9,7 @@ public abstract class Mercadoria {
 	protected int quantidade;
 	protected double valor;
 	protected String codigoMercadoria;
-	protected Date dataValidade;
+	protected static String dataValidade = "\\d\\d/\\d\\d/\\d\\d\\d\\d";
 	protected String fornecedor;
 	
 		public Mercadoria() {
@@ -41,11 +41,8 @@ public abstract class Mercadoria {
 		public void setCodigo(String codigo) {
 			this.codigoMercadoria = codigo;
 		}
-		public Date getDataValidade() {
+		public String getDataValidade() {
 			return dataValidade;
-		}
-		public void setDataValidade(Date dataValidade) {
-			this.dataValidade = dataValidade;
 		}
 		public String getFornecedor() {
 			return fornecedor;
@@ -62,6 +59,7 @@ public abstract class Mercadoria {
 					+ ", fornecedor=" + fornecedor
 					+ "]";
 		}
+		
 }
 
 

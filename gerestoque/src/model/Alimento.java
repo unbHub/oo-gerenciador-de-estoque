@@ -8,7 +8,7 @@ public class Alimento extends Mercadoria {
 	private double massa;
 	
     public Alimento(String nome, int quantidade, double valor, 
-    		String codigoMercadoria, Date dataValidade,
+    		String codigoMercadoria, String dataValidade,
     		String fornecedor, boolean perecivel, double massa){
         
    }

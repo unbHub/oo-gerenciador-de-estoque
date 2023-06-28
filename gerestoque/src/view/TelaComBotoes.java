@@ -10,9 +10,8 @@ public class TelaComBotoes extends JFrame {
     //atributos informados do Swing para formarmos a janela:
     private JFrame janelaMenu = new JFrame("GERENCIADOR DE ESTROQUE");
     private JLabel lblTitulo = new JLabel("Menu Principal");
-    private static JButton btnFilial = new JButton("Filiais");
-    private static JButton btnBusca = new JButton("Busca");
-    private static JButton btnMercadoria = new JButton("Mercadoria");
+    private JButton btnFilial = new JButton("Filiais");
+    private JButton btnMercadoria = new JButton("Mercadoria");
 
     public TelaComBotoes(){
         
@@ -31,7 +30,6 @@ public class TelaComBotoes extends JFrame {
         //adicionamos os atributos no nosso frame
         janelaMenu.add(lblTitulo);
         janelaMenu.add(btnFilial);
-        janelaMenu.add(btnBusca);
         janelaMenu.add(btnMercadoria);
 
 
@@ -49,16 +47,6 @@ public class TelaComBotoes extends JFrame {
 				
         	}
         });
-        
-        btnBusca.addActionListener(new ActionListener() {
-        	
-        	@Override
-        	public void actionPerformed(ActionEvent e) {
-        		new TelaBusca();
-				
-        	}
-        });
-
          btnMercadoria.addActionListener(new ActionListener() {
         	
         	@Override
