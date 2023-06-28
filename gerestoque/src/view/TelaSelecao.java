@@ -30,13 +30,13 @@ public class TelaSelecao{
         lblDadosMercadoria.setFont(new Font("Arial", Font.BOLD, 15));
         lblDadosMercadoria.setBounds(70, 270, 250, 25);
 
-        btnAlimento.setBounds(40, 300, 90, 30);
-        btnBebida.setBounds(130, 300, 90, 30);
-        btnCasa.setBounds(220, 300, 90, 30);
+        btnAlimento.setBounds(50, 300, 90, 30);
+        btnBebida.setBounds(140, 300, 90, 30);
+        btnCasa.setBounds(230, 300, 90, 30);
         
         janelaSelecao.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         janelaSelecao.setVisible(true);
-        janelaSelecao.setSize(400, 500); 
+        janelaSelecao.setSize(385, 500); 
         janelaSelecao.setLocationRelativeTo(null);  
         
         janelaSelecao.setLayout(null);
@@ -61,9 +61,6 @@ public class TelaSelecao{
         
         modelF.addColumn("Nome");
         modelF.addColumn("Id");
-        
-    	
-        
         
 
         btnAlimento.addActionListener(new ActionListener() {

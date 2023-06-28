@@ -101,7 +101,7 @@ public class TelaCadastro extends JFrame{
 				}
         		
         		if (!nomeFilial.isEmpty() && !nomeFilial.matches("[0-9]+") && !idFilial.isEmpty() && idFilial.matches("[0-9]+")) {
-        			Dados.getFiliais().add(cd.inserirFiliais(nomeFilial, idFilial));
+        			cd.inserirFiliais(nomeFilial, idFilial);
 					JOptionPane.showMessageDialog(null, "Filial cadastrada com sucesso!");
                     cadastroFilial.dispose();
                     
