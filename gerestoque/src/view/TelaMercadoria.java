@@ -104,7 +104,7 @@ public class TelaMercadoria extends JFrame {
                 
                 if(nomeMercadoria.isEmpty() == true || idMercadoria.isEmpty() == true || qntMercadoria.isEmpty() == true 
                 || valorMercadoria.isEmpty() == true || /*dataValidade.isEmpty() == true*/ fornecedor.isEmpty() == true){
-                    JOptionPane.showMessageDialog(null, "Preenche os campos seu animal");
+                    JOptionPane.showMessageDialog(null, "Preencha todos os campos");
                 }else if(nomeMercadoria.matches("[0-9]+")){
                     JOptionPane.showMessageDialog(null, "Insira apenas letras no nome da mercadoria");
                 }else if(!qntMercadoria.matches("[0-9]+")){
@@ -167,6 +167,8 @@ public class TelaMercadoria extends JFrame {
 
             janelaMercadoria.add(txtPerecivel);
             janelaMercadoria.add(txtMassa);
+            
+            
         break;
 
         case 2: //mostrar cadastro de bebidas

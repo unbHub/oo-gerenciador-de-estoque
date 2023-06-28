@@ -4,41 +4,66 @@ import model.*;
 import control.ControleDados;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.table.DefaultTableModel;
 
 public class TelaSelecao{
     
-    private JFrame janelaMercadoria = new JFrame("Mercadoria");
+    private JFrame janelaSelecao = new JFrame("Mercadoria");
     private JLabel lblDadosMercadoria = new JLabel("Selecione o tipo de mercadoria: ");
 
     private static JButton btnAlimento = new JButton("Alimento");
     private static JButton btnBebida = new JButton("Bebida");
     private static JButton btnCasa = new JButton("Casa");
+    
+    DefaultTableModel modelF = new DefaultTableModel();
+    JTable jTFiliais = new JTable(modelF);
+    JScrollPane scrollpaineltabela = new JScrollPane(jTFiliais);
 
     public TelaSelecao(){
+    	
         
         lblDadosMercadoria.setFont(new Font("Arial", Font.BOLD, 15));
-        lblDadosMercadoria.setBounds(30, 20, 250, 25);
+        lblDadosMercadoria.setBounds(70, 270, 250, 25);
 
-        btnAlimento.setBounds(93, 70, 150, 30);
-        btnBebida.setBounds(93, 110, 150, 30);
-        btnCasa.setBounds(93, 150, 150, 30);
+        btnAlimento.setBounds(40, 300, 90, 30);
+        btnBebida.setBounds(130, 300, 90, 30);
+        btnCasa.setBounds(220, 300, 90, 30);
         
-        janelaMercadoria.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        janelaMercadoria.setVisible(true);
-        janelaMercadoria.setSize(350, 300); 
-        janelaMercadoria.setLocationRelativeTo(null);  
+        janelaSelecao.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        janelaSelecao.setVisible(true);
+        janelaSelecao.setSize(400, 500); 
+        janelaSelecao.setLocationRelativeTo(null);  
         
-        janelaMercadoria.setLayout(null);
+        janelaSelecao.setLayout(null);
         
-        janelaMercadoria.add(lblDadosMercadoria);
-        janelaMercadoria.add(btnAlimento);
-        janelaMercadoria.add(btnBebida);
-        janelaMercadoria.add(btnCasa);
+        janelaSelecao.add(lblDadosMercadoria);
+        janelaSelecao.add(btnAlimento);
+        janelaSelecao.add(btnBebida);
+        janelaSelecao.add(btnCasa);
 
+    	DefaultTableModel modelF = (DefaultTableModel) jTFiliais.getModel();
+      	modelF = new DefaultTableModel();
+    	jTFiliais = new JTable(modelF);
+    	scrollpaineltabela = new JScrollPane(jTFiliais);
+    	
+        scrollpaineltabela.setBounds(10, 50, 350, 150);
+        janelaSelecao.getContentPane().add(scrollpaineltabela);
+        scrollpaineltabela.setViewportView(jTFiliais);	
+        
+        for (Mercadoria m : Dados.getMercadorias()) {
+            modelF.addRow(new Object[]{m.getNome(), m.getCodigo()});
+        }
+        
+        modelF.addColumn("Nome");
+        modelF.addColumn("Id");
+        
+    	
+        
         
 
         btnAlimento.addActionListener(new ActionListener() {
@@ -69,18 +94,4 @@ public class TelaSelecao{
     }
 }
 
-
-    /*public void actionPerformed(ActionEvent e){
-        Object src = e.getSource();
-
-        if(src == btnAlimento)
-            new TelaMercadoria().alterarCadastro(1);
-
-        if(src == btnBebida){
-            new TelaMercadoria().alterarCadastro(2);
-        }
-
-        if(src == btnCasa){
-            new TelaMercadoria().alterarCadastro(3);
-        }*/
 

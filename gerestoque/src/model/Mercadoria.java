@@ -8,7 +8,7 @@ public abstract class Mercadoria {
 	protected String nome;
 	protected int quantidade;
 	protected double valor;
-	protected String codigoMercadoria;
+	protected String codM;
 	protected Date dataValidade;
 	protected String fornecedor;
 	
@@ -36,10 +36,10 @@ public abstract class Mercadoria {
 			this.valor = valor;
 		}
 		public String getCodigo() {
-			return codigoMercadoria;
+			return codM;
 		}
 		public void setCodigo(String codigo) {
-			this.codigoMercadoria = codigo;
+			this.codM = codigo;
 		}
 		public Date getDataValidade() {
 			return dataValidade;
@@ -57,7 +57,7 @@ public abstract class Mercadoria {
 		@Override
 		public String toString() {
 			return "Mercadoria [nome=" + nome + ", quantidade=" + quantidade 
-					+ ", valor=" + valor + ", codigo=" + codigoMercadoria
+					+ ", valor=" + valor + ", codigo=" + codM
 					+ ", descricao=" + ", dataValidade=" + dataValidade 
 					+ ", fornecedor=" + fornecedor
 					+ "]";
