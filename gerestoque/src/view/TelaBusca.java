@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.*;
 
+import control.ControleDados;
 import model.Dados;
 import model.Filial;
 
@@ -10,6 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class TelaBusca extends JFrame {
+
+    ControleDados cd = new ControleDados();
 
      //aqui colocamos os atributos que iremos utilizar para montarmos nossa tela
     private JFrame janelaBusca = new JFrame("Buscar por Mercadoria");
@@ -42,6 +45,11 @@ public class TelaBusca extends JFrame {
         txtIdMercadoria.setBounds(80, 100, 200, 25);
         
         boxFiliais.setBounds(80, 140, 100, 25);
+
+        Dados.getFiliais().add(cd.inserirFiliais("Parana", "123"));
+    	Dados.getFiliais().add(cd.inserirFiliais("Jacarézinho", "321"));
+    	Dados.getFiliais().add(cd.inserirFiliais("Jacarepaguá", "432"));
+        
         // Adiciona o nome das Filiais cadastradas no JComboBox
         for (Filial dado : Dados.getFiliais()) {
             boxFiliais.addItem(dado.getNome());
@@ -80,7 +88,7 @@ public class TelaBusca extends JFrame {
     }
     
     public static void main(String[] args) {
-    	new TelaBusca().setVisible(true);
+    	new TelaBusca();
     }
 
 }
