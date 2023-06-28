@@ -1,23 +1,22 @@
 package model;
 
-import java.util.Date;
 
 public class Casa extends Mercadoria {
 	//indica se é ou nao um produto de limpeza e seu estado (solido ou liquido)
-	private boolean pdLimpeza;
+	private String pdLimpeza;
 	private String estadoFis;
 	
-    public Casa(String nome, int quantidade, double valor, String codigoMercadoria, 
-    		Date dataValidade, String fornecedor, boolean pdLimpeza,
+    public Casa(String nome, String quantidade, String valor, String codigoMercadoria, 
+    		String dataValidade, String fornecedor, String pdLimpeza,
     		String estadoFis) {
 	
 	}
     
-	public boolean isPdLimpeza() {
+	public String isPdLimpeza() {
 		return pdLimpeza;
 	}
 
-	public void setPdLimpeza(boolean pdLimpeza) {
+	public void setPdLimpeza(String pdLimpeza) {
 		this.pdLimpeza = pdLimpeza;
 	}
 

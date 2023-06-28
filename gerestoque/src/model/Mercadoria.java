@@ -6,10 +6,10 @@ import java.util.Date;
 public abstract class Mercadoria {
 	
 	protected String nome;
-	protected int quantidade;
-	protected double valor;
-	protected String codigoMercadoria;
-	protected Date dataValidade;
+	protected String quantidade;
+	protected String valor;
+	protected String codM;
+	protected String dataValidade;
 	protected String fornecedor;
 	
 		public Mercadoria() {
@@ -23,29 +23,26 @@ public abstract class Mercadoria {
 		public void setNome(String nome) {
 			this.nome = nome;
 		}
-		public int getQuantidade() {
+		public String getQuantidade() {
 			return quantidade;
 		}
-		public void setQuantidade(int quantidade) {
+		public void setQuantidade(String quantidade) {
 			this.quantidade = quantidade;
 		}
-		public double getValor() {
+		public String getValor() {
 			return valor;
 		}
-		public void setValor(double valor) {
+		public void setValor(String valor) {
 			this.valor = valor;
 		}
 		public String getCodigo() {
-			return codigoMercadoria;
+			return codM;
 		}
 		public void setCodigo(String codigo) {
-			this.codigoMercadoria = codigo;
+			this.codM = codigo;
 		}
-		public Date getDataValidade() {
+		public String getDataValidade() {
 			return dataValidade;
-		}
-		public void setDataValidade(Date dataValidade) {
-			this.dataValidade = dataValidade;
 		}
 		public String getFornecedor() {
 			return fornecedor;
@@ -57,11 +54,12 @@ public abstract class Mercadoria {
 		@Override
 		public String toString() {
 			return "Mercadoria [nome=" + nome + ", quantidade=" + quantidade 
-					+ ", valor=" + valor + ", codigo=" + codigoMercadoria
+					+ ", valor=" + valor + ", codigo=" + codM
 					+ ", descricao=" + ", dataValidade=" + dataValidade 
 					+ ", fornecedor=" + fornecedor
 					+ "]";
 		}
+		
 }
 
 

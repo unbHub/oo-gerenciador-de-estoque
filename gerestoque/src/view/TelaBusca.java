@@ -72,10 +72,7 @@ public class TelaBusca extends JFrame {
         janelaBusca.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         janelaBusca.setVisible(true);
         janelaBusca.setLocationRelativeTo(null); 
-        janelaBusca.setSize(350, 350);   
-        
-        
-        
+        janelaBusca.setSize(350, 350);           
         
 //        btnMercadoria.addActionListener(new ActionListener() {
 //        	

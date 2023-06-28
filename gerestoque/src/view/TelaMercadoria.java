@@ -5,6 +5,7 @@ import javax.swing.*;
 import control.ControleDados;
 import model.Dados;
 import model.Filial;
+import model.Mercadoria;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,7 +15,6 @@ import java.awt.event.ActionListener;
 public class TelaMercadoria extends JFrame { 
 
     ControleDados cd = new ControleDados();
-    Dados dt = new Dados();
     
     //aqui colocamos os atributos que iremos utilizar para montarmos nossa tela
 
@@ -53,7 +53,9 @@ public class TelaMercadoria extends JFrame {
     private JComboBox<String> boxFilial = new JComboBox<String>();
 
     //botões
-    private JButton btnSalvarMercadoria = new JButton("Salvar");
+    private JButton btnSalvarAlimento = new JButton("Salvar");
+    private JButton btnSalvarBebida = new JButton("Salvar");
+    private JButton btnSalvarCasa = new JButton("Salvar");
 
     public TelaMercadoria(){
             lblDadosMercadoria.setFont(new Font("Arial", Font.BOLD, 15));
@@ -89,39 +91,10 @@ public class TelaMercadoria extends JFrame {
 
             janelaMercadoria.setLayout(null);
 
-            btnSalvarMercadoria.setBounds(30, 450, 100, 30);
+            btnSalvarAlimento.setBounds(30, 450, 100, 30);
+            btnSalvarBebida.setBounds(30, 450, 100, 30);
+            btnSalvarCasa.setBounds(30, 450, 100, 30);
             
-            btnSalvarMercadoria.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String nomeMercadoria = txtNomeMercadoria.getText();
-                String qntMercadoria = txtQntMercadoria.getText();
-                String idMercadoria = txtIdMercadoria.getText();
-                String valorMercadoria = txtValorMercadoria.getText();
-                //String dataValidade = txtDataValidade.getText();
-                String fornecedor = txtFornecedor.getText();
-                
-                if(nomeMercadoria.isEmpty() == true || idMercadoria.isEmpty() == true || qntMercadoria.isEmpty() == true 
-                || valorMercadoria.isEmpty() == true || /*dataValidade.isEmpty() == true*/ fornecedor.isEmpty() == true){
-                    JOptionPane.showMessageDialog(null, "Preenche os campos seu animal");
-                }else if(nomeMercadoria.matches("[0-9]+")){
-                    JOptionPane.showMessageDialog(null, "Insira apenas letras no nome da mercadoria");
-                }else if(!qntMercadoria.matches("[0-9]+")){
-                    JOptionPane.showMessageDialog(null, "Insira apenas números na quantidade de mercadorias");
-                }else if(!idMercadoria.matches("[0-9]+")){
-                    JOptionPane.showMessageDialog(null, "Insira apenas números no identificador da mercadoria");
-                }else if(!valorMercadoria.matches("[0-9]+")){
-                    JOptionPane.showMessageDialog(null, "Insira apenas números no valor da mercadoria");
-                }else if(fornecedor.matches("[0-9]+")){
-                    JOptionPane.showMessageDialog(null, "Insira apenas letras no fornecedor");
-                }
-                else{
-                //Dados.getMercadorias().add(cd.inserirMercadorias().
-                JOptionPane.showMessageDialog(null, "Mercadoria registrada com sucesso! :)");}
-            }
-            
-        });
 
             janelaMercadoria.add(lblDadosMercadoria);
             janelaMercadoria.add(lblNomeMercadoria);
@@ -138,16 +111,13 @@ public class TelaMercadoria extends JFrame {
             janelaMercadoria.add(txtDataValidade);
             janelaMercadoria.add(txtFornecedor);
             janelaMercadoria.add(boxFilial);
-            janelaMercadoria.add(btnSalvarMercadoria);
-            
-
-
 
         //aqui configuramos o nosso JFrame
         janelaMercadoria.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         janelaMercadoria.setVisible(true);
-        janelaMercadoria.setLocationRelativeTo(null); 
         janelaMercadoria.setSize(350, 560);
+        janelaMercadoria.setLocationRelativeTo(null); 
+        
     }
 
     public void alterarCadastro(int op){
@@ -167,6 +137,45 @@ public class TelaMercadoria extends JFrame {
 
             janelaMercadoria.add(txtPerecivel);
             janelaMercadoria.add(txtMassa);
+            janelaMercadoria.add(btnSalvarAlimento);
+            
+            btnSalvarAlimento.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nomeMercadoria = txtNomeMercadoria.getText();
+                String qntMercadoria = txtQntMercadoria.getText();
+                String idMercadoria = txtIdMercadoria.getText();
+                String valorMercadoria = txtValorMercadoria.getText();
+                String dataValidade = txtDataValidade.getText();
+                String fornecedor = txtFornecedor.getText();
+                String massa = txtMassa.getText();
+                String perecivel = txtPerecivel.getText();
+                
+                if(nomeMercadoria.isEmpty() == true || idMercadoria.isEmpty() == true || qntMercadoria.isEmpty() == true 
+                || valorMercadoria.isEmpty() == true || /*dataValidade.isEmpty() == true*/ fornecedor.isEmpty() == true){
+                    JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+                }else if(nomeMercadoria.matches("[0-9]+")){
+                    JOptionPane.showMessageDialog(null, "Insira apenas letras no nome da mercadoria");
+                }else if(!qntMercadoria.matches("[0-9]+")){
+                    JOptionPane.showMessageDialog(null, "Insira apenas números na quantidade de mercadorias");
+                }else if(!idMercadoria.matches("[0-9]+")){
+                    JOptionPane.showMessageDialog(null, "Insira apenas números no identificador da mercadoria");
+                }else if(!valorMercadoria.matches("[0-9]+")){
+                    JOptionPane.showMessageDialog(null, "Insira apenas números no valor da mercadoria");
+                }else if(fornecedor.matches("[0-9]+")){
+                    JOptionPane.showMessageDialog(null, "Insira apenas letras no fornecedor");
+                }
+                else{
+                Dados.getMercadorias().add(cd.inserirAlimento(nomeMercadoria, qntMercadoria, idMercadoria, 
+                	valorMercadoria, dataValidade, fornecedor, massa, perecivel));
+                JOptionPane.showMessageDialog(null, "Mercadoria registrada com sucesso! :)");}
+            }
+            
+        });
+
+            
+            
         break;
 
         case 2: //mostrar cadastro de bebidas
@@ -183,11 +192,47 @@ public class TelaMercadoria extends JFrame {
 
             janelaMercadoria.add(txtAlcool);
             janelaMercadoria.add(txtVolume);
+            janelaMercadoria.add(btnSalvarBebida);
+            
+            btnSalvarBebida.addActionListener(new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    String nomeMercadoria = txtNomeMercadoria.getText();
+                    String qntMercadoria = txtQntMercadoria.getText();
+                    String idMercadoria = txtIdMercadoria.getText();
+                    String valorMercadoria = txtValorMercadoria.getText();
+                    String dataValidade = txtDataValidade.getText();
+                    String pdLimpeza = txtPdLimpeza.getText();
+                    String estadoFis = txtEstadoFis.getText() ;
+                    String fornecedor = txtFornecedor.getText();
+                    
+                    if(nomeMercadoria.isEmpty() == true || idMercadoria.isEmpty() == true || qntMercadoria.isEmpty() == true 
+                    || valorMercadoria.isEmpty() == true || /*dataValidade.isEmpty() == true*/ fornecedor.isEmpty() == true){
+                        JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+                    }else if(nomeMercadoria.matches("[0-9]+")){
+                        JOptionPane.showMessageDialog(null, "Insira apenas letras no nome da mercadoria");
+                    }else if(!qntMercadoria.matches("[0-9]+")){
+                        JOptionPane.showMessageDialog(null, "Insira apenas números na quantidade de mercadorias");
+                    }else if(!idMercadoria.matches("[0-9]+")){
+                        JOptionPane.showMessageDialog(null, "Insira apenas números no identificador da mercadoria");
+                    }else if(!valorMercadoria.matches("[0-9]+")){
+                        JOptionPane.showMessageDialog(null, "Insira apenas números no valor da mercadoria");
+                    }else if(fornecedor.matches("[0-9]+")){
+                        JOptionPane.showMessageDialog(null, "Insira apenas letras no fornecedor");
+                    }
+                    else{
+                    Dados.getMercadorias().add(cd.inserirAlimento(nomeMercadoria, qntMercadoria, idMercadoria,
+                    		valorMercadoria, dataValidade, pdLimpeza, estadoFis, fornecedor));
+                    JOptionPane.showMessageDialog(null, "Mercadoria registrada com sucesso! :)");}
+                }
+                
+            });
             
         break;
 
         case 3: //mostrar cadastro de produtos de casa
-           pdLimpeza.setBounds(30, 310, 200, 25);
+        	pdLimpeza.setBounds(30, 310, 200, 25);
             estadoFis.setBounds(30, 350, 200, 25);
 
             txtPdLimpeza.setPreferredSize(new Dimension(300, 25));
@@ -201,6 +246,54 @@ public class TelaMercadoria extends JFrame {
 
             janelaMercadoria.add(txtPdLimpeza);
             janelaMercadoria.add(txtEstadoFis);
+            janelaMercadoria.add(btnSalvarCasa);
+            
+            btnSalvarCasa.addActionListener(new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    String nomeMercadoria = txtNomeMercadoria.getText();
+                    String qntMercadoria = txtQntMercadoria.getText();
+                    String idMercadoria = txtIdMercadoria.getText();
+                    String valorMercadoria = txtValorMercadoria.getText();
+                    String dataValidade = txtDataValidade.getText();
+                    String pdLimpeza = txtPdLimpeza.getText();
+                    String estadoFis = txtEstadoFis.getText() ;
+                    String fornecedor = txtFornecedor.getText();
+                    
+                    if(nomeMercadoria.isEmpty() == true || 
+                    		idMercadoria.isEmpty() == true 
+                    		|| qntMercadoria.isEmpty() == true 
+                    		|| valorMercadoria.isEmpty() == true 
+                    		|| dataValidade.isEmpty() == true 
+                    		|| fornecedor.isEmpty() == true)
+                    {
+                        JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+                        
+                    }else if(nomeMercadoria.matches("[0-9]+")){
+                        JOptionPane.showMessageDialog(null, "Insira apenas letras no nome da mercadoria");
+                    }else if(!qntMercadoria.matches("[0-9]+")){
+                        JOptionPane.showMessageDialog(null, "Insira apenas números na quantidade de mercadorias");
+                    }else if(!idMercadoria.matches("[0-9]+")){
+                        JOptionPane.showMessageDialog(null, "Insira apenas números no identificador da mercadoria");
+                    }else if(!valorMercadoria.matches("[0-9]+")){
+                        JOptionPane.showMessageDialog(null, "Insira apenas números no valor da mercadoria");
+                    }else if(fornecedor.matches("[0-9]+")){
+                        JOptionPane.showMessageDialog(null, "Insira apenas letras no fornecedor");
+                    }
+                    else if(!dataValidade.matches("\\d\\d/\\d\\d/\\d\\d\\d\\d")) {
+                    	JOptionPane.showMessageDialog(null, "Formato incorreto de data!");
+                    }
+                    else{
+                    Dados.getMercadorias().add(cd.inserirPdCasa(nomeMercadoria, 
+                    		qntMercadoria, idMercadoria, valorMercadoria, dataValidade,
+                    		pdLimpeza, estadoFis, fornecedor));
+                    JOptionPane.showMessageDialog(null, "Mercadoria registrada com sucesso! :)");}
+                }
+                
+            });
+            
+            
         break;
         }
     }

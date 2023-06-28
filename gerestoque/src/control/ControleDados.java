@@ -45,29 +45,29 @@ public class ControleDados {
 		filial.setNome(nome);
 		filial.setId(idFilial);
 	}
-	//inserção de mercadorias
-	public void inserirMercadorias(String nome, int quantidade, double valor, 
-			String codigo, Date dv, String fornecedor, boolean perecivel, boolean alcool, 
-			double massa, String volume, boolean pdLimpeza, String estadoFis, 
-			Filial filial) {
-		switch(tipoMercadoria) {
-			case "Alimento":
-				Alimento novoAlimento = new Alimento(nome, quantidade, valor, 
-			    		codigo,dv,fornecedor, perecivel, massa);
-				filial.addMercadoria(novoAlimento);
-				break;
-			case "Bebida":
-				Bebida novaBebida = new Bebida(nome, quantidade, valor, 
-			    		codigo, dv, fornecedor, alcool, volume);
-				filial.addMercadoria(novaBebida);
-				break;
-			case "Casa":
-				Casa novoProdCasa = new Casa(nome, quantidade, valor, codigo, 
-			    		dv, fornecedor, pdLimpeza, estadoFis);
-				filial.addMercadoria(novoProdCasa);
-				break;
-		}
+	public Alimento inserirAlimento(String nome, String quantidade, String valor, String codigo, 
+    		String dv, String fornecedor, String massa, String perecivel) {
+		Alimento novoAlimento = new Alimento(nome, quantidade, valor, 
+				codigo, dv, fornecedor, massa, perecivel);
+		Filial.addMercadoria(novoAlimento);
+		return novoAlimento;
+		
 	}
+	public Bebida inserirBebida(String nome, String quantidade, String valor, 
+    		String codigo, String dv, String fornecedor, String alcool, String volume) {
+		Bebida novaBebida = new Bebida(nome, quantidade, valor, 
+	    		codigo, dv, fornecedor, alcool, volume);	
+		Filial.addMercadoria(novaBebida);
+		return novaBebida;
+	}
+	public Casa inserirPdCasa(String nome, String quantidade, String valor, String codigo, 
+    		String dv, String fornecedor, String pdLimpeza, String estadoFis) {
+		Casa novoPdCasa = new Casa(nome, quantidade, valor, codigo, 
+	    		dv, fornecedor, pdLimpeza, estadoFis);
+		Filial.addMercadoria(novoPdCasa);
+		return novoPdCasa;
+	}
+	
 	//remoção de mercadorias
 	public void removerMercadorias(String codigoM, Filial filial) {
 		filial.remMercadoria(filial.buscarMercadoria(codigoM));
@@ -76,23 +76,6 @@ public class ControleDados {
 	//busca mercadorias
 	public void buscarMercadorias(String codM, Filial filial) {
 		filial.buscarMercadoria(codM);
-	}
-	//edição de mercadorias
-  	public void editarMercadorias(Mercadoria mercadoria, Filial filial) {
-      switch(escolha) {
-        case "nome":
-          mercadoria.setNome("");
-          break;
-        case "quantidade":
-          mercadoria.setQuantidade(0);
-          break;
-        case "valor":
-          mercadoria.setValor(0);
-          break;
-        case "codigo":
-          mercadoria.setCodigo("");
-          break;
-      }
 	}
 
 	

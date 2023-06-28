@@ -7,9 +7,9 @@ public class Alimento extends Mercadoria {
 	private boolean perecivel;
 	private double massa;
 	
-    public Alimento(String nome, int quantidade, double valor, 
-    		String codigoMercadoria, Date dataValidade,
-    		String fornecedor, boolean perecivel, double massa){
+    public Alimento(String nome, String quantidade, String valor, 
+    		String codigoMercadoria, String dataValidade,
+    		String fornecedor, String perecivel, String massa){
         
    }
     public boolean isPerecivel() {

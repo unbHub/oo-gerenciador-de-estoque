@@ -16,7 +16,6 @@ import view.TelaCadastro;
 
 public class TelaFilial extends JFrame{
 
-
 	//atributos para montagem dos labels
     private JFrame janelaFilial = new JFrame("Filiais");
     private JLabel lblFilial = new JLabel("Filiais");
@@ -34,7 +33,7 @@ public class TelaFilial extends JFrame{
     //botões
     private JButton btnAdicionarFilial = new JButton("Adicionar Filial");
     private JButton btnRemoverFilial = new JButton("Remover Filial");
-    private JButton btnFiltrarFilial = new JButton("Filtrar Filial");
+    private JButton btnFiltrarFilial = new JButton("Filtrar/Atualizar Filial");
 	private static JButton botaoSalvar = new JButton("Salvar");
     
     ControleDados cd = new ControleDados();
@@ -75,9 +74,12 @@ public class TelaFilial extends JFrame{
 							+ "no id da filial");
 				}
         		
-        		if (!nomeFilial.isEmpty() && !nomeFilial.matches("[0-9]+") && !idFilial.isEmpty() && idFilial.matches("[0-9]+")) {
+        		if (!nomeFilial.isEmpty() && !nomeFilial.matches("[0-9]+") 
+        				&& !idFilial.isEmpty() && idFilial.matches("[0-9]+")) {
         			Dados.getFiliais().add(cd.inserirFiliais(nomeFilial, idFilial));
 					JOptionPane.showMessageDialog(null, "Filial cadastrada com sucesso!");
+					nomeFilialBox.setText(null);
+					idFilialBox.setText(null);
                     
         		}        			
         }});
@@ -90,7 +92,8 @@ public class TelaFilial extends JFrame{
 				int selectedRow = jTFiliais.getSelectedRow();
 				
 				// Verifica se uma linha foi selecionada
-				if (selectedRow != -1 && !modelF.getValueAt(selectedRow, 1).toString().isEmpty()) {
+				if (selectedRow != -1 && 
+						!modelF.getValueAt(selectedRow, 1).toString().isEmpty()) {
 					// Remove a linha da tabela
 					modelF.removeRow(selectedRow);										
 					
@@ -102,9 +105,11 @@ public class TelaFilial extends JFrame{
 					//String idFilial = (String) modelF.getValueAt(selectedRow, 1);
 					//cd.removerFilial(idFilial);
 					
-					JOptionPane.showMessageDialog(null, "Filial removida com sucesso com sucesso!");
+					JOptionPane.showMessageDialog(null, 
+							"Filial removida com sucesso com sucesso!");
 					
-				} else if (selectedRow != -1 && modelF.getValueAt(selectedRow, 1).toString().isEmpty()) {
+				} else if (selectedRow != -1 && 
+						modelF.getValueAt(selectedRow, 1).toString().isEmpty()) {
 					// Remove a linha da tabela
 					modelF.removeRow(selectedRow);										
 					
@@ -132,7 +137,8 @@ public class TelaFilial extends JFrame{
 	        	} else {
 	        		// Filtra os dados com base no texto do filtro
                     for (Filial dado : Dados.getFiliais()) {
-                        if ((dado.getNome().equalsIgnoreCase(filtroTexto) || (dado.getId().equals(filtroTexto)))) {
+                        if ((dado.getNome().equalsIgnoreCase(filtroTexto) || 
+                        		(dado.getId().equals(filtroTexto)))) {
                             modelF.addRow(new Object[]{dado.getNome(), dado.getId()});
                         }
                     }
@@ -187,6 +193,7 @@ public class TelaFilial extends JFrame{
 		janelaFilial.setLocationRelativeTo(null);
         janelaFilial.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
+	
 		//configurações dos labels de cadastro
 		cadastroFilial.setFont(new Font("Arial", Font.BOLD, 20));
 		cadastroFilial.setBounds(400, 10, 200, 30);
@@ -195,6 +202,7 @@ public class TelaFilial extends JFrame{
 		nomeFilialBox.setBounds(400, 80, 200, 30);
 		idFilialBox.setBounds(400, 150, 200, 30);
     	
+
     }
     
     public void configEvent() {
@@ -202,17 +210,22 @@ public class TelaFilial extends JFrame{
     	DefaultTableModel modelF = (DefaultTableModel) jTFiliais.getModel();
         
     	//Inserindo dados para testar, depois temos que colocar esses dados na classe "Dados" da model
+    	
     	Dados.getFiliais().add(cd.inserirFiliais("Parana", "123"));
     	Dados.getFiliais().add(cd.inserirFiliais("Jacarézinho", "321"));
     	Dados.getFiliais().add(cd.inserirFiliais("Jacarepaguá", "432"));
-    	
+
+
         for (Filial dado : Dados.getFiliais()) {
             modelF.addRow(new Object[]{dado.getNome(), dado.getId()});
+            
         }
-    		
-    }
-    public static void main(String[] args) {
-        new TelaFilial();
     }
 
+    public static void main(String[] args) {
+
+        new TelaFilial();
+
+    }
 }
+
