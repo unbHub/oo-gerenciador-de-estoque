@@ -1,10 +1,6 @@
 package view;
 
 import model.*;
-import model.Filial;
-import model.Alimento;
-import model.Casa;
-import model.Bebida;
 import control.ControleDados;
 
 import javax.swing.*;
@@ -25,13 +21,13 @@ public class TelaSelecao{
     private static JButton btnAlimento = new JButton("Alimento");
     private static JButton btnBebida = new JButton("Bebida");
     private static JButton btnCasa = new JButton("Casa");
+    private JButton btnFiltrarMercadoria = new JButton("Filtrar Mercadorias");
     
-    DefaultTableModel modelF = new DefaultTableModel();
-    JTable jTFiliais = new JTable(modelF);
-    JScrollPane scrollpaineltabela = new JScrollPane(jTFiliais);
+    private JTextField txtFiltroMercadoria = new JTextField();
     
-    public ArrayList<Filial> filiais = new ArrayList<Filial>();
-    
+    DefaultTableModel modelM = new DefaultTableModel();
+    JTable jTMercadorias = new JTable(modelM);
+    JScrollPane scrollpaineltabela = new JScrollPane(jTMercadorias);
 
     public TelaSelecao(){
         
@@ -41,6 +37,9 @@ public class TelaSelecao{
         btnAlimento.setBounds(50, 300, 90, 30);
         btnBebida.setBounds(140, 300, 90, 30);
         btnCasa.setBounds(230, 300, 90, 30);
+        btnFiltrarMercadoria.setBounds(110, 340, 150, 30);
+        
+        txtFiltroMercadoria.setBounds(150, 10, 200, 25);
         
         janelaSelecao.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         janelaSelecao.setVisible(true);
@@ -53,21 +52,18 @@ public class TelaSelecao{
         janelaSelecao.add(btnAlimento);
         janelaSelecao.add(btnBebida);
         janelaSelecao.add(btnCasa);
-
-    	DefaultTableModel modelF = (DefaultTableModel) jTFiliais.getModel();
-      	modelF = new DefaultTableModel();
-    	jTFiliais = new JTable(modelF);
-    	scrollpaineltabela = new JScrollPane(jTFiliais);
+        janelaSelecao.add(btnFiltrarMercadoria);
+        janelaSelecao.add(txtFiltroMercadoria);
     	
         scrollpaineltabela.setBounds(10, 50, 350, 150);
         janelaSelecao.getContentPane().add(scrollpaineltabela);
-        scrollpaineltabela.setViewportView(jTFiliais);	
+        scrollpaineltabela.setViewportView(jTMercadorias);	
         
-        modelF.addColumn("Nome");
-        modelF.addColumn("Id");
+        modelM.addColumn("Nome");
+        modelM.addColumn("Id");
         
         for (Mercadoria m : Dados.mercadorias) {
-            modelF.addRow(new Object[]{m.getNome(), m.getCodigo()});
+            modelM.addRow(new Object[]{m.getNome(), m.getCodigo()});
         }
         
 
@@ -96,6 +92,33 @@ public class TelaSelecao{
             }
             
         });
+        
+        btnFiltrarMercadoria.addActionListener(new ActionListener() {
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		// Obtém o texto do campo de filtro
+        		String filtroTexto = txtFiltroMercadoria.getText().trim();
+        		
+        		// Limpa o modelo de dados atual
+        		modelM.setRowCount(0);
+        		
+        		// Verifica se o campo de filtro está vazio
+	        	if (filtroTexto.isEmpty()) {
+	        		for (Mercadoria dado : Dados.getMercadorias()) {
+	        			modelM.addRow(new Object[]{dado.getNome(), dado.getCodigo()});
+	        		}
+	        	} else {
+	        		// Filtra os dados com base no texto do filtro
+                    for (Mercadoria dado : Dados.getMercadorias()) {
+                        if ((dado.getNome().equalsIgnoreCase(filtroTexto) || 
+                        		(dado.getCodigo().equals(filtroTexto)))) {
+                            modelM.addRow(new Object[]{dado.getNome(), dado.getCodigo()});
+                        }
+                    }
+	        	}
+	        	
+        	}
+	    });
     }
 }
 
