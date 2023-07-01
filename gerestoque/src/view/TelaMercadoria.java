@@ -16,6 +16,8 @@ public class TelaMercadoria extends JFrame {
 
     ControleDados cd = new ControleDados();
     
+    Filial filialSelecionada = null;
+    
     //aqui colocamos os atributos que iremos utilizar para montarmos nossa tela
 
     //atributos para montagem dos labels
@@ -57,8 +59,6 @@ public class TelaMercadoria extends JFrame {
     private JButton btnSalvarBebida = new JButton("Salvar");
     private JButton btnSalvarCasa = new JButton("Salvar");
     
-    Filial filialSelecionada = null;
-    
     public TelaMercadoria(){
         lblDadosMercadoria.setFont(new Font("Arial", Font.BOLD, 15));
         lblDadosMercadoria.setBounds(30, 20, 250, 25);
@@ -90,6 +90,13 @@ public class TelaMercadoria extends JFrame {
             boxFilial.addItem(dado.getNome());
         }
         
+        String nomeSelecionado = (String) boxFilial.getSelectedItem();
+        for (Filial filial : Dados.getFiliais()) {
+            if (filial.getNome().equals(nomeSelecionado)) {
+                filialSelecionada = filial;
+                break;
+            }
+        }
 
         janelaMercadoria.setLayout(null);
 
@@ -119,14 +126,6 @@ public class TelaMercadoria extends JFrame {
         janelaMercadoria.setVisible(true);
         janelaMercadoria.setSize(350, 560);
         janelaMercadoria.setLocationRelativeTo(null); 
-        
-        String nomeSelecionado = (String) boxFilial.getSelectedItem();
-        for (Filial filial : Dados.getFiliais()) {
-            if (filial.getNome().equals(nomeSelecionado)) {
-                filialSelecionada = filial;
-                break;
-            }
-        }
         
     }
 
@@ -306,9 +305,5 @@ public class TelaMercadoria extends JFrame {
             
         break;
         }
-    }
-
-    public static void main(String[] args) {
-        new TelaMercadoria();
     }
 }
