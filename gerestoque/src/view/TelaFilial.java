@@ -36,7 +36,7 @@ public class TelaFilial extends JFrame{
     private JButton btnFiltrarFilial = new JButton("Filtrar/Atualizar Filial");
 	private static JButton botaoSalvar = new JButton("Salvar");
     
-    ControleDados cd = new ControleDados();
+    //ControleDados cd = new ControleDados();
     
     //lista de filiais cadastradas em nosso sistema
     
@@ -76,7 +76,7 @@ public class TelaFilial extends JFrame{
         		
         		if (!nomeFilial.isEmpty() && !nomeFilial.matches("[0-9]+") 
         				&& !idFilial.isEmpty() && idFilial.matches("[0-9]+")) {
-        			Dados.getFiliais().add(cd.inserirFiliais(nomeFilial, idFilial));
+        			Dados.getFiliais().add(ControleDados.inserirFiliais(nomeFilial, idFilial));
 					JOptionPane.showMessageDialog(null, "Filial cadastrada com sucesso!");
 					nomeFilialBox.setText(null);
 					idFilialBox.setText(null);
@@ -209,12 +209,7 @@ public class TelaFilial extends JFrame{
     	
     	DefaultTableModel modelF = (DefaultTableModel) jTFiliais.getModel();
         
-    	//Inserindo dados para testar, depois temos que colocar esses dados na classe "Dados" da model
-    	
-    	Dados.getFiliais().add(cd.inserirFiliais("Parana", "123"));
-    	Dados.getFiliais().add(cd.inserirFiliais("Jacarézinho", "321"));
-    	Dados.getFiliais().add(cd.inserirFiliais("Jacarepaguá", "432"));
-
+    	//Inserindo as Filiais armazenadas
 
         for (Filial dado : Dados.getFiliais()) {
             modelF.addRow(new Object[]{dado.getNome(), dado.getId()});
@@ -222,10 +217,5 @@ public class TelaFilial extends JFrame{
         }
     }
 
-    public static void main(String[] args) {
-
-        new TelaFilial();
-
-    }
 }
 

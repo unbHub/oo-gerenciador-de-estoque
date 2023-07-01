@@ -6,7 +6,7 @@ public class Filial {
     private String nome;
     private double valorTotal;
     private String idFilial;
-    private static List<Mercadoria> mercadorias;
+    private List<Mercadoria> mercadorias;
 
 	//Construtor
     public Filial(String n, String iF) {
@@ -41,7 +41,7 @@ public class Filial {
 
     //Metodos 
 	
-    public static void addMercadoria(Mercadoria mercadoria) {
+    public void addMercadoria(Mercadoria mercadoria) {
         mercadorias.add(mercadoria);
     }
 	

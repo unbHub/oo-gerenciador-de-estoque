@@ -14,6 +14,10 @@ public class ControleDados {
 	private String tipoMercadoria;
 	private String escolha;
 	
+	public ControleDados() {
+		Dados.fillWithSomeData();
+	}
+	
 	public String getTipoMercadoria() {
 		return tipoMercadoria;
 	}
@@ -26,7 +30,7 @@ public class ControleDados {
 	}
 	
 	//Metodo de inserção de filiais
-	public Filial inserirFiliais(String nome, String idFil) {
+	public static Filial inserirFiliais(String nome, String idFil) {
 		Filial cadastro = new Filial(nome, idFil);
 		mercado.addFilial(cadastro);
 		return cadastro;
@@ -45,26 +49,26 @@ public class ControleDados {
 		filial.setNome(nome);
 		filial.setId(idFilial);
 	}
-	public Alimento inserirAlimento(String nome, String quantidade, String valor, String codigo, 
+	public Alimento inserirAlimento(Filial filial, String nome, String quantidade, String valor, String codigo, 
     		String dv, String fornecedor, String massa, String perecivel) {
 		Alimento novoAlimento = new Alimento(nome, quantidade, valor, 
 				codigo, dv, fornecedor, massa, perecivel);
-		Filial.addMercadoria(novoAlimento);
+		filial.addMercadoria(novoAlimento);
 		return novoAlimento;
 		
 	}
-	public Bebida inserirBebida(String nome, String quantidade, String valor, 
+	public Bebida inserirBebida(Filial filial, String nome, String quantidade, String valor, 
     		String codigo, String dv, String fornecedor, String alcool, String volume) {
 		Bebida novaBebida = new Bebida(nome, quantidade, valor, 
 	    		codigo, dv, fornecedor, alcool, volume);	
-		Filial.addMercadoria(novaBebida);
+		filial.addMercadoria(novaBebida);
 		return novaBebida;
 	}
-	public Casa inserirPdCasa(String nome, String quantidade, String valor, String codigo, 
+	public Casa inserirPdCasa(Filial filial, String nome, String quantidade, String valor, String codigo, 
     		String dv, String fornecedor, String pdLimpeza, String estadoFis) {
 		Casa novoPdCasa = new Casa(nome, quantidade, valor, codigo, 
 	    		dv, fornecedor, pdLimpeza, estadoFis);
-		Filial.addMercadoria(novoPdCasa);
+		filial.addMercadoria(novoPdCasa);
 		return novoPdCasa;
 	}
 	

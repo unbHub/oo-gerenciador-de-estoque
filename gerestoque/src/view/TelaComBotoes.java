@@ -1,6 +1,9 @@
 package view;
 
 import javax.swing.*;
+
+import control.ControleDados;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +15,8 @@ public class TelaComBotoes extends JFrame {
     private JLabel lblTitulo = new JLabel("Menu Principal");
     private JButton btnFilial = new JButton("Filiais");
     private JButton btnMercadoria = new JButton("Mercadoria");
+    
+    ControleDados cd = new ControleDados();
 
     public TelaComBotoes(){
         
