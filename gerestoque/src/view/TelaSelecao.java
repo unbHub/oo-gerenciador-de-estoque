@@ -1,6 +1,10 @@
 package view;
 
 import model.*;
+import model.Filial;
+import model.Alimento;
+import model.Casa;
+import model.Bebida;
 import control.ControleDados;
 
 import javax.swing.*;
@@ -9,6 +13,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.table.DefaultTableModel;
 
 public class TelaSelecao{
@@ -23,9 +29,11 @@ public class TelaSelecao{
     DefaultTableModel modelF = new DefaultTableModel();
     JTable jTFiliais = new JTable(modelF);
     JScrollPane scrollpaineltabela = new JScrollPane(jTFiliais);
+    
+    public ArrayList<Filial> filiais = new ArrayList<Filial>();
+    
 
     public TelaSelecao(){
-    	
         
         lblDadosMercadoria.setFont(new Font("Arial", Font.BOLD, 15));
         lblDadosMercadoria.setBounds(70, 270, 250, 25);
@@ -55,12 +63,12 @@ public class TelaSelecao{
         janelaSelecao.getContentPane().add(scrollpaineltabela);
         scrollpaineltabela.setViewportView(jTFiliais);	
         
-        for (Mercadoria m : Dados.getMercadorias()) {
-            modelF.addRow(new Object[]{m.getNome(), m.getCodigo()});
-        }
-        
         modelF.addColumn("Nome");
         modelF.addColumn("Id");
+        
+        for (Mercadoria m : Dados.mercadorias) {
+            modelF.addRow(new Object[]{m.getNome(), m.getCodigo()});
+        }
         
 
         btnAlimento.addActionListener(new ActionListener() {

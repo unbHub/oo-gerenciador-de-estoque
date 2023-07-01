@@ -10,6 +10,14 @@ public class Casa extends Mercadoria {
     		String dataValidade, String fornecedor, String pdLimpeza,
     		String estadoFis) {
 	
+    	this.nome = nome;
+    	this.quantidade = quantidade;
+    	this.valor = valor;
+    	this.codM = codigoMercadoria;
+    	this.dataValidade = dataValidade;
+    	this.fornecedor = fornecedor;
+    	this.pdLimpeza = pdLimpeza;
+    	this.estadoFis = estadoFis;
 	}
     
 	public String isPdLimpeza() {

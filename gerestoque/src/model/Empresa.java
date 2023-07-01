@@ -7,7 +7,7 @@ import java.util.List;
 public class Empresa {
 
     private String nome;
-    private List<Filial> filiais;
+    private static List<Filial> filiais;
 	private String nomeFilial;
 	private int idFilial;
     //private Filial filial;
@@ -63,7 +63,7 @@ public class Empresa {
 
     // Método com For Each que percorre as filiais da empresa usando o parâmetro do
     // código da filial
-    public Filial buscarFilial(String id) {
+    public static Filial buscarFilial(String id) {
         for (Filial f : filiais) {
             if (f.getId().equals(id)){
                 return f;

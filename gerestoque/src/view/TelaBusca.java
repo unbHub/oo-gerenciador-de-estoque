@@ -45,10 +45,6 @@ public class TelaBusca extends JFrame {
         txtIdMercadoria.setBounds(80, 100, 200, 25);
         
         boxFiliais.setBounds(80, 140, 100, 25);
-
-        Dados.getFiliais().add(cd.inserirFiliais("Parana", "123"));
-    	Dados.getFiliais().add(cd.inserirFiliais("Jacarézinho", "321"));
-    	Dados.getFiliais().add(cd.inserirFiliais("Jacarepaguá", "432"));
         
         // Adiciona o nome das Filiais cadastradas no JComboBox
         for (Filial dado : Dados.getFiliais()) {
