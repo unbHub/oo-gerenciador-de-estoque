@@ -56,67 +56,77 @@ public class TelaMercadoria extends JFrame {
     private JButton btnSalvarAlimento = new JButton("Salvar");
     private JButton btnSalvarBebida = new JButton("Salvar");
     private JButton btnSalvarCasa = new JButton("Salvar");
-
+    
+    Filial filialSelecionada = null;
+    
     public TelaMercadoria(){
-            lblDadosMercadoria.setFont(new Font("Arial", Font.BOLD, 15));
-            lblDadosMercadoria.setBounds(30, 20, 250, 25);
-            lblNomeMercadoria.setBounds(30, 60, 200, 25);
-            lblQntMercadoria.setBounds(30, 100, 200, 25);
-            lblIdMercadoria.setBounds(30, 140, 200, 25);
-            lblValorMercadoria.setBounds(30, 180, 200, 25);
-            lblDataValidade.setBounds(30, 230, 200, 25);
-            lblFornecedor.setBounds(30, 270, 200, 25);
-            filial.setBounds(30, 390, 200, 25);
+        lblDadosMercadoria.setFont(new Font("Arial", Font.BOLD, 15));
+        lblDadosMercadoria.setBounds(30, 20, 250, 25);
+        lblNomeMercadoria.setBounds(30, 60, 200, 25);
+        lblQntMercadoria.setBounds(30, 100, 200, 25);
+        lblIdMercadoria.setBounds(30, 140, 200, 25);
+        lblValorMercadoria.setBounds(30, 180, 200, 25);
+        lblDataValidade.setBounds(30, 230, 200, 25);
+        lblFornecedor.setBounds(30, 270, 200, 25);
+        filial.setBounds(30, 390, 200, 25);
 
-            txtNomeMercadoria.setPreferredSize(new Dimension(300, 25));
-            txtNomeMercadoria.setBounds(80, 60, 100, 25);
-            txtQntMercadoria.setPreferredSize(new Dimension(300, 25));
-            txtQntMercadoria.setBounds(110, 100, 100, 25);
-            txtIdMercadoria.setPreferredSize(new Dimension(300, 25));
-            txtIdMercadoria.setBounds(110, 140, 160, 25);
-            txtValorMercadoria.setPreferredSize(new Dimension(300, 25));
-            txtValorMercadoria.setBounds(90, 180, 160, 25);
-            txtDataValidade.setPreferredSize(new Dimension(300, 25));
-            txtDataValidade.setBounds(130, 230, 160, 25);
-            txtFornecedor.setPreferredSize(new Dimension(300, 25));
-            txtFornecedor.setBounds(110, 270, 160, 25);
-           
+        txtNomeMercadoria.setPreferredSize(new Dimension(300, 25));
+        txtNomeMercadoria.setBounds(150, 60, 100, 25);
+        txtQntMercadoria.setPreferredSize(new Dimension(300, 25));
+        txtQntMercadoria.setBounds(150, 100, 100, 25);
+        txtIdMercadoria.setPreferredSize(new Dimension(300, 25));
+        txtIdMercadoria.setBounds(150, 140, 160, 25);
+        txtValorMercadoria.setPreferredSize(new Dimension(300, 25));
+        txtValorMercadoria.setBounds(150, 180, 160, 25);
+        txtDataValidade.setPreferredSize(new Dimension(300, 25));
+        txtDataValidade.setBounds(150, 230, 160, 25);
+        txtFornecedor.setPreferredSize(new Dimension(300, 25));
+        txtFornecedor.setBounds(150, 270, 160, 25);
+       
 
-            boxFilial.setBounds(70, 390, 100, 25);
+        boxFilial.setBounds(70, 390, 100, 25);
 
-            for (Filial dado: Dados.getFiliais()) {
-                boxFilial.addItem(dado.getNome());
-            }
-            
+        for (Filial dado: Dados.getFiliais()) {
+            boxFilial.addItem(dado.getNome());
+        }
+        
 
-            janelaMercadoria.setLayout(null);
+        janelaMercadoria.setLayout(null);
 
-            btnSalvarAlimento.setBounds(30, 450, 100, 30);
-            btnSalvarBebida.setBounds(30, 450, 100, 30);
-            btnSalvarCasa.setBounds(30, 450, 100, 30);
-            
+        btnSalvarAlimento.setBounds(30, 450, 100, 30);
+        btnSalvarBebida.setBounds(30, 450, 100, 30);
+        btnSalvarCasa.setBounds(30, 450, 100, 30);
+        
 
-            janelaMercadoria.add(lblDadosMercadoria);
-            janelaMercadoria.add(lblNomeMercadoria);
-            janelaMercadoria.add(lblQntMercadoria);
-            janelaMercadoria.add(lblIdMercadoria);
-            janelaMercadoria.add(lblValorMercadoria);
-            janelaMercadoria.add(lblDataValidade);
-            janelaMercadoria.add(lblFornecedor);
-            janelaMercadoria.add(filial);
-            janelaMercadoria.add(txtNomeMercadoria);
-            janelaMercadoria.add(txtQntMercadoria);
-            janelaMercadoria.add(txtIdMercadoria);
-            janelaMercadoria.add(txtValorMercadoria);
-            janelaMercadoria.add(txtDataValidade);
-            janelaMercadoria.add(txtFornecedor);
-            janelaMercadoria.add(boxFilial);
+        janelaMercadoria.add(lblDadosMercadoria);
+        janelaMercadoria.add(lblNomeMercadoria);
+        janelaMercadoria.add(lblQntMercadoria);
+        janelaMercadoria.add(lblIdMercadoria);
+        janelaMercadoria.add(lblValorMercadoria);
+        janelaMercadoria.add(lblDataValidade);
+        janelaMercadoria.add(lblFornecedor);
+        janelaMercadoria.add(filial);
+        janelaMercadoria.add(txtNomeMercadoria);
+        janelaMercadoria.add(txtQntMercadoria);
+        janelaMercadoria.add(txtIdMercadoria);
+        janelaMercadoria.add(txtValorMercadoria);
+        janelaMercadoria.add(txtDataValidade);
+        janelaMercadoria.add(txtFornecedor);
+        janelaMercadoria.add(boxFilial);
 
         //aqui configuramos o nosso JFrame
         janelaMercadoria.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         janelaMercadoria.setVisible(true);
         janelaMercadoria.setSize(350, 560);
         janelaMercadoria.setLocationRelativeTo(null); 
+        
+        String nomeSelecionado = (String) boxFilial.getSelectedItem();
+        for (Filial filial : Dados.getFiliais()) {
+            if (filial.getNome().equals(nomeSelecionado)) {
+                filialSelecionada = filial;
+                break;
+            }
+        }
         
     }
 
@@ -126,11 +136,11 @@ public class TelaMercadoria extends JFrame {
             case 1: //mostrar cadastro de alimentos
             lblPerecivel.setBounds(30, 310, 200, 25);
             lblMassa.setBounds(30, 350, 200, 25);
-
+            
             txtPerecivel.setPreferredSize(new Dimension(300, 25));
             txtPerecivel.setBounds(100, 310, 200, 25);
             txtMassa.setPreferredSize(new Dimension(300, 25));
-            txtMassa.setBounds(90, 350, 200, 25);
+            txtMassa.setBounds(100, 350, 200, 25);
 
             janelaMercadoria.add(lblPerecivel);
             janelaMercadoria.add(lblMassa);
@@ -167,7 +177,7 @@ public class TelaMercadoria extends JFrame {
                     JOptionPane.showMessageDialog(null, "Insira apenas letras no fornecedor");
                 }
                 else{
-                Dados.getMercadorias().add(cd.inserirAlimento(nomeMercadoria, qntMercadoria, idMercadoria, 
+                Dados.getMercadorias().add(cd.inserirAlimento(filialSelecionada, nomeMercadoria, qntMercadoria, idMercadoria, 
                 	valorMercadoria, dataValidade, fornecedor, massa, perecivel));
                 JOptionPane.showMessageDialog(null, "Mercadoria registrada com sucesso! :)");}
             }
@@ -185,7 +195,7 @@ public class TelaMercadoria extends JFrame {
             txtAlcool.setPreferredSize(new Dimension(300, 25));
             txtAlcool.setBounds(100, 310, 200, 25);
             txtVolume.setPreferredSize(new Dimension(300, 25));
-            txtVolume.setBounds(90, 350, 200, 25);
+            txtVolume.setBounds(100, 350, 200, 25);
 
             janelaMercadoria.add(lblAlcool);
             janelaMercadoria.add(lblVolume);
@@ -222,7 +232,7 @@ public class TelaMercadoria extends JFrame {
                         JOptionPane.showMessageDialog(null, "Insira apenas letras no fornecedor");
                     }
                     else{
-                    Dados.getMercadorias().add(cd.inserirAlimento(nomeMercadoria, qntMercadoria, idMercadoria,
+                    Dados.getMercadorias().add(cd.inserirAlimento(filialSelecionada ,nomeMercadoria, qntMercadoria, idMercadoria,
                     		valorMercadoria, dataValidade, pdLimpeza, estadoFis, fornecedor));
                     JOptionPane.showMessageDialog(null, "Mercadoria registrada com sucesso! :)");}
                 }
@@ -236,9 +246,9 @@ public class TelaMercadoria extends JFrame {
             estadoFis.setBounds(30, 350, 200, 25);
 
             txtPdLimpeza.setPreferredSize(new Dimension(300, 25));
-            txtPdLimpeza.setBounds(150, 310, 150, 25);
+            txtPdLimpeza.setBounds(100, 310, 150, 25);
             txtEstadoFis.setPreferredSize(new Dimension(300, 25));
-            txtEstadoFis.setBounds(120, 350, 200, 25);
+            txtEstadoFis.setBounds(100, 350, 200, 25);
 
             janelaMercadoria.add(pdLimpeza);
             janelaMercadoria.add(estadoFis);
@@ -285,7 +295,7 @@ public class TelaMercadoria extends JFrame {
                     	JOptionPane.showMessageDialog(null, "Formato incorreto de data!");
                     }
                     else{
-                    Dados.getMercadorias().add(cd.inserirPdCasa(nomeMercadoria, 
+                    Dados.getMercadorias().add(cd.inserirPdCasa(filialSelecionada, nomeMercadoria, 
                     		qntMercadoria, idMercadoria, valorMercadoria, dataValidade,
                     		pdLimpeza, estadoFis, fornecedor));
                     JOptionPane.showMessageDialog(null, "Mercadoria registrada com sucesso! :)");}

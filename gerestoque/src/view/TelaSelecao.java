@@ -28,9 +28,6 @@ public class TelaSelecao{
     DefaultTableModel modelM = new DefaultTableModel();
     JTable jTMercadorias = new JTable(modelM);
     JScrollPane scrollpaineltabela = new JScrollPane(jTMercadorias);
-    
-    public ArrayList<Filial> filiais = new ArrayList<Filial>();
-    
 
     public TelaSelecao(){
         
