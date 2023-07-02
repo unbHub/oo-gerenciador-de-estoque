@@ -239,7 +239,7 @@ public class TelaSelecao{
 				}
 				else {
 					JOptionPane.showMessageDialog(null, 
-							"Nenhuma Filial foi selecionada!");
+							"Nenhuma mercadoria foi selecionada!");
 				}
 				
 			}
