@@ -7,11 +7,15 @@ import java.util.Collection;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.AbstractTableModel;
 import view.TelaCadastro;
 
 public class TelaFilial extends JFrame{
@@ -34,7 +38,8 @@ public class TelaFilial extends JFrame{
     private JButton btnAdicionarFilial = new JButton("Adicionar Filial");
     private JButton btnRemoverFilial = new JButton("Remover Filial");
     private JButton btnFiltrarFilial = new JButton("Filtrar/Atualizar Filial");
-	private static JButton botaoSalvar = new JButton("Salvar");
+    private JButton btnEditarFilial = new JButton("Editar Filial");
+	private JButton botaoSalvar = new JButton("Salvar");
     
     //ControleDados cd = new ControleDados();
     
@@ -51,6 +56,7 @@ public class TelaFilial extends JFrame{
     	configInter();    	       
         
     	configEvent();
+        
 
     
         btnAdicionarFilial.addActionListener(new ActionListener() {
@@ -102,7 +108,7 @@ public class TelaFilial extends JFrame{
 					
 					// Remove a Filial do Banco de dados
 					Dados.getFiliais().remove(selectedRow);
-					
+
 					JOptionPane.showMessageDialog(null, 
 							"Filial removida com sucesso com sucesso!");
 				} else {
@@ -114,6 +120,7 @@ public class TelaFilial extends JFrame{
 		});
 		
 	    btnFiltrarFilial.addActionListener(new ActionListener() {
+	    	
         	@Override
         	public void actionPerformed(ActionEvent e) {
         		// Obtém o texto do campo de filtro
@@ -133,20 +140,80 @@ public class TelaFilial extends JFrame{
                         if ((dado.getNome().equalsIgnoreCase(filtroTexto) || 
                         		(dado.getId().equals(filtroTexto)))) {
                             modelF.addRow(new Object[]{dado.getNome(), dado.getId()});
+                            
+                    	    
                         }
+
                     }
-	        	}
+	        	  }
 	        	
         	}
 	    });
-          
+		btnEditarFilial.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// Obtém o índice da linha selecionada
+				int indiceLinha = jTFiliais.getSelectedRow();
+    			int indiceColuna = jTFiliais.getSelectedColumn();
+    			int colunaIndex = jTFiliais.convertColumnIndexToModel(indiceColuna);
+				
+				// Verifica se uma linha foi selecionada
+				if (indiceLinha != -1 && 
+						!modelF.getValueAt(indiceLinha, 1).toString().isEmpty() &&
+						indiceLinha > -1 && indiceColuna == 0) {
+					
+	    			Object valorAtualNome = jTFiliais.getValueAt(indiceLinha, colunaIndex);
+	    			String novoValorNome = JOptionPane.showInputDialog("Novo valor:", valorAtualNome);
+	    			if (novoValorNome == null) {
+	    				JOptionPane.showMessageDialog(null, "insira algum valor" );
+	    			}
+	    			else if(novoValorNome.matches("[0-9]+")) {
+	    				JOptionPane.showMessageDialog(null, "valor inválido!");
+	    			}
+	    			else {
+		    			jTFiliais.getModel().setValueAt(novoValorNome, indiceLinha, colunaIndex);
+		    			((AbstractTableModel) jTFiliais.getModel()).fireTableCellUpdated(indiceLinha, colunaIndex);
+		    			Dados.getMercadorias().get(indiceLinha).setNome(novoValorNome);
+	    			}
+
+					
+				}
+				else if (indiceLinha != -1 && 
+						!modelF.getValueAt(indiceLinha, 1).toString().isEmpty() &&
+						indiceLinha > -1 && indiceColuna == 1) {
+					Object valorAtualId = jTFiliais.getValueAt(indiceLinha, colunaIndex);
+	    			String novoValorId = JOptionPane.showInputDialog("Novo valor:", valorAtualId);
+	    			
+	    			if (novoValorId == null) {
+	    				JOptionPane.showMessageDialog(null, "insira algum valor" );
+	    			}
+	    			else if(!novoValorId.matches("[0-9]+")) {
+	    				JOptionPane.showMessageDialog(null, "valor inválido!");
+	    			}
+	    			else {
+		    			jTFiliais.getModel().setValueAt(novoValorId, indiceLinha, colunaIndex);
+		    			((AbstractTableModel) jTFiliais.getModel()).fireTableCellUpdated(indiceLinha, colunaIndex);
+		    			Dados.getFiliais().get(indiceLinha).setId(novoValorId);
+	    			}
+
+					
+				}
+				else {
+					JOptionPane.showMessageDialog(null, 
+							"Nenhuma Filial foi selecionada!");
+				}
+				
+			}
+		});
+    	
     }
-    
     public void configInter() {
     	
       	modelF = new DefaultTableModel();
     	jTFiliais = new JTable(modelF);
     	scrollpaineltabela = new JScrollPane(jTFiliais);
+    	
     	
 		
         //aqui adicionamos todos os elementos em nosso JFrame
@@ -163,11 +230,14 @@ public class TelaFilial extends JFrame{
         janelaFilial.getContentPane().add(btnAdicionarFilial);
         janelaFilial.getContentPane().add(btnRemoverFilial);
         janelaFilial.getContentPane().add(btnFiltrarFilial);
+        janelaFilial.getContentPane().add(btnEditarFilial);
         janelaFilial.getContentPane().add(botaoSalvar);
         
         scrollpaineltabela.setBounds(10, 50, 350, 150);
         janelaFilial.getContentPane().add(scrollpaineltabela);
         scrollpaineltabela.setViewportView(jTFiliais);	
+
+        
         
       //posição e tamanho das caixa de Filtro de Filial
         txtFiltroFilial.setBounds(150, 10, 200, 25);
@@ -175,6 +245,7 @@ public class TelaFilial extends JFrame{
         //posição e tamanho dos botões
         btnAdicionarFilial.setBounds(100, 220, 200, 30);
         btnRemoverFilial.setBounds(100, 260, 200, 30);
+        btnEditarFilial.setBounds(350,260, 200,30);
         btnFiltrarFilial.setBounds(100, 300, 200, 30);
         
         modelF.addColumn("Nome Filial");
@@ -209,6 +280,5 @@ public class TelaFilial extends JFrame{
             
         }
     }
-
 }
 

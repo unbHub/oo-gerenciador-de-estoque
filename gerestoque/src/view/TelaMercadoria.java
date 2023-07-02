@@ -179,6 +179,14 @@ public class TelaMercadoria extends JFrame {
                 Dados.getMercadorias().add(cd.inserirAlimento(filialSelecionada, nomeMercadoria, qntMercadoria, idMercadoria, 
                 	valorMercadoria, dataValidade, fornecedor, massa, perecivel));
                 JOptionPane.showMessageDialog(null, "Mercadoria registrada com sucesso! :)");}
+                txtNomeMercadoria.setText(null);
+                txtQntMercadoria.setText(null);
+                txtIdMercadoria.setText(null);
+                txtValorMercadoria.setText(null);
+                txtDataValidade.setText(null);
+                txtFornecedor.setText(null);
+                txtMassa.setText(null);
+                txtPerecivel.setText(null);
             }
             
         });
@@ -212,8 +220,8 @@ public class TelaMercadoria extends JFrame {
                     String idMercadoria = txtIdMercadoria.getText();
                     String valorMercadoria = txtValorMercadoria.getText();
                     String dataValidade = txtDataValidade.getText();
-                    String pdLimpeza = txtPdLimpeza.getText();
-                    String estadoFis = txtEstadoFis.getText() ;
+                    String alcool = txtAlcool.getText();
+                    String volume = txtVolume.getText() ;
                     String fornecedor = txtFornecedor.getText();
                     
                     String nomeSelecionado = (String) boxFilial.getSelectedItem();
@@ -240,8 +248,15 @@ public class TelaMercadoria extends JFrame {
                     }
                     else{
                     Dados.getMercadorias().add(cd.inserirAlimento(filialSelecionada ,nomeMercadoria, qntMercadoria, idMercadoria,
-                    		valorMercadoria, dataValidade, pdLimpeza, estadoFis, fornecedor));
-                    JOptionPane.showMessageDialog(null, "Mercadoria registrada com sucesso! :)");}
+                    		valorMercadoria, dataValidade, alcool, volume, fornecedor));
+                    JOptionPane.showMessageDialog(null, "Mercadoria registrada com sucesso! :)");
+                    txtNomeMercadoria.setText(null);
+                    txtQntMercadoria.setText(null);
+                    txtIdMercadoria.setText(null);
+                    txtValorMercadoria.setText(null);
+                    txtDataValidade.setText(null);
+                    txtFornecedor.setText(null);
+                    }
                 }
                 
             });
