@@ -102,19 +102,12 @@ public class TelaFilial extends JFrame{
 					
 					// Remove a Filial do Banco de dados
 					Dados.getFiliais().remove(selectedRow);
-					//String idFilial = (String) modelF.getValueAt(selectedRow, 1);
-					//cd.removerFilial(idFilial);
 					
 					JOptionPane.showMessageDialog(null, 
 							"Filial removida com sucesso com sucesso!");
-					
-				} else if (selectedRow != -1 && 
-						modelF.getValueAt(selectedRow, 1).toString().isEmpty()) {
-					// Remove a linha da tabela
-					modelF.removeRow(selectedRow);										
-					
-					// Atualiza a exibição do JTable
-					jTFiliais.repaint();
+				} else {
+					JOptionPane.showMessageDialog(null, 
+							"Nenhuma Filial foi selecionada!");
 				}
 				
 			}
