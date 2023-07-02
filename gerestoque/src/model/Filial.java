@@ -4,7 +4,6 @@ import java.util.List;
 
 public class Filial {
     private String nome;
-    private double valorTotal;
     private String idFilial;
     private List<Mercadoria> mercadorias;
 
@@ -23,12 +22,7 @@ public class Filial {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public double getValorTotal() {
-        return valorTotal;
-    }
-    public void setValorTotal(int valorTotal) {
-        this.valorTotal = valorTotal;
-    }
+
     public String getId() {
         return idFilial;
     }

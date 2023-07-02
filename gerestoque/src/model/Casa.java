@@ -20,7 +20,7 @@ public class Casa extends Mercadoria {
     	this.estadoFis = estadoFis;
 	}
     
-	public String isPdLimpeza() {
+	public String getPdLimpeza() {
 		return pdLimpeza;
 	}
 

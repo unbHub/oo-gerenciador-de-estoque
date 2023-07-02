@@ -38,13 +38,13 @@ public class TelaSelecao{
     public TelaSelecao(){
         
         lblDadosMercadoria.setFont(new Font("Arial", Font.BOLD, 15));
-        lblDadosMercadoria.setBounds(70, 270, 250, 25);
+        lblDadosMercadoria.setBounds(170, 270, 250, 25);
 
-        btnAlimento.setBounds(50, 300, 90, 30);
-        btnBebida.setBounds(140, 300, 90, 30);
-        btnCasa.setBounds(230, 300, 90, 30);
-        btnFiltrarMercadoria.setBounds(110, 205, 150, 30);
-        btnRemoverMercadoria.setBounds(110, 240, 150, 30);
+        btnAlimento.setBounds(150, 300, 90, 30);
+        btnBebida.setBounds(240, 300, 90, 30);
+        btnCasa.setBounds(330, 300, 90, 30);
+        btnFiltrarMercadoria.setBounds(210, 205, 150, 30);
+        btnRemoverMercadoria.setBounds(210, 240, 150, 30);
         
         boxFilial.setBounds(10, 10, 100, 25);
         for (Filial dado: Dados.getFiliais()) {
@@ -55,7 +55,7 @@ public class TelaSelecao{
         
         janelaSelecao.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         janelaSelecao.setVisible(true);
-        janelaSelecao.setSize(385, 500); 
+        janelaSelecao.setSize(638, 500); 
         janelaSelecao.setLocationRelativeTo(null);  
         
         janelaSelecao.setLayout(null);
@@ -69,12 +69,16 @@ public class TelaSelecao{
         janelaSelecao.add(boxFilial);
         janelaSelecao.add(txtFiltroMercadoria);
     	
-        scrollpaineltabela.setBounds(10, 50, 350, 150);
+        scrollpaineltabela.setBounds(10, 50, 600, 150);
         janelaSelecao.getContentPane().add(scrollpaineltabela);
         scrollpaineltabela.setViewportView(jTMercadorias);	
         
         modelM.addColumn("Nome");
         modelM.addColumn("Id");
+        modelM.addColumn("Data de validade");
+        modelM.addColumn("Fornecedor");
+        modelM.addColumn("Quantidade");
+        modelM.addColumn("valor");
 
         btnAlimento.addActionListener(new ActionListener() {
 
@@ -122,7 +126,9 @@ public class TelaSelecao{
         		// Verifica se o campo de filtro está vazio
 	        	if (filtroTexto.isEmpty()) {
 	        		for (Mercadoria dado : filialSelecionada.getMercadorias()) {
-	        			modelM.addRow(new Object[]{dado.getNome(), dado.getCodigo()});
+	        			modelM.addRow(new Object[]{dado.getNome(), dado.getCodigo(),
+	        					dado.getDataValidade(), dado.getFornecedor(), 
+                        		dado.getQuantidade(), dado.getValor()});
 	        		}
 	        	} else {
 	        		// Filtra os dados com base no texto do filtro
