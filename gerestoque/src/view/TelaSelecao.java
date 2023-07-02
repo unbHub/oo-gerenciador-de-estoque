@@ -81,7 +81,7 @@ public class TelaSelecao{
         modelM.addColumn("Data de validade");
         modelM.addColumn("Fornecedor");
         modelM.addColumn("Quantidade");
-        modelM.addColumn("valor");
+        modelM.addColumn("Valor");
 
 
         btnAlimento.addActionListener(new ActionListener() {
@@ -135,12 +135,23 @@ public class TelaSelecao{
 	        					dado.getDataValidade(), dado.getFornecedor(), 
                         		dado.getQuantidade(), dado.getValor()});
 	        		}
+	        	} else if (filtroTexto.equals("0")) {
+	        		// Filtra as mercadorias com estoque zerado
+	        		for (Mercadoria dado : filialSelecionada.getMercadorias()) {
+                        if (dado.getQuantidade().equals("0")) {
+                            modelM.addRow(new Object[]{dado.getNome(), dado.getCodigo(),
+    	        					dado.getDataValidade(), dado.getFornecedor(), 
+                            		dado.getQuantidade(), dado.getValor()});
+                        }
+	        		}
 	        	} else {
 	        		// Filtra os dados com base no texto do filtro
                     for (Mercadoria dado : filialSelecionada.getMercadorias()) {
                         if ((dado.getNome().equalsIgnoreCase(filtroTexto) || 
                         		(dado.getCodigo().equals(filtroTexto)))) {
-                            modelM.addRow(new Object[]{dado.getNome(), dado.getCodigo()});
+                            modelM.addRow(new Object[]{dado.getNome(), dado.getCodigo(),
+    	        					dado.getDataValidade(), dado.getFornecedor(), 
+                            		dado.getQuantidade(), dado.getValor()});
                         }
                     }
 	        	}

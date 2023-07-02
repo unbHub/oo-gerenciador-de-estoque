@@ -15,11 +15,11 @@ public class Dados {
 		for (int i = 0; i < 3; i++) {
 	        Filial filial = new Filial("Filial" + i, "123" + i);
 
-	        filial.addMercadoria(new Alimento("Alimento" + i, "Quantidade" + i, "valor" + i, "123" + i, "10/10/2023", "Fornecedor" + i, "Perecivel", "" + i));
+	        filial.addMercadoria(new Alimento("Alimento" + i, "" + i, "" + i, "123" + i, "10/10/2023", "Fornecedor" + i, "Perecivel", "" + i));
 	        
-	        filial.addMercadoria(new Casa("Casa" + i, "Quantidade" + i, "valor" + i, "456" + i, "11/10/2023", "Fornecedor" + i, "Limpeza", "Liquido"));
+	        filial.addMercadoria(new Casa("Casa" + i, "" + i, "" + i, "456" + i, "11/10/2023", "Fornecedor" + i, "Limpeza", "Liquido"));
 
-	        filial.addMercadoria(new Bebida("Bebida" + i, "Quantidade" + i, "valor" + i, "456" + i, "11/10/2023", "Fornecedor" + i, "Alcool", "" + i));
+	        filial.addMercadoria(new Bebida("Bebida" + i, "" + i, "" + i, "456" + i, "11/10/2023", "Fornecedor" + i, "Alcool", "" + i));
 	          
 	        filiais.add(filial);
 	        
