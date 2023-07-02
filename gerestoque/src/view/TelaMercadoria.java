@@ -71,9 +71,9 @@ public class TelaMercadoria extends JFrame {
         filial.setBounds(30, 390, 200, 25);
 
         txtNomeMercadoria.setPreferredSize(new Dimension(300, 25));
-        txtNomeMercadoria.setBounds(150, 60, 100, 25);
+        txtNomeMercadoria.setBounds(150, 60, 160, 25);
         txtQntMercadoria.setPreferredSize(new Dimension(300, 25));
-        txtQntMercadoria.setBounds(150, 100, 100, 25);
+        txtQntMercadoria.setBounds(150, 100, 160, 25);
         txtIdMercadoria.setPreferredSize(new Dimension(300, 25));
         txtIdMercadoria.setBounds(150, 140, 160, 25);
         txtValorMercadoria.setPreferredSize(new Dimension(300, 25));
@@ -88,14 +88,6 @@ public class TelaMercadoria extends JFrame {
 
         for (Filial dado: Dados.getFiliais()) {
             boxFilial.addItem(dado.getNome());
-        }
-        
-        String nomeSelecionado = (String) boxFilial.getSelectedItem();
-        for (Filial filial : Dados.getFiliais()) {
-            if (filial.getNome().equals(nomeSelecionado)) {
-                filialSelecionada = filial;
-                break;
-            }
         }
 
         janelaMercadoria.setLayout(null);
@@ -137,9 +129,9 @@ public class TelaMercadoria extends JFrame {
             lblMassa.setBounds(30, 350, 200, 25);
             
             txtPerecivel.setPreferredSize(new Dimension(300, 25));
-            txtPerecivel.setBounds(100, 310, 200, 25);
+            txtPerecivel.setBounds(150, 310, 160, 25);
             txtMassa.setPreferredSize(new Dimension(300, 25));
-            txtMassa.setBounds(100, 350, 200, 25);
+            txtMassa.setBounds(150, 350, 160, 25);
 
             janelaMercadoria.add(lblPerecivel);
             janelaMercadoria.add(lblMassa);
@@ -160,6 +152,14 @@ public class TelaMercadoria extends JFrame {
                 String fornecedor = txtFornecedor.getText();
                 String massa = txtMassa.getText();
                 String perecivel = txtPerecivel.getText();
+                
+                String nomeSelecionado = (String) boxFilial.getSelectedItem();
+                for (Filial filial : Dados.getFiliais()) {
+                    if (filial.getNome().equals(nomeSelecionado)) {
+                        filialSelecionada = filial;
+                        break;
+                    }
+                }
                 
                 if(nomeMercadoria.isEmpty() == true || idMercadoria.isEmpty() == true || qntMercadoria.isEmpty() == true 
                 || valorMercadoria.isEmpty() == true || /*dataValidade.isEmpty() == true*/ fornecedor.isEmpty() == true){
@@ -192,9 +192,9 @@ public class TelaMercadoria extends JFrame {
             lblVolume.setBounds(30, 350, 200, 25);
 
             txtAlcool.setPreferredSize(new Dimension(300, 25));
-            txtAlcool.setBounds(100, 310, 200, 25);
+            txtAlcool.setBounds(150, 310, 160, 25);
             txtVolume.setPreferredSize(new Dimension(300, 25));
-            txtVolume.setBounds(100, 350, 200, 25);
+            txtVolume.setBounds(150, 350, 160, 25);
 
             janelaMercadoria.add(lblAlcool);
             janelaMercadoria.add(lblVolume);
@@ -215,6 +215,14 @@ public class TelaMercadoria extends JFrame {
                     String pdLimpeza = txtPdLimpeza.getText();
                     String estadoFis = txtEstadoFis.getText() ;
                     String fornecedor = txtFornecedor.getText();
+                    
+                    String nomeSelecionado = (String) boxFilial.getSelectedItem();
+                    for (Filial filial : Dados.getFiliais()) {
+                        if (filial.getNome().equals(nomeSelecionado)) {
+                            filialSelecionada = filial;
+                            break;
+                        }
+                    }
                     
                     if(nomeMercadoria.isEmpty() == true || idMercadoria.isEmpty() == true || qntMercadoria.isEmpty() == true 
                     || valorMercadoria.isEmpty() == true || /*dataValidade.isEmpty() == true*/ fornecedor.isEmpty() == true){
@@ -245,9 +253,9 @@ public class TelaMercadoria extends JFrame {
             estadoFis.setBounds(30, 350, 200, 25);
 
             txtPdLimpeza.setPreferredSize(new Dimension(300, 25));
-            txtPdLimpeza.setBounds(100, 310, 150, 25);
+            txtPdLimpeza.setBounds(150, 310, 160, 25);
             txtEstadoFis.setPreferredSize(new Dimension(300, 25));
-            txtEstadoFis.setBounds(100, 350, 200, 25);
+            txtEstadoFis.setBounds(150, 350, 160, 25);
 
             janelaMercadoria.add(pdLimpeza);
             janelaMercadoria.add(estadoFis);
@@ -269,6 +277,14 @@ public class TelaMercadoria extends JFrame {
                     String pdLimpeza = txtPdLimpeza.getText();
                     String estadoFis = txtEstadoFis.getText() ;
                     String fornecedor = txtFornecedor.getText();
+                    
+                    String nomeSelecionado = (String) boxFilial.getSelectedItem();
+                    for (Filial filial : Dados.getFiliais()) {
+                        if (filial.getNome().equals(nomeSelecionado)) {
+                            filialSelecionada = filial;
+                            break;
+                        }
+                    }
                     
                     if(nomeMercadoria.isEmpty() == true || 
                     		idMercadoria.isEmpty() == true 

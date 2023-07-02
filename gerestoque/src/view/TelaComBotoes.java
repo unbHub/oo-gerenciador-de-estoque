@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 public class TelaComBotoes extends JFrame {
     
     //atributos informados do Swing para formarmos a janela:
-    private JFrame janelaMenu = new JFrame("GERENCIADOR DE ESTROQUE");
+    private JFrame janelaMenu = new JFrame("Gerenciador de Estoque");
     private JLabel lblTitulo = new JLabel("Menu Principal");
     private JButton btnFilial = new JButton("Filiais");
     private JButton btnMercadoria = new JButton("Mercadoria");
