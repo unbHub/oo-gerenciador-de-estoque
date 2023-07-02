@@ -49,7 +49,7 @@ public class ControleDados {
 		filial.setNome(nome);
 		filial.setId(idFilial);
 	}
-	public Alimento inserirAlimento(Filial filial, String nome, String quantidade, String valor, String codigo, 
+	public static Alimento inserirAlimento(Filial filial, String nome, String quantidade, String valor, String codigo, 
     		String dv, String fornecedor, String massa, String perecivel) {
 		Alimento novoAlimento = new Alimento(nome, quantidade, valor, 
 				codigo, dv, fornecedor, massa, perecivel);
@@ -64,7 +64,7 @@ public class ControleDados {
 		filial.addMercadoria(novaBebida);
 		return novaBebida;
 	}
-	public Casa inserirPdCasa(Filial filial, String nome, String quantidade, String valor, String codigo, 
+	public static Casa inserirPdCasa(Filial filial, String nome, String quantidade, String valor, String codigo, 
     		String dv, String fornecedor, String pdLimpeza, String estadoFis) {
 		Casa novoPdCasa = new Casa(nome, quantidade, valor, codigo, 
 	    		dv, fornecedor, pdLimpeza, estadoFis);

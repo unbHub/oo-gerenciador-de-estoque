@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 
 public class TelaMercadoria extends JFrame { 
 
-    ControleDados cd = new ControleDados();
+    //ControleDados cd = new ControleDados();
     
     Filial filialSelecionada = null;
     
@@ -176,7 +176,7 @@ public class TelaMercadoria extends JFrame {
                     JOptionPane.showMessageDialog(null, "Insira apenas letras no fornecedor");
                 }
                 else{
-                Dados.getMercadorias().add(cd.inserirAlimento(filialSelecionada, nomeMercadoria, qntMercadoria, idMercadoria, 
+                Dados.getMercadorias().add(ControleDados.inserirAlimento(filialSelecionada, nomeMercadoria, qntMercadoria, idMercadoria, 
                 	valorMercadoria, dataValidade, fornecedor, massa, perecivel));
                 JOptionPane.showMessageDialog(null, "Mercadoria registrada com sucesso! :)");}
                 txtNomeMercadoria.setText(null);
@@ -247,7 +247,7 @@ public class TelaMercadoria extends JFrame {
                         JOptionPane.showMessageDialog(null, "Insira apenas letras no fornecedor");
                     }
                     else{
-                    Dados.getMercadorias().add(cd.inserirAlimento(filialSelecionada ,nomeMercadoria, qntMercadoria, idMercadoria,
+                    Dados.getMercadorias().add(ControleDados.inserirAlimento(filialSelecionada ,nomeMercadoria, qntMercadoria, idMercadoria,
                     		valorMercadoria, dataValidade, alcool, volume, fornecedor));
                     JOptionPane.showMessageDialog(null, "Mercadoria registrada com sucesso! :)");
                     txtNomeMercadoria.setText(null);
@@ -325,7 +325,7 @@ public class TelaMercadoria extends JFrame {
                     	JOptionPane.showMessageDialog(null, "Formato incorreto de data!");
                     }
                     else{
-                    Dados.getMercadorias().add(cd.inserirPdCasa(filialSelecionada, nomeMercadoria, 
+                    Dados.getMercadorias().add(ControleDados.inserirPdCasa(filialSelecionada, nomeMercadoria, 
                     		qntMercadoria, idMercadoria, valorMercadoria, dataValidade,
                     		pdLimpeza, estadoFis, fornecedor));
                     JOptionPane.showMessageDialog(null, "Mercadoria registrada com sucesso! :)");}
