@@ -113,6 +113,6 @@ public class TelaCadastro extends JFrame{
           
     }
     public static void main(String[] args) {
-        new TelaCadastro().setVisible(true);
+        new TelaCadastro();
     }
 }
