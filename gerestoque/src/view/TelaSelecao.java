@@ -24,9 +24,7 @@ public class TelaSelecao{
     private JButton btnCasa = new JButton("Casa");
     private JButton btnFiltrarMercadoria = new JButton("Filtrar Mercadorias");
     private JButton btnRemoverMercadoria = new JButton("Remover");
-    private JButton btnEditarMercadoria = new JButton("Editar");
-    
-    
+    private JButton btnEditarMercadoria = new JButton("Editar");    
     private JComboBox<String> boxFilial = new JComboBox<String>();
     
     private JTextField txtFiltroMercadoria = new JTextField();
@@ -40,6 +38,7 @@ public class TelaSelecao{
     public TelaSelecao(){
         
         lblDadosMercadoria.setFont(new Font("Arial", Font.BOLD, 15));
+
         lblDadosMercadoria.setBounds(170, 270, 250, 25);
 
         btnAlimento.setBounds(150, 300, 90, 30);
@@ -83,6 +82,7 @@ public class TelaSelecao{
         modelM.addColumn("Fornecedor");
         modelM.addColumn("Quantidade");
         modelM.addColumn("valor");
+
 
         btnAlimento.addActionListener(new ActionListener() {
 
@@ -130,6 +130,7 @@ public class TelaSelecao{
         		// Verifica se o campo de filtro está vazio
 	        	if (filtroTexto.isEmpty()) {
 	        		for (Mercadoria dado : filialSelecionada.getMercadorias()) {
+
 	        			modelM.addRow(new Object[]{dado.getNome(), dado.getCodigo(),
 	        					dado.getDataValidade(), dado.getFornecedor(), 
                         		dado.getQuantidade(), dado.getValor()});
@@ -184,8 +185,6 @@ public class TelaSelecao{
 				}
 				
 			}
-			
-			
 		});
 		btnEditarMercadoria.addActionListener(new ActionListener() {
 			
