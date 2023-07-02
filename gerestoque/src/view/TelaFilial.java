@@ -107,7 +107,7 @@ public class TelaFilial extends JFrame{
 					jTFiliais.repaint();
 					
 					// Remove a Filial do Banco de dados
-					Dados.getFiliais().remove(selectedRow);
+					Dados.getMercadorias().remove(selectedRow);
 					
 					JOptionPane.showMessageDialog(null, 
 							"Filial removida com sucesso com sucesso!");
@@ -174,7 +174,7 @@ public class TelaFilial extends JFrame{
 	    			else {
 		    			jTFiliais.getModel().setValueAt(novoValorNome, indiceLinha, colunaIndex);
 		    			((AbstractTableModel) jTFiliais.getModel()).fireTableCellUpdated(indiceLinha, colunaIndex);
-		    			Dados.getFiliais().get(indiceLinha).setNome(novoValorNome);
+		    			Dados.getMercadorias().get(indiceLinha).setNome(novoValorNome);
 	    			}
 
 					

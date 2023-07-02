@@ -4,6 +4,7 @@ import model.*;
 import control.ControleDados;
 
 import javax.swing.*;
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 
 import java.awt.*;
@@ -18,11 +19,12 @@ public class TelaSelecao{
     private JFrame janelaSelecao = new JFrame("Mercadoria");
     private JLabel lblDadosMercadoria = new JLabel("Selecione o tipo de mercadoria: ");
 
-    private static JButton btnAlimento = new JButton("Alimento");
-    private static JButton btnBebida = new JButton("Bebida");
-    private static JButton btnCasa = new JButton("Casa");
-    private static JButton btnFiltrarMercadoria = new JButton("Filtrar Mercadorias");
-    private static JButton btnRemoverMercadoria = new JButton("Remover");
+    private JButton btnAlimento = new JButton("Alimento");
+    private JButton btnBebida = new JButton("Bebida");
+    private JButton btnCasa = new JButton("Casa");
+    private JButton btnFiltrarMercadoria = new JButton("Filtrar Mercadorias");
+    private JButton btnRemoverMercadoria = new JButton("Remover");
+    private JButton btnEditarMercadoria = new JButton("Editar");
     
     
     private JComboBox<String> boxFilial = new JComboBox<String>();
@@ -45,6 +47,7 @@ public class TelaSelecao{
         btnCasa.setBounds(330, 300, 90, 30);
         btnFiltrarMercadoria.setBounds(210, 205, 150, 30);
         btnRemoverMercadoria.setBounds(210, 240, 150, 30);
+        btnEditarMercadoria.setBounds(210, 400, 150, 30);
         
         boxFilial.setBounds(10, 10, 100, 25);
         for (Filial dado: Dados.getFiliais()) {
@@ -66,6 +69,7 @@ public class TelaSelecao{
         janelaSelecao.add(btnCasa);
         janelaSelecao.add(btnFiltrarMercadoria);
         janelaSelecao.add(btnRemoverMercadoria);
+        janelaSelecao.add(btnEditarMercadoria);
         janelaSelecao.add(boxFilial);
         janelaSelecao.add(txtFiltroMercadoria);
     	
@@ -180,9 +184,67 @@ public class TelaSelecao{
 				}
 				
 			}
+			
+			
 		});
-        
-    }
+		btnEditarMercadoria.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// Obtém o índice da linha selecionada
+				int indiceLinha = jTMercadorias.getSelectedRow();
+    			int indiceColuna = jTMercadorias.getSelectedColumn();
+    			int colunaIndex = jTMercadorias.convertColumnIndexToModel(indiceColuna);
+				
+				// Verifica se uma linha foi selecionada
+				if (indiceLinha != -1 && 
+						!modelM.getValueAt(indiceLinha, 1).toString().isEmpty() &&
+						indiceLinha > -1 && indiceColuna == 0) {
+					
+	    			Object valorAtualNome = jTMercadorias.getValueAt(indiceLinha, colunaIndex);
+	    			String novoValorNome = JOptionPane.showInputDialog("Novo valor:", valorAtualNome);
+	    			if (novoValorNome == null) {
+	    				JOptionPane.showMessageDialog(null, "insira algum valor" );
+	    			}
+	    			else if(novoValorNome.matches("[0-9]+")) {
+	    				JOptionPane.showMessageDialog(null, "valor inválido!");
+	    			}
+	    			else {
+		    			jTMercadorias.getModel().setValueAt(novoValorNome, indiceLinha, colunaIndex);
+		    			((AbstractTableModel) jTMercadorias.getModel()).fireTableCellUpdated(indiceLinha, colunaIndex);
+		    			Dados.getMercadorias().get(indiceLinha).setNome(novoValorNome);
+	    			}
+
+					
+				}
+				else if (indiceLinha != -1 && 
+						!modelM.getValueAt(indiceLinha, 1).toString().isEmpty() &&
+						indiceLinha > -1 && indiceColuna == 1) {
+					Object valorAtualId = jTMercadorias.getValueAt(indiceLinha, colunaIndex);
+	    			String novoValorId = JOptionPane.showInputDialog("Novo valor:", valorAtualId);
+	    			
+	    			if (novoValorId == null) {
+	    				JOptionPane.showMessageDialog(null, "insira algum valor" );
+	    			}
+	    			else if(!novoValorId.matches("[0-9]+")) {
+	    				JOptionPane.showMessageDialog(null, "valor inválido!");
+	    			}
+	    			else {
+		    			jTMercadorias.getModel().setValueAt(novoValorId, indiceLinha, colunaIndex);
+		    			((AbstractTableModel) jTMercadorias.getModel()).fireTableCellUpdated(indiceLinha, colunaIndex);
+		    			Dados.getMercadorias().get(indiceLinha).setCodigo(novoValorId);
+	    			}
+
+					
+				}
+				else {
+					JOptionPane.showMessageDialog(null, 
+							"Nenhuma Filial foi selecionada!");
+				}
+				
+			}
+    });
+}
 }
 
 
