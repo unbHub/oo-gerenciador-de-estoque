@@ -57,7 +57,7 @@ public class ControleDados {
 		return novoAlimento;
 		
 	}
-	public Bebida inserirBebida(Filial filial, String nome, String quantidade, String valor, 
+	public static Bebida inserirBebida(Filial filial, String nome, String quantidade, String valor, 
     		String codigo, String dv, String fornecedor, String alcool, String volume) {
 		Bebida novaBebida = new Bebida(nome, quantidade, valor, 
 	    		codigo, dv, fornecedor, alcool, volume);	
