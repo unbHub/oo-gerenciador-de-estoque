@@ -5,12 +5,20 @@ import java.util.List;
 
 public class Dados {
 
-/** classe simulação banco de dados
- * @author Marcos, Diego e Filipe
- */
+	/**
+	 * 
+	 * @author Diego Carlito
+	 * @author Filipe Carvalho
+	 * @author Marcos Castilhos
+	 *Classe model Dados, para simulação de um banco de dados
+	 *
+	 */
 	public static final ArrayList<Mercadoria> mercadorias = new ArrayList<Mercadoria>();
 	public static final ArrayList<Filial> filiais = new ArrayList<Filial>();
-
+	
+	/**
+	 * Metodo para preenchemento de dados
+	 */
 	public static void fillWithSomeData() {
 		for (int i = 0; i < 3; i++) {
 	        Filial filial = new Filial("Filial" + i, "123" + i);
@@ -36,15 +44,4 @@ public class Dados {
 		return mercadorias;
 	}
 
-//	public static void main(String[] args) {
-//		fillWithSomeData();
-//		for (int i = 0; i < filiais.size(); i++) {
-//			System.out.println(filiais.get(i));
-//			System.out.println(filiais.get(i).getMercadorias());
-//			System.out.println();
-//		}
-//		System.out.println(mercadorias);
-//
-//	}
-	
 }

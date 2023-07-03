@@ -1,11 +1,29 @@
 package model;
 
+/**
+ * 
+ * @author Diego Carlito
+ * @author Filipe Carvalho
+ * @author Marcos Castilhos
+ *Classe model Casa, para instacia de produtos de casa
+ */
 
 public class Casa extends Mercadoria {
 	//indica se é ou nao um produto de limpeza e seu estado (solido ou liquido)
 	private String pdLimpeza;
 	private String estadoFis;
 	
+	/**
+	 * 
+	 * @param nome
+	 * @param quantidade
+	 * @param valor
+	 * @param codigoMercadoria
+	 * @param dataValidade
+	 * @param fornecedor
+	 * @param pdLimpeza
+	 * @param estadoFis
+	 */
     public Casa(String nome, String quantidade, String valor, String codigoMercadoria, 
     		String dataValidade, String fornecedor, String pdLimpeza,
     		String estadoFis) {

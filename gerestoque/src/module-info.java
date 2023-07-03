@@ -8,5 +8,6 @@
 module gerestoque {
 
 	requires java.desktop;
+	requires junit;
 	
 }

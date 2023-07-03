@@ -11,16 +11,24 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * 
+ * @author Diego Carlito
+ * @author Filipe Carvalho
+ * @author Marcos Castilhos
+ * Classe view TelaMercadoria, para exibição, cadastro, edição, filtro e remoção
+ * de mercadorias
+ */
 
 public class TelaMercadoria extends JFrame { 
 
-    //ControleDados cd = new ControleDados();
-    
     Filial filialSelecionada = null;
     
     //aqui colocamos os atributos que iremos utilizar para montarmos nossa tela
 
-    //atributos para montagem dos labels
+    /**
+     * instancia dos labels
+     */
     private JFrame janelaMercadoria = new JFrame("Mercadoria");
     private JLabel lblDadosMercadoria = new JLabel("Digite os dados da mercadoria: ");
     private JLabel lblNomeMercadoria = new JLabel("Nome:");
@@ -38,7 +46,9 @@ public class TelaMercadoria extends JFrame {
     private JLabel filial = new JLabel("Filial: ");
 
 
-    //atributos para os campos de texto
+    /**
+     * instancia dos campos de texto
+     */
     private JTextField txtNomeMercadoria = new JTextField();
     private JTextField txtQntMercadoria = new JTextField();
     private JTextField txtIdMercadoria = new JTextField();
@@ -54,12 +64,17 @@ public class TelaMercadoria extends JFrame {
 
     private JComboBox<String> boxFilial = new JComboBox<String>();
 
-    //botões
+    /**
+     * instancia dos botões utilizaveis
+     */
     private JButton btnSalvarAlimento = new JButton("Salvar");
     private JButton btnSalvarBebida = new JButton("Salvar");
     private JButton btnSalvarCasa = new JButton("Salvar");
     
     public TelaMercadoria(){
+    	/**
+    	 * configuração do tamanho dos elementos na tela
+    	 */
         lblDadosMercadoria.setFont(new Font("Arial", Font.BOLD, 15));
         lblDadosMercadoria.setBounds(30, 20, 250, 25);
         lblNomeMercadoria.setBounds(30, 60, 200, 25);
@@ -96,7 +111,9 @@ public class TelaMercadoria extends JFrame {
         btnSalvarBebida.setBounds(30, 450, 100, 30);
         btnSalvarCasa.setBounds(30, 450, 100, 30);
         
-
+        /**
+         * adição dos elementos na tela
+         */
         janelaMercadoria.add(lblDadosMercadoria);
         janelaMercadoria.add(lblNomeMercadoria);
         janelaMercadoria.add(lblQntMercadoria);
@@ -120,11 +137,17 @@ public class TelaMercadoria extends JFrame {
         janelaMercadoria.setLocationRelativeTo(null); 
         
     }
-
+    /**
+     * metodo para alterar o tipo de mercadoria a ser cadastrada
+     * 1 para alimentos
+     * 2 para bebidas
+     * 3 para produtos de casa
+     * @param op
+     */
     public void alterarCadastro(int op){
 
         switch(op){
-            case 1: //mostrar cadastro de alimentos
+            case 1: /**mostrar cadastro de alimentos */
             lblPerecivel.setBounds(30, 310, 200, 25);
             lblMassa.setBounds(30, 350, 200, 25);
             
@@ -142,6 +165,10 @@ public class TelaMercadoria extends JFrame {
             
             btnSalvarAlimento.addActionListener(new ActionListener() {
 
+            /**
+             * metodo de recebimento dos dados de um novo alimento
+             * @param e
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 String nomeMercadoria = txtNomeMercadoria.getText();
@@ -195,7 +222,7 @@ public class TelaMercadoria extends JFrame {
             
         break;
 
-        case 2: //mostrar cadastro de bebidas
+        case 2: /**mostrar cadastro de bebidas */
             lblAlcool.setBounds(30, 310, 200, 25);
             lblVolume.setBounds(30, 350, 200, 25);
 
@@ -213,6 +240,10 @@ public class TelaMercadoria extends JFrame {
             
             btnSalvarBebida.addActionListener(new ActionListener() {
 
+            	/**
+            	 * metodo para recebimento de dados de uma nova bebida
+            	 * @param e
+            	 */
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     String nomeMercadoria = txtNomeMercadoria.getText();
@@ -263,7 +294,7 @@ public class TelaMercadoria extends JFrame {
             
         break;
 
-        case 3: //mostrar cadastro de produtos de casa
+        case 3: /**mostrar cadastro de produtos de casa */
         	pdLimpeza.setBounds(30, 310, 200, 25);
             estadoFis.setBounds(30, 350, 200, 25);
 
@@ -282,6 +313,10 @@ public class TelaMercadoria extends JFrame {
             
             btnSalvarCasa.addActionListener(new ActionListener() {
 
+            	/**
+            	 * metodo para recebimento de dados de um novo produto para casa
+            	 * @param e
+            	 */
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     String nomeMercadoria = txtNomeMercadoria.getText();

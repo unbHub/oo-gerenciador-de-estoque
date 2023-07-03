@@ -14,10 +14,19 @@ import java.util.ArrayList;
 
 import javax.swing.table.DefaultTableModel;
 
+/**
+ * 
+ * @author Diego Carlito
+ * @author Filipe Carvalho
+ * @author Marcos Castilhos
+ *Classe view TelaSelecao, para seleção de tipo de mercadoria a se cadastrar e
+ *visualização das mercadorias ja cadastradas em em suas devidas filiais
+ */
 public class TelaSelecao{
     
     private JFrame janelaSelecao = new JFrame("Mercadoria");
-    private JLabel lblDadosMercadoria = new JLabel("Selecione o tipo de mercadoria: ");
+    private JLabel lblDadosMercadoria = new JLabel(
+    		"Selecione o tipo de mercadoria: ");
 
     private JButton btnAlimento = new JButton("Alimento");
     private JButton btnBebida = new JButton("Bebida");
@@ -37,31 +46,36 @@ public class TelaSelecao{
 
     public TelaSelecao(){
         
+    	/**
+    	 * Setando tamanhos dos elementos na janela
+    	 */
         lblDadosMercadoria.setFont(new Font("Arial", Font.BOLD, 15));
-
         lblDadosMercadoria.setBounds(170, 270, 250, 25);
-
         btnAlimento.setBounds(150, 300, 90, 30);
         btnBebida.setBounds(240, 300, 90, 30);
         btnCasa.setBounds(330, 300, 90, 30);
         btnFiltrarMercadoria.setBounds(210, 205, 150, 30);
         btnRemoverMercadoria.setBounds(210, 240, 150, 30);
         btnEditarMercadoria.setBounds(210, 400, 150, 30);
-        
+        txtFiltroMercadoria.setBounds(150, 10, 200, 25);
         boxFilial.setBounds(10, 10, 100, 25);
+        scrollpaineltabela.setBounds(10, 50, 600, 150);
         for (Filial dado: Dados.getFiliais()) {
             boxFilial.addItem(dado.getNome());
         }
         
-        txtFiltroMercadoria.setBounds(150, 10, 200, 25);
-        
+        /**
+         * Configurações da janela
+         */
         janelaSelecao.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         janelaSelecao.setVisible(true);
         janelaSelecao.setSize(638, 500); 
         janelaSelecao.setLocationRelativeTo(null);  
-        
         janelaSelecao.setLayout(null);
         
+        /**
+         * Adição dos elementos na janela
+         */
         janelaSelecao.add(lblDadosMercadoria);
         janelaSelecao.add(btnAlimento);
         janelaSelecao.add(btnBebida);
@@ -71,11 +85,12 @@ public class TelaSelecao{
         janelaSelecao.add(btnEditarMercadoria);
         janelaSelecao.add(boxFilial);
         janelaSelecao.add(txtFiltroMercadoria);
-    	
-        scrollpaineltabela.setBounds(10, 50, 600, 150);
         janelaSelecao.getContentPane().add(scrollpaineltabela);
         scrollpaineltabela.setViewportView(jTMercadorias);	
         
+        /**
+         * Adição das colunas da tabela
+         */
         modelM.addColumn("Nome");
         modelM.addColumn("Id");
         modelM.addColumn("Data de validade");
@@ -83,10 +98,16 @@ public class TelaSelecao{
         modelM.addColumn("Quantidade");
         modelM.addColumn("Valor");
 
-
+        
         btnAlimento.addActionListener(new ActionListener() {
 
-            @Override
+            
+            /**
+             * seleciona a primeira opção de alterar cadastro na classe 
+             * TelaMercadoria
+             * @param e
+             */
+        	@Override
             public void actionPerformed(ActionEvent e) {
                 new TelaMercadoria().alterarCadastro(1);  
             }
@@ -94,6 +115,11 @@ public class TelaSelecao{
 
         btnBebida.addActionListener(new ActionListener() {
 
+        	/**
+        	 * seleciona a segunda opção de alterar cadastro na classe
+        	 * TelaMercadoria
+        	 * @param e
+        	 */
             @Override
             public void actionPerformed(ActionEvent e) {
                 new TelaMercadoria().alterarCadastro(2);
@@ -103,6 +129,11 @@ public class TelaSelecao{
 
         btnCasa.addActionListener(new ActionListener() {
 
+        	/**
+        	 * seleciona a terceira opção de alterar cadastro na classe
+        	 * TelaMercadoria
+        	 * @param e
+        	 */
             @Override
             public void actionPerformed(ActionEvent e) {
                 new TelaMercadoria().alterarCadastro(3);
@@ -111,6 +142,10 @@ public class TelaSelecao{
         });
         
         btnFiltrarMercadoria.addActionListener(new ActionListener() {
+        	/**
+        	 * Filtra mercadoria percorrendo todo o array de filiais da classe
+        	 * Dados
+        	 */
         	@Override
         	public void actionPerformed(ActionEvent e) {
                 String nomeSelecionado = (String) boxFilial.getSelectedItem();
@@ -161,6 +196,11 @@ public class TelaSelecao{
         
         btnRemoverMercadoria.addActionListener(new ActionListener() {
 			
+        	/**
+        	 * remove a mercadoria selecionada na tabela, de acordo com sua
+        	 * respectiva filial
+        	 * @param e
+        	 */
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String nomeSelecionado = (String) boxFilial.getSelectedItem();
@@ -185,7 +225,8 @@ public class TelaSelecao{
 					
 					
 					// Remove a Mercadoria da Filial
-					filialSelecionada.remMercadoria(filialSelecionada.getMercadorias().get(selectedRow));
+					filialSelecionada.remMercadoria(
+							filialSelecionada.getMercadorias().get(selectedRow));
 				
 					
 					JOptionPane.showMessageDialog(null, 
@@ -199,6 +240,11 @@ public class TelaSelecao{
 		});
 		btnEditarMercadoria.addActionListener(new ActionListener() {
 			
+			/**
+			 * edita a mercadoria de acordo com o elemento selecionado,
+			 * verifica se foi adicionado um valor vazio e insere um novo valor
+			 * para nome ou id de mercadoria
+			 */
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// Obtém o índice da linha selecionada
@@ -211,8 +257,10 @@ public class TelaSelecao{
 						!modelM.getValueAt(indiceLinha, 1).toString().isEmpty() &&
 						indiceLinha > -1 && indiceColuna == 0) {
 					
-	    			Object valorAtualNome = jTMercadorias.getValueAt(indiceLinha, colunaIndex);
-	    			String novoValorNome = JOptionPane.showInputDialog("Novo valor:", valorAtualNome);
+	    			Object valorAtualNome = jTMercadorias.getValueAt(indiceLinha, 
+	    					colunaIndex);
+	    			String novoValorNome = JOptionPane.showInputDialog("Novo valor:", 
+	    					valorAtualNome);
 	    			if (novoValorNome == null) {
 	    				JOptionPane.showMessageDialog(null, "insira algum valor" );
 	    			}
@@ -220,8 +268,10 @@ public class TelaSelecao{
 	    				JOptionPane.showMessageDialog(null, "valor inválido!");
 	    			}
 	    			else {
-		    			jTMercadorias.getModel().setValueAt(novoValorNome, indiceLinha, colunaIndex);
-		    			((AbstractTableModel) jTMercadorias.getModel()).fireTableCellUpdated(indiceLinha, colunaIndex);
+		    			jTMercadorias.getModel().setValueAt(novoValorNome, 
+		    					indiceLinha, colunaIndex);
+		    			((AbstractTableModel) jTMercadorias.getModel()).
+		    			fireTableCellUpdated(indiceLinha, colunaIndex);
 		    			Dados.getMercadorias().get(indiceLinha).setNome(novoValorNome);
 	    			}
 
@@ -230,8 +280,10 @@ public class TelaSelecao{
 				else if (indiceLinha != -1 && 
 						!modelM.getValueAt(indiceLinha, 1).toString().isEmpty() &&
 						indiceLinha > -1 && indiceColuna == 1) {
-					Object valorAtualId = jTMercadorias.getValueAt(indiceLinha, colunaIndex);
-	    			String novoValorId = JOptionPane.showInputDialog("Novo valor:", valorAtualId);
+					Object valorAtualId = jTMercadorias.getValueAt(indiceLinha, 
+							colunaIndex);
+	    			String novoValorId = JOptionPane.showInputDialog("Novo valor:",
+	    					valorAtualId);
 	    			
 	    			if (novoValorId == null) {
 	    				JOptionPane.showMessageDialog(null, "insira algum valor" );
@@ -240,16 +292,19 @@ public class TelaSelecao{
 	    				JOptionPane.showMessageDialog(null, "valor inválido!");
 	    			}
 	    			else {
-		    			jTMercadorias.getModel().setValueAt(novoValorId, indiceLinha, colunaIndex);
-		    			((AbstractTableModel) jTMercadorias.getModel()).fireTableCellUpdated(indiceLinha, colunaIndex);
-		    			Dados.getMercadorias().get(indiceLinha).setCodigo(novoValorId);
+		    			jTMercadorias.getModel().setValueAt(novoValorId, 
+		    					indiceLinha, colunaIndex);
+		    			((AbstractTableModel) jTMercadorias.getModel()).
+		    			fireTableCellUpdated(indiceLinha, colunaIndex);
+		    			Dados.getMercadorias().get(indiceLinha).setCodigo
+		    			(novoValorId);
 	    			}
 
 					
 				}
 				else {
 					JOptionPane.showMessageDialog(null, 
-							"Nenhuma Filial foi selecionada!");
+							"Nenhuma mercadoria foi selecionada!");
 				}
 				
 			}

@@ -2,6 +2,13 @@ package model;
 
 import java.util.Date;
 
+/**
+ * 
+ * @author Diego Carlito
+ * @author Filipe Carvalho
+ * @author Marcos Castilhos
+ *Classe model Abstrata, mãe das classes Alimento, Bebida e Casa
+ */
 
 public abstract class Mercadoria {
 	
@@ -12,10 +19,6 @@ public abstract class Mercadoria {
 	protected String dataValidade;
 	protected String fornecedor;
 	
-		public Mercadoria() {
-			super();
-		}
-		
 	//Metodos autogerados:
 		public String getNome() {
 			return nome;
