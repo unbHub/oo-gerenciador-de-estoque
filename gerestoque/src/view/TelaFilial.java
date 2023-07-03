@@ -195,7 +195,7 @@ public class TelaFilial extends JFrame{
 	    			else {
 		    			jTFiliais.getModel().setValueAt(novoValorNome, indiceLinha, colunaIndex);
 		    			((AbstractTableModel) jTFiliais.getModel()).fireTableCellUpdated(indiceLinha, colunaIndex);
-		    			Dados.getMercadorias().get(indiceLinha).setNome(novoValorNome);
+		    			Dados.getFiliais().get(indiceLinha).setNome(novoValorNome);
 	    			}
 
 					
