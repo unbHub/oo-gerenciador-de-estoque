@@ -6,49 +6,55 @@ import model.Empresa;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Diego Carlito
+ * @author Filipe Carvalho
+ * @author Marcos Castilhos
+ *Classe control ControleDeDados, para melhor controlar inserção de dados 
+ */
 public class ControleDados {
 	
-	//Instância previa de empresa
+	/**
+	 * Empresa previamente instanciada
+	 */
 	private static Empresa mercado = new Empresa("Mercado orientado");
-	
-	private String tipoMercadoria;
-	private String escolha;
-	
+
+	/**
+	 * Construtor controle de dados. Implementa o metodo fillWithSomeData
+	 * para criação de dados aleatorios no app
+	 */
 	public ControleDados() {
 		Dados.fillWithSomeData();
-	}
-	
-	public String getTipoMercadoria() {
-		return tipoMercadoria;
-	}
-	
-	public void setTipoMercadoria(String tipoMercadoria) {
-		this.tipoMercadoria = tipoMercadoria;
 	}
 	public static Empresa getMercado() {
 		return mercado;
 	}
 	
-	//Metodo de inserção de filiais
+	/**
+	 * 
+	 * @param nome
+	 * @param idFil
+	 * @return retorna nova filial cadastrada
+	 */
 	public static Filial inserirFiliais(String nome, String idFil) {
 		Filial cadastro = new Filial(nome, idFil);
 		mercado.addFilial(cadastro);
 		return cadastro;
 	}
-	//remoção de filiais
-	public void removerFilial(String idFilial) {
-		mercado.remFilial(mercado.buscarFilial(idFilial));
-		
-	}
-	//buscar filiais
-	public void buscarFiliais(String idFilial) {
-		mercado.buscarFilial(idFilial);
-	}
-	//edição de filiais
-	public void editarFiliais(String nome, String idFilial, Filial filial) {
-		filial.setNome(nome);
-		filial.setId(idFilial);
-	}
+	/**
+	 * 
+	 * @param filial
+	 * @param nome
+	 * @param quantidade
+	 * @param valor
+	 * @param codigo
+	 * @param dv
+	 * @param fornecedor
+	 * @param massa
+	 * @param perecivel
+	 * @return retorna novo alimento cadastrado
+	 */
 	public static Alimento inserirAlimento(Filial filial, String nome, String quantidade, String valor, String codigo, 
     		String dv, String fornecedor, String massa, String perecivel) {
 		Alimento novoAlimento = new Alimento(nome, quantidade, valor, 
@@ -57,6 +63,19 @@ public class ControleDados {
 		return novoAlimento;
 		
 	}
+	/**
+	 * 
+	 * @param filial
+	 * @param nome
+	 * @param quantidade
+	 * @param valor
+	 * @param codigo
+	 * @param dv
+	 * @param fornecedor
+	 * @param alcool
+	 * @param volume
+	 * @return retorna nova bebida cadastrada
+	 */
 	public static Bebida inserirBebida(Filial filial, String nome, String quantidade, String valor, 
     		String codigo, String dv, String fornecedor, String alcool, String volume) {
 		Bebida novaBebida = new Bebida(nome, quantidade, valor, 
@@ -64,6 +83,19 @@ public class ControleDados {
 		filial.addMercadoria(novaBebida);
 		return novaBebida;
 	}
+	/**
+	 * 
+	 * @param filial
+	 * @param nome
+	 * @param quantidade
+	 * @param valor
+	 * @param codigo
+	 * @param dv
+	 * @param fornecedor
+	 * @param pdLimpeza
+	 * @param estadoFis
+	 * @return retorna novo produto para casa cadastrado
+	 */
 	public static Casa inserirPdCasa(Filial filial, String nome, String quantidade, String valor, String codigo, 
     		String dv, String fornecedor, String pdLimpeza, String estadoFis) {
 		Casa novoPdCasa = new Casa(nome, quantidade, valor, codigo, 
@@ -71,16 +103,5 @@ public class ControleDados {
 		filial.addMercadoria(novoPdCasa);
 		return novoPdCasa;
 	}
-	
-	//remoção de mercadorias
-	public void removerMercadorias(String codigoM, Filial filial) {
-		filial.remMercadoria(filial.buscarMercadoria(codigoM));
-	
-	}
-	//busca mercadorias
-	public void buscarMercadorias(String codM, Filial filial) {
-		filial.buscarMercadoria(codM);
-	}
-
 	
 }

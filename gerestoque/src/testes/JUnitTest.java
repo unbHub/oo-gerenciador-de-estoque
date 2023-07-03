@@ -12,6 +12,9 @@ import model.Filial;
 public class JUnitTest {
 
 	@Test
+	/**
+	 * Testa se está inserindo filiais corretamente
+	 */
 	public void testeInserirFiliais() {
 		assertTrue(ControleDados.inserirFiliais("Filial jacare", "1873"));
 	}
@@ -21,6 +24,9 @@ public class JUnitTest {
 		
 	}
 	@Test
+	/**
+	 * testa se está inserindo alimentos corretamente
+	 */
 	public void testeInserirAlimento() {
 		Filial filial0 = new Filial("Jupiter", "1234");
 		assertTrue(ControleDados.inserirAlimento(filial0, "aaa", 
@@ -32,6 +38,9 @@ public class JUnitTest {
 		
 	}
 	@Test
+	/**
+	 * Testa se está inserindo produtos para casa corretamente
+	 */
 	public void testeInserirPdCasa() {
 		Filial filial1 = new Filial("rj", "222");
 		assertTrue(ControleDados.inserirPdCasa(filial1, "aaa", "12", "12", 

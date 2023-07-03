@@ -2,12 +2,24 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * @author Diego Carlito
+ * @author Filipe Carvalho
+ * @author Marcos Castilhos
+ *Classe model Filial, para instancia de filiais
+ */
 public class Filial {
     private String nome;
     private String idFilial;
     private List<Mercadoria> mercadorias;
 
-	//Construtor
+	/**
+	 * Construtor de filial. instancia um novo arraylist para cada filial 
+	 * nova criada.
+	 * @param n
+	 * @param iF
+	 */
     public Filial(String n, String iF) {
     	mercadorias = new ArrayList<Mercadoria>();
         nome = n;
@@ -33,24 +45,20 @@ public class Filial {
 		return mercadorias;
 	}
 
-    //Metodos 
-	
+    /**
+     * Método para adição de novas mercadorias em uma filial
+     * @param mercadoria
+     */
     public void addMercadoria(Mercadoria mercadoria) {
         mercadorias.add(mercadoria);
     }
-	
+    /**
+     * metodo para remoção de mercadorias
+     * @param mercadoria
+     */
     public void remMercadoria(Mercadoria mercadoria) {
-        mercadorias.remove(mercadoria);
+    	mercadorias.remove(mercadoria);
     }
-    public Mercadoria buscarMercadoria(String cod) {
-        for (Mercadoria m : mercadorias) {
-            if (m.getCodigo() == cod){
-                return m;
-            }
-        }
-        return null;
-    }
-
     @Override
     public String toString() {
         return "Filial [nome = " + nome + ", id =" 

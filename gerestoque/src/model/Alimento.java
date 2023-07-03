@@ -2,11 +2,30 @@ package model;
 
 import java.util.Date;
 
+/**
+ * 
+ * @author Diego Carlito
+ * @author Filipe Carvalho
+ * @author Marcos Castilhos
+ *Classe model Alimento, para instancia de alimentos
+ */
+
 public class Alimento extends Mercadoria {
 	
 	private String perecivel;
 	private String massa;
 	
+	/**
+	 * 
+	 * @param nome
+	 * @param quantidade
+	 * @param valor
+	 * @param codigoMercadoria
+	 * @param dataValidade
+	 * @param fornecedor
+	 * @param perecivel
+	 * @param massa
+	 */
     public Alimento(String nome, String quantidade, String valor, 
     		String codigoMercadoria, String dataValidade,
     		String fornecedor, String perecivel, String massa){

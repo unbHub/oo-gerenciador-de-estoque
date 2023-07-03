@@ -2,65 +2,75 @@ package view;
 
 import model.*;
 import control.ControleDados;
-import java.util.ArrayList;
-import java.util.Collection;
+
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.AbstractTableModel;
-import view.TelaCadastro;
+
+/**
+ * 
+ * @author Diego Carlito
+ * @author Filipe Carvalho
+ * @author Marcos Castilhos
+ *Classe view TelaFilial, para exibição das filiais cadastradas e cadastro
+ *de novas filiais, bem como remoção, filtro, atualização e edição
+ */
 
 public class TelaFilial extends JFrame{
 
-	//atributos para montagem dos labels
+	/**
+	 * atributos para configuração dos labels
+	 */
     private JFrame janelaFilial = new JFrame("Filiais");
     private JLabel lblFilial = new JLabel("Filiais");
-	
 	private JLabel cadastroFilial = new JLabel("Cadastro de Filiais:");
 	private JLabel lbl1 = new JLabel("Digite o nome da filial: ");
     private JLabel lbl2 = new JLabel("Digite o identificador da filial: ");
-
-	private static JTextField nomeFilialBox = new JTextField();
-    private static JTextField idFilialBox = new JTextField();
-    
+    /**
+     * Campos para digitação de nome e id de filial
+     */
+	private JTextField nomeFilialBox = new JTextField();
+    private JTextField idFilialBox = new JTextField();
     private JTextField txtFiltroFilial = new JTextField();
 
 
-    //botões
+    /**
+     * instancia de botões
+     */
     private JButton btnAdicionarFilial = new JButton("Adicionar Filial");
     private JButton btnRemoverFilial = new JButton("Remover Filial");
     private JButton btnFiltrarFilial = new JButton("Filtrar/Atualizar Filial");
     private JButton btnEditarFilial = new JButton("Editar Filial");
 	private JButton botaoSalvar = new JButton("Salvar");
-    
-    //ControleDados cd = new ControleDados();
-    
-    //lista de filiais cadastradas em nosso sistema
-    
+
+    /**
+     * instancia da tabela usada para representar os dados
+     */
     DefaultTableModel modelF = new DefaultTableModel();
     JTable jTFiliais = new JTable(modelF);
     JScrollPane scrollpaineltabela = new JScrollPane(jTFiliais);
     
 
-    //método construtor que irá gerar nossa tela
+    /**
+     * método construtor que irá gerar nossa tela
+     */
     public TelaFilial(){
     	
     	configInter();    	       
         
     	configEvent();
-        
-
     
         btnAdicionarFilial.addActionListener(new ActionListener() {
         	
+        	/**
+        	 * metodo para adição de filial
+        	 * verifica se o campo de nome e id é vazio e
+        	 * verifica se os valores digitados sao validos
+        	 */
         	@Override
         	public void actionPerformed(ActionEvent e) {
         		String nomeFilial = nomeFilialBox.getText();
@@ -92,6 +102,11 @@ public class TelaFilial extends JFrame{
         
 		btnRemoverFilial.addActionListener(new ActionListener() {
 			
+			/**
+			 * metodo para remoção de filiais
+			 * obtem o indice selecionado e remove a filial da tabela
+			 * @param e
+			 */
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// Obtém o índice da linha selecionada
@@ -119,7 +134,10 @@ public class TelaFilial extends JFrame{
 		});
 		
 	    btnFiltrarFilial.addActionListener(new ActionListener() {
-	    	
+	    	/**
+	    	 * metodo para filtragem de filiais
+	    	 * percorre todo o array de filiais e obtem nome e id
+	    	 */
         	@Override
         	public void actionPerformed(ActionEvent e) {
         		// Obtém o texto do campo de filtro
@@ -149,7 +167,11 @@ public class TelaFilial extends JFrame{
         	}
 	    });
 		btnEditarFilial.addActionListener(new ActionListener() {
-			
+			/**
+			 * metodo para edição de filiais
+			 * verifica os indices selecionados e define novos valores
+			 * a partir de uma mensagem de input
+			 */
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// Obtém o índice da linha selecionada
@@ -207,15 +229,21 @@ public class TelaFilial extends JFrame{
 		});
     	
     }
+    /**
+     * metodo para configuração da interface
+     */
     public void configInter() {
     	
+    	/**
+    	 * instancia da tabela e suas configurações
+    	 */
       	modelF = new DefaultTableModel();
     	jTFiliais = new JTable(modelF);
     	scrollpaineltabela = new JScrollPane(jTFiliais);
-    	
-    	
-		
-        //aqui adicionamos todos os elementos em nosso JFrame
+    
+        /**
+         * aqui adicionamos todos os elementos em nosso JFrame
+         */
         lblFilial.setBounds(20, 10, 200, 30);
         lblFilial.setFont(new Font("Arial", Font.BOLD, 20));
         janelaFilial.getContentPane().setLayout(null);
@@ -241,23 +269,32 @@ public class TelaFilial extends JFrame{
       //posição e tamanho das caixa de Filtro de Filial
         txtFiltroFilial.setBounds(150, 10, 200, 25);
     	
-        //posição e tamanho dos botões
+        /**
+         * posição e tamanho dos botões
+         */
         btnAdicionarFilial.setBounds(100, 220, 200, 30);
         btnRemoverFilial.setBounds(100, 260, 200, 30);
         btnEditarFilial.setBounds(350,260, 200,30);
         btnFiltrarFilial.setBounds(100, 300, 200, 30);
         
+        /**
+         * criação das colunas da tabela
+         */
         modelF.addColumn("Nome Filial");
         modelF.addColumn("Id");
         
-        //aqui configuramos o nosso JFrame
+        /**
+         * aqui configuramos o nosso JFrame
+         */
         janelaFilial.setVisible(true); 
         janelaFilial.setSize(650, 400);  
 		janelaFilial.setLocationRelativeTo(null);
         janelaFilial.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 	
-		//configurações dos labels de cadastro
+		/**
+		 * configurações dos labels de cadastro
+		 */
 		cadastroFilial.setFont(new Font("Arial", Font.BOLD, 20));
 		cadastroFilial.setBounds(400, 10, 200, 30);
 		lbl1.setBounds(400, 50 , 200, 30);
@@ -267,13 +304,16 @@ public class TelaFilial extends JFrame{
     	
 
     }
-    
+    /**
+     * metodo para configuração dos eventos da janela
+     */
     public void configEvent() {
     	
     	DefaultTableModel modelF = (DefaultTableModel) jTFiliais.getModel();
         
-    	//Inserindo as Filiais armazenadas
-
+    	/**
+    	 * Inserindo as Filiais armazenadas
+    	 */
         for (Filial dado : Dados.getFiliais()) {
             modelF.addRow(new Object[]{dado.getNome(), dado.getId()});
             
