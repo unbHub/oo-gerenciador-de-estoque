@@ -53,7 +53,6 @@ As funcionalidades que serão implementadas incluem:
 
 ## 🏗️ Estrutura
 
-- [Minicenário]()
-- [Diagrama UML]()
-- [Diagrama de pacotes]()
-
+- [Minicenário](minicenario.pdf)
+- [Diagrama de Classes](diagrama-de-classes.pdf)
+- [Diagrama de pacotes](diagrama-de-pacotes.pdf)
